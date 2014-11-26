@@ -1,253 +1,419 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:lang="eng">
-  <info>
-    <title>Robotautó Világbajnokság</title>
-    <author>
-      <personname>
-        <honorific>Dr.</honorific>
-        <surname>Bátfai</surname>
-        <firstname>Norbert</firstname>
-      </personname>
-      <affiliation>
-        <shortaffil>E. adjunktus, DEIK.</shortaffil>
-        <jobtitle>Egyetemi adjunktus</jobtitle>
-        <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
-        <orgdiv>Információtechnológiai Tanszék</orgdiv>
-        <address>
-          <email>batfai.norbert@inf.unideb.hu</email>
-          <email>nbatfai@gmail.com</email>
-        </address>
-      </affiliation>
-      <address>
-        <street>Kassai út 26.</street>
-        <city>Debrecen</city>
-        <postcode>4028</postcode>
-        <country>Magyarország</country>
-        <email>batfai.norbert@inf.unideb.hu</email>
-        <otheraddr>
-          <link xlink:href="http://www.inf.unideb.hu/~nbatfai">http://www.inf.unideb.hu/~nbatfai</link>
-        </otheraddr>
-      </address>
-    </author>
-    <author>
-      <personname>
-        <surname>Mamenyák</surname>
-        <firstname>András</firstname>
-      </personname>
-      <affiliation>
-        <jobtitle>mérnökinformatikus</jobtitle>
-        <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
-        <orgdiv>Információtechnológiai Tanszék</orgdiv>
-        <address>
-          <email>mamenyaka@gmail.com</email>
-        </address>
-      </affiliation>
-    </author>
-    <edition>Robotautó Világbajnokság, UDPROG közösség dokumentációs feljegyzés, v. 0.0.1</edition>
-    <pubdate>2014</pubdate>
-    <copyright>
-      <year>2014</year>
-      <holder>Dr. Bátfai Norbert</holder>
-      <holder>Mamenyák András</holder>
-    </copyright>
-    <legalnotice>
-      <para>UDProg, Robotautó Világbajnokság
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:lang="en">
+    <info>
+        <title>Robotautó Világbajnokság</title>
+        <author>
+            <personname>
+                <honorific>Dr.</honorific>
+                <surname>Bátfai</surname>
+                <firstname>Norbert</firstname>
+            </personname>
+            <affiliation>
+                <shortaffil>E. adjunktus, DEIK.</shortaffil>
+                <jobtitle>Egyetemi adjunktus</jobtitle>
+                <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
+                <orgdiv>Információtechnológiai Tanszék</orgdiv>
+                <address>
+                    <email>batfai.norbert@inf.unideb.hu</email>
+                    <email>nbatfai@gmail.com</email>
+                </address>
+            </affiliation>
+            <address>
+                <street>Kassai út 26.</street>
+                <city>Debrecen</city>
+                <postcode>4028</postcode>
+                <country>Magyarország</country>
+                <email>batfai.norbert@inf.unideb.hu</email>
+                <otheraddr>
+                    <link xlink:href="http://www.inf.unideb.hu/~nbatfai">http://www.inf.unideb.hu/~nbatfai</link>
+                </otheraddr>
+            </address>
+        </author>
+        <author>
+            <personname>
+                <surname>Mamenyák</surname>
+                <firstname>András</firstname>
+            </personname>
+            <affiliation>
+                <jobtitle>mérnökinformatikus</jobtitle>
+                <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
+                <orgdiv>Információtechnológiai Tanszék</orgdiv>
+                <address>
+                    <email>mamenyaka@gmail.com</email>
+                </address>
+            </affiliation>
+        </author>
+        <edition>Robotautó Világbajnokság, UDPROG közösség dokumentációs feljegyzés, v. 0.0.1</edition>
+        <pubdate>2014</pubdate>
+        <copyright>
+            <year>2014</year>
+            <holder>Dr. Bátfai Norbert</holder>
+            <holder>Mamenyák András</holder>
+        </copyright>
+        <legalnotice>
+            <para>UDProg, Robotautó Világbajnokság
             </para>
-      <para>
+            <para>
                 Copyright (C) 2014, Norbert Bátfai
             </para>
-      <para>
+            <para>
                 This program is free software: you can redistribute it and/or modify
                 it under the terms of the GNU General Public License as published by
                 the Free Software Foundation, either version 3 of the License, or
                 (at your option) any later version.
             </para>
-      <para>
+            <para>
                 This program is distributed in the hope that it will be useful,
                 but WITHOUT ANY WARRANTY; without even the implied warranty of
                 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
                 GNU General Public License for more details.
             </para>
-      <para>
+            <para>
                 You should have received a copy of the GNU General Public License
                 along with this program.  If not, see 
                 <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>.
             </para>
-      <para>
+            <para>
                 Ez a program szabad szoftver; terjeszthető illetve módosítható a 
                 Free Software Foundation által kiadott GNU General Public License
                 dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi 
                 változata szerint.
             </para>
-      <para>
+            <para>
                 Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz, 
                 de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA 
                 VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve. 
                 További részleteket a GNU General Public License tartalmaz.
             </para>
-      <para>
+            <para>
                 A felhasználónak a programmal együtt meg kell kapnia a GNU General 
                 Public License egy példányát; ha mégsem kapta meg, akkor
                 tekintse meg a
                 <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>
                 oldalon.
             </para>
-      <para>
-        <link xlink:href="http://gnu.hu/gplv3.html">http://gnu.hu/gplv3.html</link>
-      </para>
-    </legalnotice>
-    <revhistory>
-      <revision>
-        <revnumber>0.0.1</revnumber>
-        <date>2014-11-24</date>
-        <revremark>Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
+            <para>
+                <link xlink:href="http://gnu.hu/gplv3.html">http://gnu.hu/gplv3.html</link>
+            </para>
+        </legalnotice>
+        <revhistory>
+            <revision>
+                <revnumber>0.0.1</revnumber>
+                <date>2014-11-24</date>
+                <revremark>Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
                     A szereplő tételekből kiindulva a jelöltek könnyebben készíthetik el a saját munkájukra hangolva a
                     saját tartalomjegyzéküket.</revremark>
-      </revision>
-    </revhistory>
-  </info>
-  <section>
-    <title>Bevezetés</title>
-    <para>
+            </revision>
+        </revhistory>
+    </info>
+    <section>
+        <title>Bevezetés</title>
+        <para>
             Intuitív és szakmai bevezetés.
             <link xlink:href=""/>
         </para>
-    <section>
-      <title>Szakirodalmi háttér</title>
-      <para>
+        <section>
+            <title>Szakirodalmi háttér</title>
+            <para>
                 A kapcsolódó főbb tudományos publikációk hivatkozása és 1-2 mondatos összefoglalása.
             </para>
-    </section>
-    <section>
-      <title>Megelőző és kapcsolódó munkák</title>
-      <para>
+        </section>
+        <section>
+            <title>Megelőző és kapcsolódó munkák</title>
+            <para>
                 Jellegében az előző, de inkább szükebb értelemben a jelölt, illetva tágabban értelmezve az UDPROG
                 közösség eredményeit kiemelve.
             </para>
-    </section>
-    <section>
-      <title>A dolgozat szervezése és szerkezete</title>
-      <para>
+        </section>
+        <section>
+            <title>A dolgozat szervezése és szerkezete</title>
+            <para>
                 Hol elérhető, például repóban? Miben készült? 
                 A szereplő konkrét fejezetek milyen sorrendben milyen tartalomal szerepelnek (1-2 mondat fejezetenként).
             </para>
+        </section>
     </section>
-  </section>
-  <section>
-    <title>Tárgyalás</title>
     <section>
-      <title>A fejlesztés háttere</title>
-      <section>
-        <title>Térképmegoldások összehasonlítása</title>
-        <para>
-                    OSM, Nokia HERE (régebbi nevén OVI Maps), Google Maps: licenc, API-k stb.
-                </para>
-      </section>
-      <section>
-        <title>OSM</title>
-        <para>
-                    OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL).
+        <title>Tárgyalás</title>
+        <section>
+            <title>A fejlesztés háttere</title>
+            <section>
+                <title>Térképmegoldások összehasonlítása</title>
+                <section>
+                    <title>Google Maps</title>
+                    <para>
+                        Napjaink egyik legelterjedtebb térképmegoldása a Google Maps, amit a Google cég fejleszt.
+                        A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben 
+                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>) vagy okostelefonon.
+                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a 
+                        <link xlink:href="http://blog.globalwebindex.net/wp-content/uploads/2013/08/The-app-World-big.png">GlobalWebIndex</link> alapján.
+                    </para>
+                    <para>
+                        A Google Maps számos API-t sorakoztat fel 
+                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>), 
+                        amik lehetővé teszik, hogy beágyazzuk a Google Maps térképeit, funkcióit saját weblapunkba vagy alkalmazásunkba.
+                        Ezek az API-k a következők:
+                        <itemizedlist>
+                            <listitem>
+                                <para>JavaScript API v3</para>
+                            </listitem>
+                            <listitem>
+                                <para>Google Maps SDK for iOS</para>
+                            </listitem>
+                            <listitem>
+                                <para>Web Services</para>
+                            </listitem>
+                            <listitem>
+                                <para>Maps Image APIs</para>
+                            </listitem>
+                            <listitem>
+                                <para>Maps for Work</para>
+                            </listitem>
+                            <listitem>
+                                <para>Maps Android API</para>
+                            </listitem>
+                            <listitem>
+                                <para>Places API</para>
+                            </listitem>
+                            <listitem>
+                                <para>Google Earth API</para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        Licenc szempontjából sok megszórítás van a Google Maps API ingyenes használatában.
+                        Többek közt kötelező, hogy a szolgáltatásunk ingyenesen és nyilvánosan elérhető legyen.
+                        Továbbá alkalmazásunk nem haladhatja meg a 2500 kérés/nap határt sem 
+                        (részletesebben lásd: <link xlink:href="https://developers.google.com/maps/licensing">https://developers.google.com/maps/licensing</link>).
+                        A licenc megtiltja, hogy lemásoljuk, módosítsuk vagy exportáljuk a Google Maps API által szolgáltatott adatokat 
+                        (lásd a 10.1.3-as részt, "Restrictions against Copying or Data Export": <link xlink:href="https://developers.google.com/maps/terms">https://developers.google.com/maps/terms</link>).
+                    </para>
+                    <para>
+                        A licenc szigorúsága miatt elvetettük a Google Maps használatát a Robotautó emulátorban.
+                        Lehetséges felhasználási terület: Androidos megjelenítő kliensekben, ahol a Google Maps térképre rajzoljuk ki az eredményt.
+                    </para>
+                </section>
+                <section>
+                    <title>Nokia HERE</title>
+                    <para>
+                        A HERE (régebbi nevén Ovi Maps és Nokia Maps) a Nokia cég által fejlesztett termékcsomag, ami magába foglalja közel 200 ország térképét.
+                        A szolgáltatás elérhető a weben (<link xlink:href="http://here.com">http://here.com</link>) vagy okostelefonokról.
+                    </para>
+                    <para>
+                        A HERE API-k a következők (<link xlink:href="https://developer.here.com">https://developer.here.com</link>):
+                        <itemizedlist>
+                            <listitem>
+                                <para>JavaScript API-k:  Maps API for JavaScript 3.x, Maps API for JavaScript 2.x, Maps API for JavaScript Enterprise 2.x</para>
+                            </listitem>
+                            <listitem>
+                                <para>REST API-k: Map Tile API, Map Image API, Venue Maps API, Routing API, Enterprise Routing API, Matrix Routing API, Geocoder API, Batch Geocoder API, Custom Location API, Places API, Traffic API</para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé" 
+                        (lásd a 6.-os részt, "A Tartalom": <link xlink:href="http://here.com/terms/service-terms/hu">http://here.com/terms/service-terms/hu</link>).
+                    </para>
+                    <para>
+                        A licenc megszorítása miatt elvetettük a HERE használatát a Robotautó emulátorban.
+                        Lehetséges felhasználási terület: Webes, Androidos, Windows Phone-os megjelenítő.
+                    </para>
+                </section>
+                <section>
+                    <title>Bing Maps</title>
+                    <para>
+                        A Bing Maps platform a Microsoft cég által fejlesztett Bing kereső szolgáltatás része, régebbi nevén Microsoft Virtual Earth.
+                        A szolgáltatás elérhető a weben (<link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>) és Windows Phone platformon.
+                    </para>
+                    <para>
+                        A Bing Maps API-k a következők (<link xlink:href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx</link>):
+                        <itemizedlist>
+                            <listitem>
+                                <para>Windows Store alkalmazásokhoz: JavaScript API, .NET API</para>
+                            </listitem>
+                            <listitem>
+                                <para>Bing Maps AJAX Control 7.0 (Microsoft.Maps API-k): AdvancedShapes API, Directions API, Search API, Traffic API, VenueMaps API</para>
+                            </listitem>
+                            <listitem>
+                                <para>REST API-k: Locations API, Elevations API, Imagery API, Routes API, Traffic API</para>
+                            </listitem>
+                            <listitem>
+                                <para>Spatial Data Services API-k: Geocode Dataflow API, Data Source Management API, Query API, Geodata API</para>
+                            </listitem>
+                            <listitem>
+                                <para>Windows Presentation Foundation Control (WPF) API</para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, arhiváljuk vagy a Tartalm alapján adatbázist hozzunk létre 
+                        (lásd a 3.2-es részt, "General Restrictions" <link xlink:href="http://www.microsoft.com/maps/product/terms.html">http://www.microsoft.com/maps/product/terms.html</link>).
+                    </para>
+                    <para>
+                        A licenc megszorítása miatt elvetettük a Bing Maps használatát a Robotautó emulátorban.
+                        Lehetséges felhasználási terület: Webes, Windows-os megjelenítő.
+                    </para>
+                </section>
+                <section>
+                    <title>OpenStreetMap</title>
+                    <para>
+                        Az OpenStreetMap egy olyan közösségi projekt, aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
+                        A projektet a Wikipedia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
+                        Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani, 
+                        de a közösség nagy része jószándékú, így az esetleges pontatlanságokat automatikusan javítják.
+                    </para>
+                    <para>
+                        Kereskedelmi térképek adataiban található számos csapda, amivel el lehet kapni azokat, akik ezt másolják.
+                        Erre példa a nem létező, hamis utcák, szándékosan hiányzó utcák, nem létező iskolák, stb.
+                        Emiatt a közreműködők légi fotók, GPS eszközök és egyéb ingyenes térképek 
+                        (mint például nemzeti térképészeti ügynökségek nyílt térképei) 
+                        segítségével járulnak hozzá, ellenőrzik és tartják karban az OSM adatbázist.
+                        A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió 
+                        (forrás: <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>).
+                    </para>
+                    <para>
+                        2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra, 
+                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb, gyarapítva ezzel az OSM adatbázist 
+                        (forrás: <link xlink:href="https://blog.openstreetmap.org/wp-content/uploads/2010/11/4540180-Bing-Maps-Imagery-Editor-API-License-FINAL.pdf">Microsoft Bing Maps imagerty service editor application API's terms of use</link>).
+                    </para>
+                    <para>
+                        Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API, 
+                        ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál.
+                    </para>
+                    <para>
+                        Az OpenStreetMap nyílt adatokból áll, aminek licence az Open Data Commons Open Database License (ODbL).
+                        Ez a licenc lehetővé teszi, hogy szabadon lemásoljuk, terjesszük, módosítsuk az adatokat.
+                        Egyetlen feltétele, hogy ha módosítjuk az adatokat, vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
+                    </para>
+                    <para>
+                        A megfelelő minőségű adatoknak és a kedvező licencnek köszönhetően tamogatjuk az OpenStreetMap használatát a Robotautó emulátorban.
+                    </para>
+                </section>
+                <section>
+                    <title>Összegzés</title>
+                    <para>
+                        A Robotautó világbajnokság emulátora az OpenStreetMap térképeit fogja használni.
+                    </para>
+                    <para>
+                        Kérdés: De miért nem egyszerűen a Google Maps-t használjuk, mint mindenki más?
+                    </para>
+                    <para>
+                        Válasz: Azok az adatok szerzői jog által védve vannak és több szervezet tulajdonában állnak, mint például a NAVTEQ vagy a Tele Atlas.
+                        A Google csak licenceli az adatokat. Ha használni akarnánk, fizetnünk kéne értük.
+                        Ezzel ellentétben az OpenStreetMap teljesen ingyenes és nyílt licencű.
+                    </para>
+                </section>
+            </section>
+            <section>
+                <title>OpenStreetMap</title>
+                <para>
                     Az XML szerkezete, licenc, közösségi erőforrásmegosztás, API-k, szoftverek.
                     Példa XML kódcsipetek és leírásuk.
                 </para>
-        <section>
-          <title>C++</title>
-          <para>
+                <section>
+                    <title>C++</title>
+                    <para>
                     </para>
-          <section>
-            <title>libosmium</title>
-            <para>
+                    <section>
+                        <title>libosmium</title>
+                        <para>
                             C++ kódcsipetek és leírásuk.
                         </para>
-          </section>
-        </section>
-      </section>
-      <section>
-        <title>A Robotautó Világbajnokság platformja</title>
-        <para>
+                    </section>
+                </section>
+            </section>
+            <section>
+                <title>A Robotautó Világbajnokság platformja</title>
+                <para>
                 </para>
-        <section>
-          <title>A Justine gyors prototípus</title>
-          <para>
+                <section>
+                    <title>A Justine gyors prototípus</title>
+                    <para>
                     </para>
+                </section>
+            </section>
         </section>
-      </section>
-    </section>
-    <section>
-      <title>Saját fejlesztés</title>
-      <para>
+        <section>
+            <title>Saját fejlesztés</title>
+            <para>
             </para>
-      <section>
-        <title>A kiválasztott probléma</title>
-        <para>
+            <section>
+                <title>A kiválasztott probléma</title>
+                <para>
                 </para>
-      </section>
-      <section>
-        <title>Módszertan, a szoftverfolyamat tervezése</title>
-        <para>
+            </section>
+            <section>
+                <title>Módszertan, a szoftverfolyamat tervezése</title>
+                <para>
                     A választott módszertan vázolása, a dokumentálás meghatározása (például agilisen, tipikusan a 
                     forrásokból doxygen stb.) 
                 </para>
-      </section>
-      <section>
-        <title>Tervezés</title>
-        <para>
+            </section>
+            <section>
+                <title>Tervezés</title>
+                <para>
                     Koncepció, vízió.
                 </para>
-        <section>
-          <title>Szemelvények az SRS-ből</title>
-          <para>
+                <section>
+                    <title>Szemelvények az SRS-ből</title>
+                    <para>
                     </para>
-        </section>
-      </section>
-      <section>
-        <title>Fejlesztés</title>
-        <para>
+                </section>
+            </section>
+            <section>
+                <title>Fejlesztés</title>
+                <para>
                 </para>
-        <section>
-          <title>Felhasznált szoftver eszközök</title>
-          <para>
+                <section>
+                    <title>Felhasznált szoftver eszközök</title>
+                    <para>
                         Licenc-kompatibilitás stb.
                     </para>
-        </section>
-        <section>
-          <title>A fejlesztés mérföldkövei</title>
-          <para>
+                </section>
+                <section>
+                    <title>A fejlesztés mérföldkövei</title>
+                    <para>
                         Szoftver kiadások, stb.
                     </para>
-        </section>
-        <section>
-          <title>Szoftver eredmények</title>
-          <para>
+                </section>
+                <section>
+                    <title>Szoftver eredmények</title>
+                    <para>
                         Kitérve a használatra, felületre.
                     </para>
-        </section>
-      </section>
-      <section>
-        <title>Tesztelés</title>
-        <para>
+                </section>
+            </section>
+            <section>
+                <title>Tesztelés</title>
+                <para>
                     A tesztelés bemutatása.
                 </para>
-      </section>
-    </section>
-  </section>
-  <section>
-    <title>Befejezés</title>
-    <section>
-      <title>Összegzés</title>
-      <para>
-            </para>
+            </section>
+        </section>
     </section>
     <section>
-      <title>Továbbfejlesztési tervek és lehetőségek</title>
-      <para>
+        <title>Befejezés</title>
+        <section>
+            <title>Összegzés</title>
+            <para>
             </para>
+        </section>
+        <section>
+            <title>Továbbfejlesztési tervek és lehetőségek</title>
+            <para>
+            </para>
+        </section>
     </section>
-  </section>
-  <section>
-    <title>Köszönet</title>
-  </section>
-  <section>
-    <title>Irodalomjegyzék</title>
-  </section>
+    <section>
+        <title>Köszönet</title>
+        <para>
+            Hálával tartozom dr. Bátfai Norbert témavezetőmnek, aki a dolgozat megírásához hasznos tanácsaival, jó ötleteivel és odafigyelésével járult hozzá.
+        </para>
+        <para>
+            Köszönöm párom (?!) kitartó türelmét és a mindennapi feladatokban nyújtott segítségét.
+        </para>
+    </section>
+    <section>
+        <title>Irodalomjegyzék</title>
+    </section>
 </article>
