@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:lang="en">
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:lang="hu">
     <info>
         <title>Robotautó Világbajnokság</title>
         <author>
@@ -43,7 +43,7 @@
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDPROG közösség dokumentációs feljegyzés, v. 0.0.1</edition>
+        <edition>Robotautó Világbajnokság, UDPROG közösség dokumentációs feljegyzés, v. 0.0.2</edition>
         <pubdate>2014</pubdate>
         <copyright>
             <year>2014</year>
@@ -70,23 +70,23 @@
             </para>
             <para>
                 You should have received a copy of the GNU General Public License
-                along with this program.  If not, see 
+                along with this program.  If not, see
                 <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>.
             </para>
             <para>
-                Ez a program szabad szoftver; terjeszthető illetve módosítható a 
+                Ez a program szabad szoftver; terjeszthető illetve módosítható a
                 Free Software Foundation által kiadott GNU General Public License
-                dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi 
+                dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi
                 változata szerint.
             </para>
             <para>
-                Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz, 
-                de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA 
-                VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve. 
+                Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz,
+                de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA
+                VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve.
                 További részleteket a GNU General Public License tartalmaz.
             </para>
             <para>
-                A felhasználónak a programmal együtt meg kell kapnia a GNU General 
+                A felhasználónak a programmal együtt meg kell kapnia a GNU General
                 Public License egy példányát; ha mégsem kapta meg, akkor
                 tekintse meg a
                 <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>
@@ -103,6 +103,11 @@
                 <revremark>Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
                     A szereplő tételekből kiindulva a jelöltek könnyebben készíthetik el a saját munkájukra hangolva a
                     saját tartalomjegyzéküket.</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.2</revnumber>
+                <date>2014-11-25</date>
+                <revremark>Térképmegoldások összehasonlítása fejezet</revremark>
             </revision>
         </revhistory>
     </info>
@@ -128,7 +133,7 @@
         <section>
             <title>A dolgozat szervezése és szerkezete</title>
             <para>
-                Hol elérhető, például repóban? Miben készült? 
+                Hol elérhető, például repóban? Miben készült?
                 A szereplő konkrét fejezetek milyen sorrendben milyen tartalomal szerepelnek (1-2 mondat fejezetenként).
             </para>
         </section>
@@ -143,14 +148,14 @@
                     <title>Google Maps</title>
                     <para>
                         Napjaink egyik legelterjedtebb térképmegoldása a Google Maps, amit a Google cég fejleszt.
-                        A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben 
+                        A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben
                         (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>) vagy okostelefonon.
-                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a 
+                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a
                         <link xlink:href="http://blog.globalwebindex.net/wp-content/uploads/2013/08/The-app-World-big.png">GlobalWebIndex</link> alapján.
                     </para>
                     <para>
-                        A Google Maps számos API-t sorakoztat fel 
-                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>), 
+                        A Google Maps számos API-t sorakoztat fel
+                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>),
                         amik lehetővé teszik, hogy beágyazzuk a Google Maps térképeit, funkcióit saját weblapunkba vagy alkalmazásunkba.
                         Ezek az API-k a következők:
                         <itemizedlist>
@@ -183,9 +188,9 @@
                     <para>
                         Licenc szempontjából sok megszórítás van a Google Maps API ingyenes használatában.
                         Többek közt kötelező, hogy a szolgáltatásunk ingyenesen és nyilvánosan elérhető legyen.
-                        Továbbá alkalmazásunk nem haladhatja meg a 2500 kérés/nap határt sem 
+                        Továbbá alkalmazásunk nem haladhatja meg a 2500 kérés/nap határt sem
                         (részletesebben lásd: <link xlink:href="https://developers.google.com/maps/licensing">https://developers.google.com/maps/licensing</link>).
-                        A licenc megtiltja, hogy lemásoljuk, módosítsuk vagy exportáljuk a Google Maps API által szolgáltatott adatokat 
+                        A licenc megtiltja, hogy lemásoljuk, módosítsuk vagy exportáljuk a Google Maps API által szolgáltatott adatokat
                         (lásd a 10.1.3-as részt, "Restrictions against Copying or Data Export": <link xlink:href="https://developers.google.com/maps/terms">https://developers.google.com/maps/terms</link>).
                     </para>
                     <para>
@@ -211,7 +216,7 @@
                         </itemizedlist>
                     </para>
                     <para>
-                        A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé" 
+                        A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé"
                         (lásd a 6.-os részt, "A Tartalom": <link xlink:href="http://here.com/terms/service-terms/hu">http://here.com/terms/service-terms/hu</link>).
                     </para>
                     <para>
@@ -246,7 +251,7 @@
                         </itemizedlist>
                     </para>
                     <para>
-                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, arhiváljuk vagy a Tartalm alapján adatbázist hozzunk létre 
+                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, arhiváljuk vagy a Tartalm alapján adatbázist hozzunk létre
                         (lásd a 3.2-es részt, "General Restrictions" <link xlink:href="http://www.microsoft.com/maps/product/terms.html">http://www.microsoft.com/maps/product/terms.html</link>).
                     </para>
                     <para>
@@ -257,27 +262,28 @@
                 <section>
                     <title>OpenStreetMap</title>
                     <para>
-                        Az OpenStreetMap egy olyan közösségi projekt, aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
+                        Az OpenStreetMap (<link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>) egy olyan közösségi projekt,
+                        aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
                         A projektet a Wikipedia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
-                        Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani, 
+                        Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani,
                         de a közösség nagy része jószándékú, így az esetleges pontatlanságokat automatikusan javítják.
                     </para>
                     <para>
                         Kereskedelmi térképek adataiban található számos csapda, amivel el lehet kapni azokat, akik ezt másolják.
                         Erre példa a nem létező, hamis utcák, szándékosan hiányzó utcák, nem létező iskolák, stb.
-                        Emiatt a közreműködők légi fotók, GPS eszközök és egyéb ingyenes térképek 
-                        (mint például nemzeti térképészeti ügynökségek nyílt térképei) 
+                        Emiatt a közreműködők légi fotók, GPS eszközök és egyéb ingyenes térképek
+                        (mint például nemzeti térképészeti ügynökségek nyílt térképei)
                         segítségével járulnak hozzá, ellenőrzik és tartják karban az OSM adatbázist.
-                        A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió 
+                        A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió
                         (forrás: <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>).
                     </para>
                     <para>
-                        2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra, 
-                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb, gyarapítva ezzel az OSM adatbázist 
+                        2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra,
+                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb, gyarapítva ezzel az OSM adatbázist
                         (forrás: <link xlink:href="https://blog.openstreetmap.org/wp-content/uploads/2010/11/4540180-Bing-Maps-Imagery-Editor-API-License-FINAL.pdf">Microsoft Bing Maps imagerty service editor application API's terms of use</link>).
                     </para>
                     <para>
-                        Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API, 
+                        Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API,
                         ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál.
                     </para>
                     <para>
@@ -286,7 +292,7 @@
                         Egyetlen feltétele, hogy ha módosítjuk az adatokat, vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
                     </para>
                     <para>
-                        A megfelelő minőségű adatoknak és a kedvező licencnek köszönhetően tamogatjuk az OpenStreetMap használatát a Robotautó emulátorban.
+                        A megfelelő minőségű adatoknak és a kedvező licencnek köszönhetően támogatjuk az OpenStreetMap használatát a Robotautó emulátorban.
                     </para>
                 </section>
                 <section>
@@ -305,10 +311,137 @@
                 </section>
             </section>
             <section>
-                <title>OpenStreetMap</title>
+                <title>OpenStreetMap XML szerkezete</title>
                 <para>
-                    Az XML szerkezete, licenc, közösségi erőforrásmegosztás, API-k, szoftverek.
+                    Az OpenStreetMap nyers térkép adatait XML formátumban tudjuk letölteni (exportánli) a projekt honlapjáról.
+                    Az így kapott file kiterjesztése egy teljesen valid XML dokumentum, melynek kiterjesztése ".osm".
+                    Ha a teljes bolygóra vonatkozó adatokat le akarjuk tölteni, azt is megtehetjük az alábbi linken:
+                    <link xlink:href="http://planet.openstreetmap.org">http://planet.openstreetmap.org</link>.
+                    Jelenlegi mérete a tömörített planet file-nak: 38 GB.
+                </para>
+                <para>
+                    Legtöbb esetben csak egy város térképére van szükségünk, amit az alábbi módon exportálhatunk:
+                    <figure xml:id="osmexport">
+                        <title>Debrecen város térképének exportálása</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="figures/osmexport.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </para>
+                <para>
+                    Az XML file szerkezetileg három fő adat alkotóelemből (adat primitívekből, objektumokból) és azok címkéiből (tags) épül fel:
+                    <itemizedlist>
+                        <listitem>
+                            <para>csomópontok (nodes)</para>
+                            <para>
+                                A csomópont meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
+                                Példa: buszmegálló
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>utak (ways)</para>
+                            <para>Az út a csomópontok egy rendezett listája.
+                                Példa: utak, folyók, területek határvonalai
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>kapcsolatok (relations)</para>
+                            <para>
+                                A kapcsolat olyan adatszerkezet, ami több elem kapcsolatát írja le, azoknak egy rendezett listája.
+                                Általában a "típus" ("type") címke határozza meg a kapcsolat értelmét.
+                                Példa: buszjárat, ami csomópontok listájából (megállókból) áll
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>címkék (tags)</para>
+                            <para>
+                                A címkék jelentést adhatnak az egyes adatelemeknek, de használatuk opcionális.
+                                Két részből állnak: kulcs és érték.
+                                Példa: highway=pedestrian, ami a gyalogos utat jelent
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>közös attribútumok</para>
+                            <para>
+                                Minden csomópontnak, útnak és kapcsolatnak a következő attribútumai vannak az adatbázisban:
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>
+                                            id
+                                        </para>
+                                        <para>
+                                            Értéke egy szám, ami egyértelműen beazonosítja az adott adatelemet.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            visible
+                                        </para>
+                                        <para>
+                                            Lehet igaz (true) vagy hamis (false).
+                                            Ha a visible értéke hamis, akkor az objektum törölve lett az adatbázisból.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            version
+                                        </para>
+                                        <para>
+                                            Kezdetben 1, minden módosításnál egyel nő az értéke.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            changeset
+                                        </para>
+                                        <para>
+                                            Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            timestamp
+                                        </para>
+                                        <para>
+                                            Időbélyeg, a legutolsó módosítás idelyét tartalmazza.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            user
+                                        </para>
+                                        <para>
+                                            Értéke az a regisztrált felhasználónév, aki létrehozta vagy utoljára módosította az adott objektumot.
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            uid
+                                        </para>
+                                        <para>
+                                            Felhasználó azonosító. A felhasználónév változhat, de az id nem
+                                        </para>
+                                    </listitem>
+                                    <listitem>
+                                        <para>
+                                            changeset
+                                        </para>
+                                        <para>
+                                            Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult
+                                        </para>
+                                    </listitem>
+                                </itemizedlist>
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+                <para>
                     Példa XML kódcsipetek és leírásuk.
+                </para>
+                <para>
+                    szoftverek.
                 </para>
                 <section>
                     <title>C++</title>
@@ -345,8 +478,8 @@
             <section>
                 <title>Módszertan, a szoftverfolyamat tervezése</title>
                 <para>
-                    A választott módszertan vázolása, a dokumentálás meghatározása (például agilisen, tipikusan a 
-                    forrásokból doxygen stb.) 
+                    A választott módszertan vázolása, a dokumentálás meghatározása (például agilisen, tipikusan a
+                    forrásokból doxygen stb.)
                 </para>
             </section>
             <section>
