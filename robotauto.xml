@@ -112,7 +112,17 @@
             <revision>
                 <revnumber>0.0.3</revnumber>
                 <date>2014-11-26</date>
-                <revremark>OSM XML leírás és példa</revremark>
+                <revremark>OSM XML leírás</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.4</revnumber>
+                <date>2014-11-26</date>
+                <revremark>OSM XML példa</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.5</revnumber>
+                <date>2014-11-26</date>
+                <revremark>libosmium bemutatása, telepítés leírása</revremark>
             </revision>
         </revhistory>
     </info>
@@ -284,7 +294,7 @@
                     </para>
                     <para>
                         2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra,
-                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb, gyarapítva ezzel az OSM adatbázist
+                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb., gyarapítva ezzel az OSM adatbázist
                         (forrás: <link xlink:href="https://blog.openstreetmap.org/wp-content/uploads/2010/11/4540180-Bing-Maps-Imagery-Editor-API-License-FINAL.pdf">Microsoft Bing Maps imagerty service editor application API's terms of use</link>).
                     </para>
                     <para>
@@ -342,6 +352,7 @@
                             <para>nodes (csomópontok)</para>
                             <para>
                                 A csomópont meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
+                                Az OpenStreetMap a WGS84 koordináta rendszert használja.
                                 Példa: buszmegálló, pad, jelzőlámpa
                             </para>
                         </listitem>
@@ -707,17 +718,115 @@
             </section>
             <section>
                 <title>OSM szoftverek</title>
+                <para>
+                    Számos szoftver létezik ami az OSM térképeit és szolgáltatásait használja.
+                    Ezek közül a legfontosabbak a szerkesztő szoftverek, útválasztó szoftverek, renderelő szoftverek,
+                    importáló és exportáló szoftverek. Az asztali szoftverek egy listája az alábbi linken található:
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Software/Desktop">http://wiki.openstreetmap.org/wiki/Software/Desktop</link>.
+                    Mi ezek közül a C++-os Osmium keretrendszert fogjuk használni
+                    (<link xlink:href="http://osmcode.org/libosmium">http://osmcode.org/libosmium</link>).
+                </para>
+            </section>
+            <section>
+                <title>Osmium Library</title>
+                <para>
+                    Az Osmium könyvtár legújabb verziója elérhető a projekt github tárolójából:
+                    <link xlink:href="https://github.com/osmcode/libosmium">https://github.com/osmcode/libosmium</link>.
+                    A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban (Protocolbuffer Binary Format).
+                    A beolvasott adatokat a memóriában, bufferekben tárolja, amihez a handler interfészen keresztül bejárást biztosít.
+                    Ez a módszer a visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
+                </para>
+                <para>
+                    Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License:
+                    (<link xlink:href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</link>).
+                </para>
+                <section>
+                    <title>Telepítés</title>
+                    <para>
+                        Az alábbi paranccsal tudjuk leklónozni a github repóból a libosmiumot:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs$ git clone https://github.com/osmcode/libosmium.git
+]]>
+                        </screen>
+                        Az így létrejött mappa az alábbi szerkezetű:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    include
+                                </para>
+                                <para>
+                                    Itt találhatóak a szükséges include állományok.
+                                    Ezek felhasználásával tudjuk saját alkalmazásunkban használni az Osmium könyvtárat.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    examples
+                                </para>
+                                <para>
+                                    Pár példa arra, hogyan tudjuk használni az Osmium könyvtárat
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    doc
+                                </para>
+                                <para>
+                                    Ebben a könyvtárban vannak a szükséges állományok a dokumentáció előállítására.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    test
+                                </para>
+                                <para>
+                                    Unit tesztek könyvtára
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                    <para>
+                        A libosmium számos C++11-es feature-t használ, ezért egy modern fordítora van szükségünk (minimum GCC 4.8).
+                        Továbbá számos másik könyvtárt használ a libosmium, amiket fel kell telepíteni használat előtt.
+                        Ezek a következőek: boost, Google protobuf, OSMPBF, Expat, zlib, bz2lib, Doxygen (dokumentációhoz).
+                        A legújabb Ubuntu linux disztribúción ezeknek a telepítése a következő paranccsal hajtható végre
+                        (a telepítéshez root jogosultságra van szükség):
+                        <screen>
+<![CDATA[
+andras@G53SW:~$ sudo apt-get install libboost-all-dev \
+    libprotobuf-dev protobuf-compiler \
+    libosmpbf-dev \
+    libexpat1-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    doxygen graphviz xmlstarlet
+]]>
+                        </screen>
+                    </para>
+                    <para>
+                        Osmium egy header-only könyvtár, ami azt jelenti, hogy nem kell lefordítani,
+                        hanem csak egyszerűen be kell őket include-olni.
+                        A libosmium könyvtárban állvan adjuk ki a következő parancsot a dokumentáció előállításához:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/libosmium$ make doc
+]]>
+                        </screen>
+                        Az egyszerűség kedvéért a következő paranccsal bemásolhatjuk a header állományokat a /usr/include könyvtárba
+                        (a másoláshoz root jogosultságra van szükség):
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/libosmium$ sudo make install
+]]>
+                        </screen>
+                    </para>
+                </section>
             </section>
             <section>
                 <title>C++</title>
                 <para>
                 </para>
-                <section>
-                    <title>libosmium</title>
-                    <para>
-                        C++ kódcsipetek és leírásuk.
-                    </para>
-                </section>
             </section>
             <section>
                 <title>A Robotautó Világbajnokság platformja</title>
