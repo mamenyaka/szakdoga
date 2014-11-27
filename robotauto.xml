@@ -109,6 +109,11 @@
                 <date>2014-11-25</date>
                 <revremark>Térképmegoldások összehasonlítása fejezet</revremark>
             </revision>
+            <revision>
+                <revnumber>0.0.3</revnumber>
+                <date>2014-11-26</date>
+                <revremark>OSM XML leírás és példa</revremark>
+            </revision>
         </revhistory>
     </info>
     <section>
@@ -186,7 +191,7 @@
                         </itemizedlist>
                     </para>
                     <para>
-                        Licenc szempontjából sok megszórítás van a Google Maps API ingyenes használatában.
+                        Licenc szempontjából sok megszorítás van a Google Maps API ingyenes használatában.
                         Többek közt kötelező, hogy a szolgáltatásunk ingyenesen és nyilvánosan elérhető legyen.
                         Továbbá alkalmazásunk nem haladhatja meg a 2500 kérés/nap határt sem
                         (részletesebben lásd: <link xlink:href="https://developers.google.com/maps/licensing">https://developers.google.com/maps/licensing</link>).
@@ -314,10 +319,10 @@
                 <title>OpenStreetMap XML szerkezete</title>
                 <para>
                     Az OpenStreetMap nyers térkép adatait XML formátumban tudjuk letölteni (exportánli) a projekt honlapjáról.
-                    Az így kapott file kiterjesztése egy teljesen valid XML dokumentum, melynek kiterjesztése ".osm".
+                    Az így kapott állomány kiterjesztése egy teljesen valid XML dokumentum, melynek kiterjesztése ".osm".
                     Ha a teljes bolygóra vonatkozó adatokat le akarjuk tölteni, azt is megtehetjük az alábbi linken:
                     <link xlink:href="http://planet.openstreetmap.org">http://planet.openstreetmap.org</link>.
-                    Jelenlegi mérete a tömörített planet file-nak: 38 GB.
+                    Jelenlegi mérete a tömörített planet állománynak 38 GB.
                 </para>
                 <para>
                     Legtöbb esetben csak egy város térképére van szükségünk, amit az alábbi módon exportálhatunk:
@@ -331,35 +336,37 @@
                     </figure>
                 </para>
                 <para>
-                    Az XML file szerkezetileg három fő adat alkotóelemből (adat primitívekből, objektumokból) és azok címkéiből (tags) épül fel:
+                    Az XML állomány szerkezetileg három fő adat alkotóelemből (adat primitívekből, objektumokból) és azok címkéiből épül fel:
                     <itemizedlist>
                         <listitem>
-                            <para>csomópontok (nodes)</para>
+                            <para>nodes (csomópontok)</para>
                             <para>
                                 A csomópont meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
-                                Példa: buszmegálló
+                                Példa: buszmegálló, pad, jelzőlámpa
                             </para>
                         </listitem>
                         <listitem>
-                            <para>utak (ways)</para>
+                            <para>ways (utak)</para>
                             <para>Az út a csomópontok egy rendezett listája.
                                 Példa: utak, folyók, területek határvonalai
                             </para>
                         </listitem>
                         <listitem>
-                            <para>kapcsolatok (relations)</para>
+                            <para>relations (kapcsolatok)</para>
                             <para>
-                                A kapcsolat olyan adatszerkezet, ami több elem kapcsolatát írja le, azoknak egy rendezett listája.
-                                Általában a "típus" ("type") címke határozza meg a kapcsolat értelmét.
-                                Példa: buszjárat, ami csomópontok listájából (megállókból) áll
+                                A kapcsolat olyan adatszerkezet, ami több member (tag) kapcsolatát írja le, azoknak egy rendezett listája.
+                                A tagok lehetnek utak, csomópontok vagy akár további kapcsolatok,
+                                és tartalmazzák a "member type" (típus) és a "role" (szerep) címkéket.
+                                Általában a "type" (típus) címke határozza meg a kapcsolat értelmét.
+                                Példa: buszjárat, ami csomópontok listájából (megállókból) és utakból áll
                             </para>
                         </listitem>
                         <listitem>
-                            <para>címkék (tags)</para>
+                            <para>tags (címkék)</para>
                             <para>
                                 A címkék jelentést adhatnak az egyes adatelemeknek, de használatuk opcionális.
                                 Két részből állnak: kulcs és érték.
-                                Példa: highway=pedestrian, ami a gyalogos utat jelent
+                                Példa: "highway=pedestrian", ami a gyalogos utat jelent
                             </para>
                         </listitem>
                         <listitem>
@@ -438,21 +445,278 @@
                     </itemizedlist>
                 </para>
                 <para>
-                    Példa XML kódcsipetek és leírásuk.
+                    Bővebb információk az OpenStreetMap wiki oldalán olvashatóak:
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Main_Page">http://wiki.openstreetmap.org/wiki/Main_Page</link>
+                </para>
+            </section>
+            <section>
+                <title>Példa XML kódrészletre</title>
+                <para>
+                    A következő XML kódcsipet Debrecen városának térképéből lett kivágva.
+                    Véleményem szerint meglepő, hogy milyen részletességgel van jelen ennyi adat kis városunkról.
+                    <programlisting language="xml">
+<![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.3.3 (12932 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <bounds minlat="47.4811000" minlon="21.5076000" maxlat="47.5845000" maxlon="21.7771000"/>
+ <node id="26754899" visible="true" version="10" changeset="22677330" timestamp="2014-06-01T17:02:36Z" user="Kolesár" uid="170666" lat="47.5525471" lon="21.6205428"/>
+ <node id="26754891" visible="true" version="4" changeset="9718270" timestamp="2011-11-02T00:21:45Z" user="BáthoryPéter" uid="408450" lat="47.5612237" lon="21.6230840"/>
+...
+ <node id="196235228" visible="true" version="10" changeset="25408912" timestamp="2014-09-13T11:03:24Z" user="nagy_balint" uid="1971976" lat="47.6997683" lon="21.4372610">
+  <tag k="highway" v="services"/>
+  <tag k="name" v="Böszörményi pihenőhely"/>
+  <tag k="ref" v="19"/>
+ </node>
+...
+ <node id="2460128494" visible="true" version="2" changeset="22853651" timestamp="2014-06-10T16:22:42Z" user="neosystem100" uid="2116499" lat="47.5343657" lon="21.6255522">
+  <tag k="addr:city" v="Debrecen"/>
+  <tag k="addr:housenumber" v="4"/>
+  <tag k="addr:postcode" v="4026"/>
+  <tag k="addr:street" v="Péterfia utca"/>
+  <tag k="amenity" v="school"/>
+  <tag k="name" v="Computer School Debrecen"/>
+  <tag k="phone" v="0652/533-328"/>
+ </node>
+...
+ <node id="2910768733" visible="true" version="1" changeset="22868114" timestamp="2014-06-11T10:03:45Z" user="DonTomika" uid="1336266" lat="47.5294086" lon="21.6276621">
+  <tag k="addr:city" v="Debrecen"/>
+  <tag k="addr:country" v="HU"/>
+  <tag k="addr:housenumber" v="8"/>
+  <tag k="addr:postcode" v="4024"/>
+  <tag k="addr:street" v="Kossuth utca"/>
+  <tag k="email" v="info.debicafe@gmail.com"/>
+  <tag k="fax" v="+36 52 998 077"/>
+  <tag k="internet_access" v="terminal"/>
+  <tag k="internet_access:fee" v="yes"/>
+  <tag k="name" v="Internet Cafe"/>
+  <tag k="opening_hours" v="Mo-Fr 07:00-24:00, Sa-Su 09:00-24:00"/>
+  <tag k="operator" v="Net 2000 Kft"/>
+  <tag k="phone" v="+36 70 942 01 84"/>
+  <tag k="service:computer" v="yes"/>
+  <tag k="service:copy" v="yes"/>
+  <tag k="service:print" v="yes"/>
+  <tag k="service:scan" v="yes"/>
+  <tag k="shop" v="copyshop"/>
+  <tag k="website" v="http://www.dcafe.hu/"/>
+ </node>
+...
+ <node id="3088739774" visible="true" version="2" changeset="25673049" timestamp="2014-09-25T20:18:44Z" user="ImreSamu" uid="996303" lat="47.5497190" lon="21.6161230">
+  <tag k="addr:city" v="Debrecen"/>
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:street" v="Bolyai utca"/>
+  <tag k="amenity" v="place_of_worship"/>
+  <tag k="denomination" v="protestant"/>
+  <tag k="name" v="Nagyerdei Reformatus templom"/>
+  <tag k="religion" v="christian"/>
+  <tag k="website" v="www.refnagyerdo.hu"/>
+  <tag k="wheelchair" v="yes"/>
+ </node>
+ <way id="4383939" visible="true" version="4" changeset="756851" timestamp="2008-11-16T21:59:37Z" user="madar" uid="17542">
+  <nd ref="26754882"/>
+  <nd ref="26754884"/>
+  <nd ref="247995181"/>
+  <tag k="created_by" v="Potlatch 0.10f"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Martinovics utca"/>
+ </way>
+ <way id="4383938" visible="true" version="2" changeset="3678050" timestamp="2010-01-21T20:36:49Z" user="CarstenG" uid="72700">
+  <nd ref="26754874"/>
+  <nd ref="26754875"/>
+  <nd ref="26754877"/>
+  <nd ref="26754878"/>
+  <nd ref="26754880"/>
+  <nd ref="26754881"/>
+  <nd ref="26754882"/>
+  <tag k="highway" v="residential"/>
+  <tag k="name" v="Oláh Gábor utca"/>
+ </way>
+...
+ <way id="304275917" visible="true" version="1" changeset="25566629" timestamp="2014-09-20T19:41:16Z" user="ImreSamu" uid="996303">
+  <nd ref="3088072849"/>
+  <nd ref="1971681657"/>
+  <nd ref="1971681646"/>
+  ...
+  <nd ref="3088072896"/>
+  <nd ref="3088072897"/>
+  <nd ref="3088072849"/>
+  <tag k="building" v="commercial"/>
+ </way>
+ <relation id="23104" visible="true" version="8" changeset="22068566" timestamp="2014-05-01T17:22:38Z" user="akosbarta" uid="1731170">
+  <member type="way" ref="202670924" role=""/>
+  <member type="way" ref="185521439" role=""/>
+  <member type="way" ref="25702600" role=""/>
+  <member type="way" ref="25702638" role=""/>
+  <member type="way" ref="25702640" role=""/>
+  <member type="way" ref="27743398" role=""/>
+  <member type="way" ref="278615091" role=""/>
+  <tag k="ref" v="354"/>
+  <tag k="route" v="road"/>
+  <tag k="type" v="route"/>
+ </relation>
+...
+ <relation id="1599036" visible="true" version="3" changeset="14625237" timestamp="2013-01-12T17:58:42Z" user="Domcsi" uid="57628">
+  <member type="way" ref="57881620" role="outer"/>
+  <member type="way" ref="57878271" role="outer"/>
+  <member type="way" ref="57875799" role="outer"/>
+  <member type="way" ref="57877593" role="outer"/>
+  <member type="way" ref="57873858" role="outer"/>
+  <member type="way" ref="57877282" role="outer"/>
+  <member type="way" ref="57880871" role="outer"/>
+  <member type="way" ref="57875464" role="outer"/>
+  <member type="way" ref="57877408" role="outer"/>
+  <member type="way" ref="57877602" role="outer"/>
+  <member type="way" ref="57875930" role="outer"/>
+  <member type="way" ref="57879667" role="outer"/>
+  <member type="way" ref="57873849" role="outer"/>
+  <member type="way" ref="57881486" role="outer"/>
+  <member type="way" ref="57874107" role="outer"/>
+  <member type="way" ref="57875673" role="outer"/>
+  <member type="way" ref="57879417" role="outer"/>
+  <member type="way" ref="57878554" role="outer"/>
+  <member type="way" ref="57882140" role="outer"/>
+  <member type="node" ref="26757724" role="admin_centre"/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Debreceni kistérség"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+...
+ <relation id="1855523" visible="true" version="3" changeset="15133136" timestamp="2013-02-23T10:22:32Z" user="flaktack" uid="55843">
+  <member type="way" ref="137727230" role="from"/>
+  <member type="node" ref="1510346310" role="via"/>
+  <member type="way" ref="137727228" role="to"/>
+  <tag k="restriction" v="only_right_turn"/>
+  <tag k="type" v="restriction"/>
+ </relation>
+...
+ <relation id="2773522" visible="true" version="3" changeset="15985713" timestamp="2013-05-05T15:23:27Z" user="flaktack" uid="55843">
+  <member type="node" ref="1452131578" role="stop"/>
+  <member type="node" ref="2162387215" role="stop"/>
+  <member type="node" ref="2162387571" role="stop"/>
+  <member type="node" ref="2162387601" role="stop"/>
+  <member type="node" ref="2162387254" role="stop"/>
+  <member type="node" ref="1970902820" role="stop"/>
+  <member type="node" ref="1970902805" role="stop"/>
+  <member type="node" ref="1970902808" role="stop"/>
+  <member type="node" ref="1970902813" role="stop"/>
+  <member type="node" ref="1970902804" role="stop"/>
+  <member type="node" ref="1970881207" role="stop"/>
+  <member type="way" ref="206375983" role=""/>
+  <member type="way" ref="24573990" role=""/>
+  <member type="way" ref="27826168" role=""/>
+  <member type="way" ref="206376116" role=""/>
+  <member type="way" ref="27826167" role=""/>
+  <member type="way" ref="120180403" role=""/>
+  <member type="way" ref="206375970" role=""/>
+  <member type="way" ref="24427384" role=""/>
+  <member type="way" ref="206375974" role=""/>
+  <member type="way" ref="206804834" role=""/>
+  <member type="way" ref="206804829" role=""/>
+  <member type="way" ref="206804840" role=""/>
+  <tag k="from" v="Nagyállomás"/>
+  <tag k="ref" v="18"/>
+  <tag k="route" v="bus"/>
+  <tag k="to" v="Széna tér"/>
+  <tag k="type" v="route"/>
+ </relation>
+...
+ <relation id="371740" visible="true" version="33" changeset="17753628" timestamp="2013-09-09T17:17:53Z" user="Lübeck" uid="55462">
+  <member type="way" ref="237271703" role=""/>
+  <member type="relation" ref="377767" role=""/>
+  <member type="relation" ref="171821" role=""/>
+  <member type="relation" ref="963212" role=""/>
+  <member type="relation" ref="1621355" role=""/>
+  <member type="relation" ref="1157562" role=""/>
+  <member type="relation" ref="1405326" role=""/>
+  <member type="relation" ref="1144854" role=""/>
+  <member type="relation" ref="2376439" role=""/>
+  <member type="relation" ref="2376091" role=""/>
+  <tag k="description" v="Spain - France - Switzerland - Germany - Austria - Hungary - Romania - Bulgaria - Greece - Cyprus"/>
+  <tag k="length" v="10450"/>
+  <tag k="name" v="European long distance path E4"/>
+  <tag k="name:de" v="Europäischer Fernwanderweg E4"/>
+  <tag k="name:en" v="European long distance path E4"/>
+  <tag k="name:fr" v="Chemin de randonnée Européen E4"/>
+  <tag k="name:pl" v="Europejski długodystansowy szlak pieszy E4"/>
+  <tag k="network" v="iwn"/>
+  <tag k="note" v="Main relation containing relations by countries"/>
+  <tag k="operator" v="European Ramblers Association"/>
+  <tag k="operator:ch" v="Dachverband Schweizer Wanderwege"/>
+  <tag k="operator:de" v="Deutscher Wanderverband"/>
+  <tag k="operator:es" v="Federación Española de Deportes de Montaña y Escalada"/>
+  <tag k="operator:fr" v="Fédération Française de la Randonnée Pédestre"/>
+  <tag k="operator:hu" v="Hungarian Nature-Friends Association"/>
+  <tag k="osmc:symbol" v="blue:blue::E4:yellow"/>
+  <tag k="ref" v="E4"/>
+  <tag k="route" v="hiking"/>
+  <tag k="type" v="superroute"/>
+  <tag k="website" v="http://www.era-ewv-ferp.com/index.php?topmenu_id=29&amp;id=29&amp;page_id=108&amp;module=text"/>
+  <tag k="wikipedia" v="fr:Sentier européen E4"/>
+  <tag k="wikipedia:en" v="http://en.wikipedia.org/wiki/E4_European_long_distance_path"/>
+  <tag k="wikipedia:pl" v="http://pl.wikipedia.org/wiki/Europejski_d%C5%82ugodystansowy_szlak_pieszy_E4"/>
+ </relation>
+...
+ <relation id="3898165" visible="true" version="1" changeset="24228315" timestamp="2014-07-18T19:59:18Z" user="vakulya" uid="1559158">
+  <member type="way" ref="293340659" role="outer"/>
+  <member type="way" ref="293340658" role="inner"/>
+  <tag k="natural" v="water"/>
+  <tag k="type" v="multipolygon"/>
+  <tag k="water" v="lake"/>
+ </relation>
+</osm>
+]]>
+                    </programlisting>
                 </para>
                 <para>
-                    szoftverek.
+                    A fenti XML kódcsipetben az 'osm version="0.6"' tag jelöli az OSM Editing API verzióját,
+                    amin keresztül letöltöttük az XML állományt.
+                    A bounds tag tartalmazza az exportált terület behatároló minlat, minlon, maxlat, maxlon értékeket.
+                </para>
+                <para>
+                    Az XML állományban garantáltan elől szerepelnek a csomópontok,
+                    utánuk jönnek az utak, majd végül a kapcsolatok zárják a sort.
+                    Viszont az nincs garantálva, hogy minden elemnek pozitív id-ja van, vagy hogy id szerint rendezve vannak.
+                </para>
+                <para>
+                    Egy adott térkép adatállományában csomópontokból van a legtöbb és a csomópontoknak van a legnagyobb szerepük,
+                    mivel csak a csomópontoknak vannak földrajzi koordinátái.
+                    Példánkban szerepelnek olyan csomópontok, amiknek vannak címkei is,
+                    így ezeknek a csomópontok önmagukban is van jelentésük, mint például egy internet kávézó vagy egy templom.
+                    Címkék nélküli csomópontok általában egy út vagy kapcsolat részeként kapnak értelmet.
+                    Megfigyelhető, hogy számos egyéb információt is tartalmazhatnak a címkék
+                    (a címkékről bővebben lásd <link xlink:href="http://taginfo.openstreetmap.org">http://taginfo.openstreetmap.org</link>).
+                </para>
+                <para>
+                    Az utak alkotják az állományban a következő blokkot. Az út tipusú elemeknek önmagukban nincsenek földrajzi koordinátái,
+                    viszont tartalmazzák az őket alkotó csomópontok referenciáit (id-k), ami alapján kirajzolódnak.
+                    A 'k="highway"' címke kulcs tagja jelöli, hogy ez esetben egy konkrét útól, utcáról van szó, amin közlekedni lehet.
+                    Más esetekben az utak jelölhetik egy épület körvonalait.
+                </para>
+                <para>
+                    Az utolsó kategória a kapcsolatok blokk.
+                    Egy kapcsolat tartalmazza csomópontok és utak referenciáit és szerepüket.
+                    Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat ('member type="way"') tartalmaz.
+                    Látható, hogy a "role" (szerep) mező üresen is hagyható.
+                    Másik példában egy térséget határoznak meg az utak.
+                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a "only_right_turn" értékkel szereplő címke,
+                    ami két út és az őket összekötő csomopontban megadja, hogy csak jobbra szabad fordulni.
+                    Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
+                    felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
+                    Az utlsó példában a kapcsolat egy tavat határoz meg két út segítségével.
+                </para>
+            </section>
+            <section>
+                <title>OSM szoftverek</title>
+            </section>
+            <section>
+                <title>C++</title>
+                <para>
                 </para>
                 <section>
-                    <title>C++</title>
+                    <title>libosmium</title>
                     <para>
+                        C++ kódcsipetek és leírásuk.
                     </para>
-                    <section>
-                        <title>libosmium</title>
-                        <para>
-                            C++ kódcsipetek és leírásuk.
-                        </para>
-                    </section>
                 </section>
             </section>
             <section>
@@ -541,9 +805,6 @@
         <title>Köszönet</title>
         <para>
             Hálával tartozom dr. Bátfai Norbert témavezetőmnek, aki a dolgozat megírásához hasznos tanácsaival, jó ötleteivel és odafigyelésével járult hozzá.
-        </para>
-        <para>
-            Köszönöm párom (?!) kitartó türelmét és a mindennapi feladatokban nyújtott segítségét.
         </para>
     </section>
     <section>
