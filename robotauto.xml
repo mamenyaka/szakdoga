@@ -1,7 +1,8 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.1" xml:lang="hu">
     <info>
         <title>Robotautó Világbajnokság</title>
+        <subtitle>Debreceni Egyetem Informatikai Kar</subtitle>
         <author>
             <personname>
                 <honorific>Dr.</honorific>
@@ -43,18 +44,15 @@
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDPROG közösség dokumentációs feljegyzés, v. 0.0.2</edition>
-        <pubdate>2014</pubdate>
+        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.6</edition>
+        <pubdate>2015</pubdate>
         <copyright>
-            <year>2014</year>
+            <year>2015</year>
             <holder>Dr. Bátfai Norbert</holder>
             <holder>Mamenyák András</holder>
         </copyright>
         <legalnotice>
             <para>UDProg, Robotautó Világbajnokság
-            </para>
-            <para>
-                Copyright (C) 2014, Norbert Bátfai
             </para>
             <para>
                 This program is free software: you can redistribute it and/or modify
@@ -89,7 +87,7 @@
                 A felhasználónak a programmal együtt meg kell kapnia a GNU General
                 Public License egy példányát; ha mégsem kapta meg, akkor
                 tekintse meg a
-                <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>
+                <link xlink:href="http://www.gnu.org/licenses">http://www.gnu.org/licenses</link>
                 oldalon.
             </para>
             <para>
@@ -124,13 +122,22 @@
                 <date>2014-11-26</date>
                 <revremark>libosmium bemutatása, telepítés leírása</revremark>
             </revision>
+            <revision>
+                <revnumber>0.0.6</revnumber>
+                <date>2014-11-27</date>
+                <revremark>libosmium példaprogramok és magyarázatuk</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.7</revnumber>
+                <date>2015-04-17</date>
+                <revremark>doksi felfrissítése</revremark>
+            </revision>
         </revhistory>
     </info>
     <section>
         <title>Bevezetés</title>
         <para>
             Intuitív és szakmai bevezetés.
-            <link xlink:href=""/>
         </para>
         <section>
             <title>Szakirodalmi háttér</title>
@@ -164,15 +171,14 @@
                     <para>
                         Napjaink egyik legelterjedtebb térképmegoldása a Google Maps, amit a Google cég fejleszt.
                         A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben
-                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>) vagy okostelefonon.
-                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a
-                        <link xlink:href="http://blog.globalwebindex.net/wp-content/uploads/2013/08/The-app-World-big.png">GlobalWebIndex</link> alapján.
+                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>) vagy okostelefon alkalmazással.
+                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a GlobalWebIndex alapján <citation>GWI</citation>.
                     </para>
                     <para>
-                        A Google Maps számos API-t sorakoztat fel
-                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>),
-                        amik lehetővé teszik, hogy beágyazzuk a Google Maps térképeit, funkcióit saját weblapunkba vagy alkalmazásunkba.
-                        Ezek az API-k a következők:
+                        A Google Maps számos API-t sorakoztat fel, amik lehetővé teszik,
+                        hogy beágyazzuk a Google Maps térképeit, funkcióit saját weblapunkba vagy alkalmazásunkba.
+                        Ezek az API-k a következők
+                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>):
                         <itemizedlist>
                             <listitem>
                                 <para>JavaScript API v3</para>
@@ -214,13 +220,14 @@
                     </para>
                 </section>
                 <section>
-                    <title>Nokia HERE</title>
+                    <title>HERE</title>
                     <para>
                         A HERE (régebbi nevén Ovi Maps és Nokia Maps) a Nokia cég által fejlesztett termékcsomag, ami magába foglalja közel 200 ország térképét.
-                        A szolgáltatás elérhető a weben (<link xlink:href="http://here.com">http://here.com</link>) vagy okostelefonokról.
+                        A szolgáltatás elérhető a weben (<link xlink:href="http://here.com">http://here.com</link>) vagy okostelefon alkalmazással.
                     </para>
                     <para>
-                        A HERE API-k a következők (<link xlink:href="https://developer.here.com">https://developer.here.com</link>):
+                        A HERE API-k a következők
+                        (<link xlink:href="https://developer.here.com/">https://developer.here.com</link>):
                         <itemizedlist>
                             <listitem>
                                 <para>JavaScript API-k:  Maps API for JavaScript 3.x, Maps API for JavaScript 2.x, Maps API for JavaScript Enterprise 2.x</para>
@@ -235,7 +242,7 @@
                         (lásd a 6.-os részt, "A Tartalom": <link xlink:href="http://here.com/terms/service-terms/hu">http://here.com/terms/service-terms/hu</link>).
                     </para>
                     <para>
-                        A licenc megszorítása miatt elvetettük a HERE használatát a Robotautó emulátorban.
+                        A licenc megszorításai miatt elvetettük a HERE használatát a Robotautó emulátorban.
                         Lehetséges felhasználási terület: Webes, Androidos, Windows Phone-os megjelenítő.
                     </para>
                 </section>
@@ -246,7 +253,8 @@
                         A szolgáltatás elérhető a weben (<link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>) és Windows Phone platformon.
                     </para>
                     <para>
-                        A Bing Maps API-k a következők (<link xlink:href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx</link>):
+                        A Bing Maps API-k a következők
+                        (<link xlink:href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx</link>):
                         <itemizedlist>
                             <listitem>
                                 <para>Windows Store alkalmazásokhoz: JavaScript API, .NET API</para>
@@ -270,7 +278,7 @@
                         (lásd a 3.2-es részt, "General Restrictions" <link xlink:href="http://www.microsoft.com/maps/product/terms.html">http://www.microsoft.com/maps/product/terms.html</link>).
                     </para>
                     <para>
-                        A licenc megszorítása miatt elvetettük a Bing Maps használatát a Robotautó emulátorban.
+                        A licenc megszorításai miatt elvetettük a Bing Maps használatát a Robotautó emulátorban.
                         Lehetséges felhasználási terület: Webes, Windows-os megjelenítő.
                     </para>
                 </section>
@@ -289,20 +297,20 @@
                         Emiatt a közreműködők légi fotók, GPS eszközök és egyéb ingyenes térképek
                         (mint például nemzeti térképészeti ügynökségek nyílt térképei)
                         segítségével járulnak hozzá, ellenőrzik és tartják karban az OSM adatbázist.
-                        A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió
-                        (forrás: <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>).
+                        A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió <citation>OSMstats</citation>.
                     </para>
                     <para>
                         2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra,
-                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb., gyarapítva ezzel az OSM adatbázist
-                        (forrás: <link xlink:href="https://blog.openstreetmap.org/wp-content/uploads/2010/11/4540180-Bing-Maps-Imagery-Editor-API-License-FINAL.pdf">Microsoft Bing Maps imagerty service editor application API's terms of use</link>).
+                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb., gyarapítva ezzel az OSM adatbázist <citation>BingAerial</citation>
                     </para>
                     <para>
                         Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API,
-                        ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál.
+                        ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál
+                        (<link xlink:href="http://wiki.openstreetmap.org/wiki/API">http://wiki.openstreetmap.org/wiki/API</link>).
                     </para>
                     <para>
-                        Az OpenStreetMap nyílt adatokból áll, aminek licence az Open Data Commons Open Database License (ODbL).
+                        Az OpenStreetMap nyílt adatokból áll, aminek licence az Open Data Commons Open Database License (ODbL)
+                        (lásd <link xlink:href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</link>).
                         Ez a licenc lehetővé teszi, hogy szabadon lemásoljuk, terjesszük, módosítsuk az adatokat.
                         Egyetlen feltétele, hogy ha módosítjuk az adatokat, vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
                     </para>
@@ -351,25 +359,26 @@
                         <listitem>
                             <para>nodes (csomópontok)</para>
                             <para>
-                                A csomópont meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
+                                A <emphasis>csomópont</emphasis> meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
                                 Az OpenStreetMap a WGS84 koordináta rendszert használja.
-                                Példa: buszmegálló, pad, jelzőlámpa
+                                Példa: buszmegálló, pad, jelzőlámpa.
                             </para>
                         </listitem>
                         <listitem>
                             <para>ways (utak)</para>
-                            <para>Az út a csomópontok egy rendezett listája.
-                                Példa: utak, folyók, területek határvonalai
+                            <para>
+                                Az <emphasis>út</emphasis> a csomópontok egy rendezett listája.
+                                Példa: utak, folyók, területek határvonalai.
                             </para>
                         </listitem>
                         <listitem>
                             <para>relations (kapcsolatok)</para>
                             <para>
-                                A kapcsolat olyan adatszerkezet, ami több member (tag) kapcsolatát írja le, azoknak egy rendezett listája.
+                                A <emphasis>kapcsolat</emphasis> olyan adatszerkezet, ami több tag kapcsolatát írja le, azoknak egy rendezett listája.
                                 A tagok lehetnek utak, csomópontok vagy akár további kapcsolatok,
-                                és tartalmazzák a "member type" (típus) és a "role" (szerep) címkéket.
-                                Általában a "type" (típus) címke határozza meg a kapcsolat értelmét.
-                                Példa: buszjárat, ami csomópontok listájából (megállókból) és utakból áll
+                                és tartalmazzák a <emphasis>member type</emphasis> (tag típus) és a <emphasis>role</emphasis> (szerep) címkéket.
+                                Általában a típus címke határozza meg a kapcsolat értelmét.
+                                Példa: buszjárat, ami csomópontok listájából (megállókból) és utakból áll.
                             </para>
                         </listitem>
                         <listitem>
@@ -377,80 +386,69 @@
                             <para>
                                 A címkék jelentést adhatnak az egyes adatelemeknek, de használatuk opcionális.
                                 Két részből állnak: kulcs és érték.
-                                Példa: "highway=pedestrian", ami a gyalogos utat jelent
+                                Példa: "highway=pedestrian", ami a gyalogos utat jelent.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+                <para>
+                    Minden csomópontnak, útnak és kapcsolatnak a következő attribútumai vannak az adatbázisban:
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                id
+                            </para>
+                            <para>
+                                Értéke egy szám, ami egyértelműen beazonosítja az adott adatelemet.
                             </para>
                         </listitem>
                         <listitem>
-                            <para>közös attribútumok</para>
                             <para>
-                                Minden csomópontnak, útnak és kapcsolatnak a következő attribútumai vannak az adatbázisban:
-                                <itemizedlist>
-                                    <listitem>
-                                        <para>
-                                            id
-                                        </para>
-                                        <para>
-                                            Értéke egy szám, ami egyértelműen beazonosítja az adott adatelemet.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            visible
-                                        </para>
-                                        <para>
-                                            Lehet igaz (true) vagy hamis (false).
-                                            Ha a visible értéke hamis, akkor az objektum törölve lett az adatbázisból.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            version
-                                        </para>
-                                        <para>
-                                            Kezdetben 1, minden módosításnál egyel nő az értéke.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            changeset
-                                        </para>
-                                        <para>
-                                            Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            timestamp
-                                        </para>
-                                        <para>
-                                            Időbélyeg, a legutolsó módosítás idelyét tartalmazza.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            user
-                                        </para>
-                                        <para>
-                                            Értéke az a regisztrált felhasználónév, aki létrehozta vagy utoljára módosította az adott objektumot.
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            uid
-                                        </para>
-                                        <para>
-                                            Felhasználó azonosító. A felhasználónév változhat, de az id nem
-                                        </para>
-                                    </listitem>
-                                    <listitem>
-                                        <para>
-                                            changeset
-                                        </para>
-                                        <para>
-                                            Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult
-                                        </para>
-                                    </listitem>
-                                </itemizedlist>
+                                user
+                            </para>
+                            <para>
+                                Értéke az a regisztrált felhasználónév, aki létrehozta vagy utoljára módosította az adott objektumot.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                uid
+                            </para>
+                            <para>
+                                Felhasználó azonosító. A felhasználónév változhat, de az id nem
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                timestamp
+                            </para>
+                            <para>
+                                Időbélyeg, a legutolsó módosítás idelyét tartalmazza.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                visible
+                            </para>
+                            <para>
+                                Lehet igaz vagy hamnis.
+                                Ha a visible értéke hamis, akkor az objektum törölve lett az adatbázisból.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                version
+                            </para>
+                            <para>
+                                Kezdetben 1, minden módosításnál egyel nő az értéke.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                changeset
+                            </para>
+                            <para>
+                                Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -679,9 +677,10 @@
                     </programlisting>
                 </para>
                 <para>
-                    A fenti XML kódcsipetben az 'osm version="0.6"' tag jelöli az OSM Editing API verzióját,
+                    A fenti XML kódcsipetben az <emphasis>osm version="0.6"</emphasis> tag jelöli az OSM Editing API verzióját,
                     amin keresztül letöltöttük az XML állományt.
-                    A bounds tag tartalmazza az exportált terület behatároló minlat, minlon, maxlat, maxlon értékeket.
+                    A <emphasis>bounds</emphasis> tag tartalmazza az exportált területet behatároló
+                    <emphasis>minlat</emphasis>, <emphasis>minlon</emphasis>, <emphasis>maxlat</emphasis>, <emphasis>maxlon</emphasis> értékeket.
                 </para>
                 <para>
                     Az XML állományban garantáltan elől szerepelnek a csomópontok,
@@ -689,27 +688,27 @@
                     Viszont az nincs garantálva, hogy minden elemnek pozitív id-ja van, vagy hogy id szerint rendezve vannak.
                 </para>
                 <para>
-                    Egy adott térkép adatállományában csomópontokból van a legtöbb és a csomópontoknak van a legnagyobb szerepük,
-                    mivel csak a csomópontoknak vannak földrajzi koordinátái.
-                    Példánkban szerepelnek olyan csomópontok, amiknek vannak címkei is,
-                    így ezeknek a csomópontok önmagukban is van jelentésük, mint például egy internet kávézó vagy egy templom.
+                    Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb és ezeknek van a legfontosabb szerepe,
+                    mivel csak itt vannak a földrajzi koordináták megadva.
+                    Példánkban szerepelnek olyan csomópontok, amiknek címkei is vannak,
+                    így ezeknek a csomópontoknak önmagukban is van jelentésük, mint például egy internet kávézó vagy egy templom.
                     Címkék nélküli csomópontok általában egy út vagy kapcsolat részeként kapnak értelmet.
                     Megfigyelhető, hogy számos egyéb információt is tartalmazhatnak a címkék
                     (a címkékről bővebben lásd <link xlink:href="http://taginfo.openstreetmap.org">http://taginfo.openstreetmap.org</link>).
                 </para>
                 <para>
-                    Az utak alkotják az állományban a következő blokkot. Az út tipusú elemeknek önmagukban nincsenek földrajzi koordinátái,
-                    viszont tartalmazzák az őket alkotó csomópontok referenciáit (id-k), ami alapján kirajzolódnak.
-                    A 'k="highway"' címke kulcs tagja jelöli, hogy ez esetben egy konkrét útól, utcáról van szó, amin közlekedni lehet.
-                    Más esetekben az utak jelölhetik egy épület körvonalait.
+                    Az <emphasis>út</emphasis> típusok alkotják az állományban a következő blokkot. Az út tipusú elemeknek önmagukban nincsenek földrajzi koordinátái,
+                    viszont tartalmazzák az őket alkotó csomópontok <emphasis>id</emphasis> referenciáit, ami alapján kirajzolódnak.
+                    A <emphasis>k="highway"</emphasis> címke kulcs tagja jelöli, hogy ez esetben egy konkrét útról, utcáról van szó, amin közlekedni lehet.
+                    Más esetekben az utak jelölhetik például egy épület körvonalait.
                 </para>
                 <para>
-                    Az utolsó kategória a kapcsolatok blokk.
+                    Az utolsó kategória a <emphasis>kapcsolat</emphasis> típusok blokk.
                     Egy kapcsolat tartalmazza csomópontok és utak referenciáit és szerepüket.
-                    Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat ('member type="way"') tartalmaz.
-                    Látható, hogy a "role" (szerep) mező üresen is hagyható.
+                    Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat (<emphasis>member type="way"</emphasis>) tartalmaz.
+                    Látható, hogy a <emphasis>role</emphasis> (szerep) mező üresen is hagyható.
                     Másik példában egy térséget határoznak meg az utak.
-                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a "only_right_turn" értékkel szereplő címke,
+                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
                     ami két út és az őket összekötő csomopontban megadja, hogy csak jobbra szabad fordulni.
                     Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
                     felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
@@ -730,33 +729,35 @@
             <section>
                 <title>Osmium Library</title>
                 <para>
-                    Az Osmium könyvtár legújabb verziója elérhető a projekt github tárolójából:
+                    Az Osmium könyvtár legújabb verziója elérhető a projekt GitHub tárolójából:
                     <link xlink:href="https://github.com/osmcode/libosmium">https://github.com/osmcode/libosmium</link>.
                     A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban (Protocolbuffer Binary Format).
                     A beolvasott adatokat a memóriában, bufferekben tárolja, amihez a handler interfészen keresztül bejárást biztosít.
-                    Ez a módszer a visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
+                    Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
                 </para>
                 <para>
-                    Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License:
+                    Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License
                     (<link xlink:href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</link>).
                 </para>
                 <section>
                     <title>Telepítés</title>
                     <para>
-                        Az alábbi paranccsal tudjuk leklónozni a github repóból a libosmiumot:
+                        Telepítéshez követjük a projekt oldalán található lépéseket,
+                        amiket a <emphasis>README.md</emphasis> generál.
+                        Az alábbi paranccsal tudjuk leklónozni a repót:
                         <screen>
 <![CDATA[
 andras@G53SW:~/Programs$ git clone https://github.com/osmcode/libosmium.git
 ]]>
                         </screen>
-                        Az így létrejött mappa az alábbi szerkezetű:
+                        Az így létrejött mappa az alábbiakat tartalmazza:
                         <itemizedlist>
                             <listitem>
                                 <para>
                                     include
                                 </para>
                                 <para>
-                                    Itt találhatóak a szükséges include állományok.
+                                    Itt találhatóak a szükséges header állományok.
                                     Ezek felhasználásával tudjuk saját alkalmazásunkban használni az Osmium könyvtárat.
                                 </para>
                             </listitem>
@@ -765,7 +766,7 @@ andras@G53SW:~/Programs$ git clone https://github.com/osmcode/libosmium.git
                                     examples
                                 </para>
                                 <para>
-                                    Pár példa arra, hogyan tudjuk használni az Osmium könyvtárat
+                                    Pár példa arra, hogyan tudjuk használni az Osmium könyvtárat.
                                 </para>
                             </listitem>
                             <listitem>
@@ -773,60 +774,359 @@ andras@G53SW:~/Programs$ git clone https://github.com/osmcode/libosmium.git
                                     doc
                                 </para>
                                 <para>
-                                    Ebben a könyvtárban vannak a szükséges állományok a dokumentáció előállítására.
+                                    Ebben a mappában vannak a szükséges állományok a dokumentáció előállítására.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    test
+                                    cmake
                                 </para>
                                 <para>
-                                    Unit tesztek könyvtára
+                                    CMake modulok mappája, amik segítségével tudunk létrehozni cmake-es projektet,
+                                    ami libosmium-ot használ (FindOsmium.cmake).
                                 </para>
                             </listitem>
                         </itemizedlist>
                     </para>
                     <para>
                         A libosmium számos C++11-es feature-t használ, ezért egy modern fordítora van szükségünk (minimum GCC 4.8).
-                        Továbbá számos másik könyvtárt használ a libosmium, amiket fel kell telepíteni használat előtt.
-                        Ezek a következőek: boost, Google protobuf, OSMPBF, Expat, zlib, bz2lib, Doxygen (dokumentációhoz).
-                        A legújabb Ubuntu linux disztribúción ezeknek a telepítése a következő paranccsal hajtható végre
+                        Továbbá számos másik könyvtártól is függ a libosmium, amiket fel kell telepíteni használat előtt.
+                        A fontos függőségek a következőek:
+                        CMake és Make, Google Protocol Buffers, OSMPBF, Expat, Zlib, bz2lib.
+                        Ezeken kívül érdemes az opcionális függősegeket is telepíteni:
+                        Google Sparsehash, Boost, GDAL, GEOS, Proj.4, Doxygen.
+                        A legújabb Ubuntu linux disztribúció (15.04) alatt ezeknek a telepítése a következő paranccsal hajtható végre
                         (a telepítéshez root jogosultságra van szükség):
                         <screen>
 <![CDATA[
-andras@G53SW:~$ sudo apt-get install libboost-all-dev \
+andras@G53SW:~$ sudo apt-get install \
+    cmake cmake-curses-gui make \
     libprotobuf-dev protobuf-compiler \
     libosmpbf-dev \
     libexpat1-dev \
     zlib1g-dev \
     libbz2-dev \
-    doxygen graphviz xmlstarlet
+    libsparsehash-dev \
+    libboost-all-dev \
+    libgdal1-dev \
+    libgeos++-dev \
+    libproj-dev \
+    doxygen graphviz
 ]]>
                         </screen>
                     </para>
                     <para>
-                        Osmium egy header-only könyvtár, ami azt jelenti, hogy nem kell lefordítani,
-                        hanem csak egyszerűen be kell őket include-olni.
-                        A libosmium könyvtárban állvan adjuk ki a következő parancsot a dokumentáció előállításához:
+                        Az Osmium egy <emphasis>header-only</emphasis> könyvtár, ami azt jelenti, hogy nem kell lefordítani,
+                        hanem csak egyszerűen be kell őket include-olni programunkba.
+                        A az előbb leklónozott mappában állva a következő paranccsal bemásoljuk a header állományokat
+                        a <emphasis>/usr/local/include</emphasis> mappába (a másoláshoz root jogosultságra van szükség):
                         <screen>
 <![CDATA[
-andras@G53SW:~/Programs/libosmium$ make doc
+andras@G53SW:~/Programs/libosmium$ sudo cp -r include/osmium/ /usr/local/include/
 ]]>
                         </screen>
-                        Az egyszerűség kedvéért a következő paranccsal bemásolhatjuk a header állományokat a /usr/include könyvtárba
-                        (a másoláshoz root jogosultságra van szükség):
+                        Adjuk ki a következő parancsot a peldák és a tesztek előállításához:
                         <screen>
 <![CDATA[
-andras@G53SW:~/Programs/libosmium$ sudo make install
+andras@G53SW:~/Programs/libosmium$ mkdir build
+andras@G53SW:~/Programs/libosmium$ cd build
+andras@G53SW:~/Programs/libosmium/build$ cmake ..
+andras@G53SW:~/Programs/libosmium/build$ make
+]]>
+                        </screen>
+                        A cmake konfiguráció módosításához használhatjuk a következő parancsot,
+                        ha például nem szeretnénk előállitani a teszteket:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/libosmium/build$ ccmake ..
+]]>
+                        </screen>
+                        <figure xml:id="ccmake">
+                            <title>A CMake curses interface</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="figures/ccmake.png"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                        Végezetül a dokumentáció előállítása:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/libosmium/build$ make doc
 ]]>
                         </screen>
                     </para>
                 </section>
             </section>
             <section>
-                <title>C++</title>
-                <para>
-                </para>
+                <title>Saját libosmium példaprogramok</title>
+                <section>
+                    <title>Utcák kilistázása</title>
+                    <para>
+                        Az első példaprogram az OpenStreetMap oldaláról exportált Debrecen térképről listázza ki az utcákat.
+                        A tejes program leklónozható a következő git repóból:
+                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak">https://bitbucket.org/mamenyaka/utcak</link>
+                    </para>
+                    <para>
+                        Az utcak.cpp forrása:
+                        <programlisting language="C++">
+                            <textobject>
+                                <textdata fileref="src/utcak/utcak.cpp"/>
+                            </textobject>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A program berántja a parancssori argumentumként kapott OSM állományt (lehet XML vagy PBF)
+                        egy <emphasis>osmium::memory::Buffer</emphasis>-be:
+                        <programlisting language="C++">
+<![CDATA[
+osmium::memory::Buffer buffer = osmium::io::read_file(argv[1]);
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A <emphasis>buffer</emphasis>-ben lévő OSM objektumokat az alábbi C++11-es <emphasis>range-based for</emphasis> ciklussal járhatjuk be:
+                        <programlisting language="C++">
+<![CDATA[
+for (const auto& item : buffer)
+]]>
+                        </programlisting>
+                        Az elemeket konstans referenciaként érjük el,
+                        a C++11-es <emphasis>auto</emphasis> specifikátor seg1ítségével az <emphasis>item</emphasis> típusa automatikusan ki lesz következtetve
+                        (jelen esetben <emphasis>osmium::OSMEntity</emphasis>, ami az alap absztrakt ősosztálya az OSM objektumoknak).
+                        <figure xml:id="OSMEntity">
+                            <title>Az <emphasis>osmium::OSMEntity</emphasis> öröklődési diagramja a dokumentáció szerint</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="figures/OSMEntity.png"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                    </para>
+                    <para>
+                        Ez a feltétel biztosítja számunka, hogy csak út tipusú <emphasis>item</emphasis>-ekkel dolgozunk.
+                        <programlisting language="C++">
+<![CDATA[
+if (item.type() == osmium::item_type::way)
+]]>
+                        </programlisting>
+                        Így bátran downcast-olhatjuk az <emphasis>item</emphasis> referenciát,
+                        <emphasis>osmium::OSMEntity</emphasis> típusról <emphasis>osmium::Way</emphasis> típusra,
+                        mivel az <emphasis>osmium::Way</emphasis> osztály leszármazottja az <emphasis>osmium::OSMEntity</emphasis> absztrakt ősosztálynak.
+                        <programlisting language="C++">
+<![CDATA[
+const osmium::Way& way = static_cast<const osmium::Way&>(item);
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A get_value_by_key függvénnyel az út cimkéinek listájából lekérdezi
+                        a paraméterként megadott kulcshoz tartozó értéket.
+                        Ha nem létezik az adott kulcs a címkék listájában, akkor <emphasis>nullptr</emphasis>-t kapunk visszatérési értékként.
+                        A <emphasis>"name"</emphasis> kulcs esetlegesen az utca nevét tartalmazza, a <emphasis>"highway"</emphasis> pedig az út típusát.
+                        <programlisting language="C++">
+<![CDATA[
+const char* name = way.get_value_by_key("name");
+const char* highway = way.get_value_by_key("highway");
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Ha mindkét érték létezik, azaz nem nullpointerek,
+                        akkor kiiratjuk a standard kimenetre az utca nevét és a felhasználót,
+                        aki felvitte vagy utoljára módosította az utat az adatbázisban.
+                        <programlisting language="C++">
+<![CDATA[
+if (name && highway)
+  std::cout << "[" << way.user() << "] " << name << std::endl;
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A példaprogram fordításához létrehozuk egy CMake-es projektet.
+                        A libosmium biztosítja számunkra a
+                        <emphasis>FindOsmium.cmake</emphasis> és <emphasis>FindOSMPBF.cmake</emphasis> modulokat,
+                        amik a <emphasis>cmake</emphasis> mappában találhatóak.
+                        Ezek segítségével találja meg a cmake a libosmium header állományait és
+                        állítja be a megadott komponensekhez a szükséges könyvtárakat.
+                        Az Osmium <emphasis>io</emphasis> komponenséhez szükséges könyvtárak:
+                        OSMPBF, Protobuf, ZLIB, Threads, EXPAT, BZip2.
+                        Az OSMPBF könyvtár megtalálásában a <emphasis>FindOSMPBF.cmake</emphasis> modul segít.
+                    </para>
+                    <para>
+                        A <emphasis>CMakeLists.txt</emphasis> állomány a következő:
+                        <programlisting language="make">
+                            <textobject>
+                                <textdata fileref="src/utcak/CMakeLists.txt"/>
+                            </textobject>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Fordítás:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/utcak$ mkdir build
+andras@G53SW:~/Programs/utcak$ cd build/
+andras@G53SW:~/Programs/utcak/build$ cmake ..
+-- The C compiler identification is GNU 4.9.2
+-- The CXX compiler identification is GNU 4.9.2
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Found OSMIUM: /usr/local/include  
+-- Found OSMPBF: /usr/lib/libosmpbf.a  
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found PROTOBUF: /usr/lib/x86_64-linux-gnu/libprotobuf.so  
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.1.0") 
+-- Found BZip2: /usr/lib/x86_64-linux-gnu/libbz2.so (found version "1.0.6") 
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so - found
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/andras/Programs/utcak/build
+andras@G53SW:~/Programs/utcak/build$ make
+Scanning dependencies of target utcak
+[100%] Building CXX object CMakeFiles/utcak.dir/utcak.cpp.o
+Linking CXX executable utcak
+[100%] Built target utcak
+]]>
+                        </screen>
+                    </para>
+                    <para>
+                        Futtatás:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
+[CarstenG] Oláh Gábor utca (residential)
+[madar] Martinovics utca (residential)
+[SzPaula] Besze János utca (residential)
+[DonTomika] Simonyi utca (residential)
+[DonTomika] Doberdó utca (residential)
+[papesz] Bethlen utca (residential)
+[Kolesár] Békessy Béla utca (residential)
+[DonTomika] Nyíl utca (primary)
+...
+]]>
+                        </screen>
+                    </para>
+                </section>
+                <section>
+                    <title>Buszjáratok megállóinak kilistázása</title>
+                    <para>
+                        A második példaprogram Debrecen buszjáratait listázza ki,
+                        buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
+                        aki felvitte vagy utoljára módosította az objektumot.
+                        A tejes program leklónozható a következő git repóból:
+                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat">https://bitbucket.org/mamenyaka/buszjarat</link>
+                    </para>
+                    <para>
+                        Az buszjarat.cpp forrása:
+                        <programlisting language="C++">
+                            <textobject>
+                                <textdata fileref="src/buszjarat/buszjarat.cpp"/>
+                            </textobject>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Fordítás:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/buszjarat$ mkdir build
+andras@G53SW:~/Programs/buszjarat$ cd build/
+andras@G53SW:~/Programs/buszjarat/build$ cmake ..
+-- The C compiler identification is GNU 4.9.2
+-- The CXX compiler identification is GNU 4.9.2
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Found OSMIUM: /usr/local/include  
+-- Found OSMPBF: /usr/lib/libosmpbf.a  
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found PROTOBUF: /usr/lib/x86_64-linux-gnu/libprotobuf.so  
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.1.0") 
+-- Found BZip2: /usr/lib/x86_64-linux-gnu/libbz2.so (found version "1.0.6") 
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of google::sparsetable<int>::size_type
+-- Check size of google::sparsetable<int>::size_type - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/andras/Programs/buszjarat/build
+andras@G53SW:~/Programs/buszjarat/build$ make
+Scanning dependencies of target buszjarat
+[100%] Building CXX object CMakeFiles/buszjarat.dir/buszjarat.cpp.o
+Linking CXX executable buszjarat
+[100%] Built target buszjarat
+]]>
+                        </screen>
+                    </para>
+                    <para>
+                        Futtatás:
+                        <screen>
+<![CDATA[
+andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm 
+[Zotya] 10 (IT Services Hungary Kft. -> Nagyállomás, toronyház)
+  [flaktack] IT Services Hungary Kft. (21.5883,47.5559)
+  [flaktack] Vezér utca (21.5978,47.5557)
+  [flaktack] Nyék utca (21.6009,47.5556)
+  [flaktack] Árpád Vezér Általános Iskola (21.6075,47.5561)
+  [flaktack] Doberdó utca (21.611,47.5572)
+  [flaktack] Sportkollégium (21.6156,47.5568)
+  [BettiD] Auguszta (21.6233,47.5612)
+  [flaktack] Pallagi út (21.6305,47.5609)
+  [flaktack] Szociális Otthon (21.6305,47.5568)
+  [flaktack] Klinikák (21.6282,47.5562)
+  [BettiD] Egyetem tér (21.6215,47.5506)
+  [BettiD] Nagy Lajos Király tér (21.6217,47.5456)
+  [wheelmap_visitor] Egyetem sugárút (21.6218,47.5409)
+  [wheelmap_visitor] Honvéd utca (21.6219,47.5372)
+  [flaktack] Jókai utca (21.6205,47.5327)
+  [flaktack] Pásti utca (21.6179,47.5303)
+  [DonTomika] Segner tér (21.6127,47.5289)
+  [DonTomika] Helyközi autóbusz-állomás (21.6188,47.5265)
+  [flaktack] Kistemplom (21.6255,47.5283)
+  [flaktack] Petőfi tér (21.6267,47.523)
+  [flaktack] Nagyállomás, toronyház (21.6271,47.5211)
+
+...
+]]>
+                        </screen>
+                    </para>
+                </section>
             </section>
             <section>
                 <title>A Robotautó Világbajnokság platformja</title>
@@ -916,7 +1216,37 @@ andras@G53SW:~/Programs/libosmium$ sudo make install
             Hálával tartozom dr. Bátfai Norbert témavezetőmnek, aki a dolgozat megírásához hasznos tanácsaival, jó ötleteivel és odafigyelésével járult hozzá.
         </para>
     </section>
-    <section>
+    <bibliography>
         <title>Irodalomjegyzék</title>
-    </section>
+        <biblioentry>
+            <abbrev>OSMstats</abbrev>
+            <title>OpenStreetMap stats</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>                    
+                </publishername>
+            </publisher>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>GWI</abbrev>
+            <title>Top global smartphone apps, who’s in the top 10</title>
+            <publisher>
+                <publishername>
+                    GlobalWebIndex,
+                    <link xlink:href="http://www.globalwebindex.net/blog/top-global-smartphone-apps">http://www.globalwebindex.net/blog/top-global-smartphone-apps</link>                    
+                </publishername>
+            </publisher>
+            <pubdate>2013</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>BingAerial</abbrev>
+            <title>Microsoft Bing Maps Imagery Service Editor Application API's Terms Of Use</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf">https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf</link>
+                </publishername>
+            </publisher>
+            <pubdate>2010</pubdate>
+        </biblioentry>
+    </bibliography>
 </article>
