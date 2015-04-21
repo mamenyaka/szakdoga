@@ -1,6 +1,6 @@
 [submodule "src/utcak"]
 	path = src/utcak
-	url = https://bitbucket.org/mamenyaka/utcak.git
+	url = git@bitbucket.org:mamenyaka/utcak.git
 [submodule "src/buszjarat"]
 	path = src/buszjarat
-	url = https://bitbucket.org/mamenyaka/buszjarat.git
+	url = git@bitbucket.org:mamenyaka/buszjarat.git

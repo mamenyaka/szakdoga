@@ -125,12 +125,17 @@
             <revision>
                 <revnumber>0.0.6</revnumber>
                 <date>2014-11-27</date>
-                <revremark>libosmium példaprogramok és magyarázatuk</revremark>
+                <revremark>libosmium példaprogramok és magyarázatuk (part 1)</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.7</revnumber>
                 <date>2015-04-17</date>
                 <revremark>doksi felfrissítése</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.8</revnumber>
+                <date>2015-04-21</date>
+                <revremark>libosmium példaprogramok és magyarázatuk (part 2)</revremark>
             </revision>
         </revhistory>
     </info>
@@ -340,7 +345,9 @@
                     Az így kapott állomány kiterjesztése egy teljesen valid XML dokumentum, melynek kiterjesztése ".osm".
                     Ha a teljes bolygóra vonatkozó adatokat le akarjuk tölteni, azt is megtehetjük az alábbi linken:
                     <link xlink:href="http://planet.openstreetmap.org">http://planet.openstreetmap.org</link>.
-                    Jelenlegi mérete a tömörített planet állománynak 38 GB.
+                    Jelenlegi (2015.04) mérete a tömörített planet állománynak XML formátumban 41 GB,
+                    PBF (Protocolbuffer Binary Format) formátumban 27 GB
+                    (bővebben lásd: <link xlink:href="http://wiki.openstreetmap.org/wiki/PBF_Format">http://wiki.openstreetmap.org/wiki/PBF_Format</link>).
                 </para>
                 <para>
                     Legtöbb esetben csak egy város térképére van szükségünk, amit az alábbi módon exportálhatunk:
@@ -461,21 +468,39 @@
             <section>
                 <title>Példa XML kódrészletre</title>
                 <para>
-                    A következő XML kódcsipet Debrecen városának térképéből lett kivágva.
-                    Véleményem szerint meglepő, hogy milyen részletességgel van jelen ennyi adat kis városunkról.
+                    A következő XML kód Debrecen városának térképéből lett exportálva.
+                    A kód az <emphasis>osm version="0.6"</emphasis> taggal kezdődik,
+                    ami az OSM Editing API verzióját jelöli, amin keresztül letöltöttük az XML állományt.
+                    A <emphasis>bounds</emphasis> tag tartalmazza az exportált területet behatároló
+                    <emphasis>minlat</emphasis>, <emphasis>minlon</emphasis>, <emphasis>maxlat</emphasis>, <emphasis>maxlon</emphasis> értékeket.
                     <programlisting language="xml">
 <![CDATA[
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="CGImap 0.3.3 (12932 thorn-01.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
  <bounds minlat="47.4811000" minlon="21.5076000" maxlat="47.5845000" maxlon="21.7771000"/>
+]]>
+                    </programlisting>
+                </para>
+                <para>
+                    Az XML állományban garantáltan elől szerepelnek a <emphasis>csomópont</emphasis> típusú elemek,
+                    utánuk jönnek az <emphasis>út</emphasis> típusú elemek,
+                    majd végül a <emphasis>kapcsolat</emphasis> típusú elemek zárják a sort.
+                    Viszont az nincs garantálva, hogy minden elemnek pozitív id-ja van, vagy hogy id szerint rendezve vannak
+                    (bővebben lásd: <link xlink:href="http://wiki.openstreetmap.org/wiki/OSM_XML">http://wiki.openstreetmap.org/wiki/OSM_XML</link>).
+                </para>
+                <para>
+                    Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb és ezeknek van a legfontosabb szerepe,
+                    mivel csak itt vannak a földrajzi koordináták megadva.
+                    Példánkban szerepelnek olyan csomópontok, amiknek címkei is vannak,
+                    így ezeknek a csomópontoknak önmagukban is van jelentésük,
+                    mint például egy iskola, templom vagy internet kávézó.
+                    Címkék nélküli csomópontok általában egy út vagy kapcsolat részeként kapnak értelmet.
+                    Megfigyelhető, hogy számos egyéb információt is tartalmazhatnak a címkék
+                    (a címkékről bővebben lásd: <link xlink:href="http://taginfo.openstreetmap.org">http://taginfo.openstreetmap.org</link>).
+                    <programlisting language="xml">
+<![CDATA[
  <node id="26754899" visible="true" version="10" changeset="22677330" timestamp="2014-06-01T17:02:36Z" user="Kolesár" uid="170666" lat="47.5525471" lon="21.6205428"/>
  <node id="26754891" visible="true" version="4" changeset="9718270" timestamp="2011-11-02T00:21:45Z" user="BáthoryPéter" uid="408450" lat="47.5612237" lon="21.6230840"/>
-...
- <node id="196235228" visible="true" version="10" changeset="25408912" timestamp="2014-09-13T11:03:24Z" user="nagy_balint" uid="1971976" lat="47.6997683" lon="21.4372610">
-  <tag k="highway" v="services"/>
-  <tag k="name" v="Böszörményi pihenőhely"/>
-  <tag k="ref" v="19"/>
- </node>
 ...
  <node id="2460128494" visible="true" version="2" changeset="22853651" timestamp="2014-06-10T16:22:42Z" user="neosystem100" uid="2116499" lat="47.5343657" lon="21.6255522">
   <tag k="addr:city" v="Debrecen"/>
@@ -485,6 +510,18 @@
   <tag k="amenity" v="school"/>
   <tag k="name" v="Computer School Debrecen"/>
   <tag k="phone" v="0652/533-328"/>
+ </node>
+...
+ <node id="3088739774" visible="true" version="2" changeset="25673049" timestamp="2014-09-25T20:18:44Z" user="ImreSamu" uid="996303" lat="47.5497190" lon="21.6161230">
+  <tag k="addr:city" v="Debrecen"/>
+  <tag k="addr:housenumber" v="25"/>
+  <tag k="addr:street" v="Bolyai utca"/>
+  <tag k="amenity" v="place_of_worship"/>
+  <tag k="denomination" v="protestant"/>
+  <tag k="name" v="Nagyerdei Reformatus templom"/>
+  <tag k="religion" v="christian"/>
+  <tag k="website" v="www.refnagyerdo.hu"/>
+  <tag k="wheelchair" v="yes"/>
  </node>
 ...
  <node id="2910768733" visible="true" version="1" changeset="22868114" timestamp="2014-06-11T10:03:45Z" user="DonTomika" uid="1336266" lat="47.5294086" lon="21.6276621">
@@ -508,26 +545,18 @@
   <tag k="shop" v="copyshop"/>
   <tag k="website" v="http://www.dcafe.hu/"/>
  </node>
-...
- <node id="3088739774" visible="true" version="2" changeset="25673049" timestamp="2014-09-25T20:18:44Z" user="ImreSamu" uid="996303" lat="47.5497190" lon="21.6161230">
-  <tag k="addr:city" v="Debrecen"/>
-  <tag k="addr:housenumber" v="25"/>
-  <tag k="addr:street" v="Bolyai utca"/>
-  <tag k="amenity" v="place_of_worship"/>
-  <tag k="denomination" v="protestant"/>
-  <tag k="name" v="Nagyerdei Reformatus templom"/>
-  <tag k="religion" v="christian"/>
-  <tag k="website" v="www.refnagyerdo.hu"/>
-  <tag k="wheelchair" v="yes"/>
- </node>
- <way id="4383939" visible="true" version="4" changeset="756851" timestamp="2008-11-16T21:59:37Z" user="madar" uid="17542">
-  <nd ref="26754882"/>
-  <nd ref="26754884"/>
-  <nd ref="247995181"/>
-  <tag k="created_by" v="Potlatch 0.10f"/>
-  <tag k="highway" v="residential"/>
-  <tag k="name" v="Martinovics utca"/>
- </way>
+ ]]>
+                    </programlisting>
+                </para>
+                <para>
+                    Az <emphasis>út</emphasis> típusok alkotják az állományban a következő blokkot.
+                    Az út tipusú elemeknek önmagukban nincs földrajzi koordinátái,
+                    viszont tartalmazzák az őket alkotó csomópontok <emphasis>id</emphasis> referenciáit, ami alapján kirajzolódnak.
+                    A <emphasis>k="highway"</emphasis> címke kulcs tagja jelöli,
+                    hogy ez esetben egy konkrét utcáról van szó, amin közlekedni lehet.
+                    Más esetekben az utak jelölhetik például egy épület körvonalait.
+                    <programlisting language="xml">
+<![CDATA[
  <way id="4383938" visible="true" version="2" changeset="3678050" timestamp="2010-01-21T20:36:49Z" user="CarstenG" uid="72700">
   <nd ref="26754874"/>
   <nd ref="26754875"/>
@@ -550,6 +579,22 @@
   <nd ref="3088072849"/>
   <tag k="building" v="commercial"/>
  </way>
+ ]]>
+                    </programlisting>
+                </para>
+                <para>
+                    Az utolsó kategória a <emphasis>kapcsolat</emphasis> típusok blokkja.
+                    Egy kapcsolat tartalmazza csomópontok és utak referenciáit és szerepüket.
+                    Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat (<emphasis>member type="way"</emphasis>) tartalmaz.
+                    Látható, hogy a <emphasis>role</emphasis> (szerep) mező üresen is hagyható.
+                    Másik példában egy térséget határoznak meg az utak.
+                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
+                    ami két út és az őket összekötő csomopontban megadja, hogy csak jobbra szabad fordulni.
+                    Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
+                    felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
+                    Az utlsó példában a kapcsolat egy tavat határoz meg két út segítségével.
+                    <programlisting language="xml">
+<![CDATA[
  <relation id="23104" visible="true" version="8" changeset="22068566" timestamp="2014-05-01T17:22:38Z" user="akosbarta" uid="1731170">
   <member type="way" ref="202670924" role=""/>
   <member type="way" ref="185521439" role=""/>
@@ -629,42 +674,6 @@
   <tag k="type" v="route"/>
  </relation>
 ...
- <relation id="371740" visible="true" version="33" changeset="17753628" timestamp="2013-09-09T17:17:53Z" user="Lübeck" uid="55462">
-  <member type="way" ref="237271703" role=""/>
-  <member type="relation" ref="377767" role=""/>
-  <member type="relation" ref="171821" role=""/>
-  <member type="relation" ref="963212" role=""/>
-  <member type="relation" ref="1621355" role=""/>
-  <member type="relation" ref="1157562" role=""/>
-  <member type="relation" ref="1405326" role=""/>
-  <member type="relation" ref="1144854" role=""/>
-  <member type="relation" ref="2376439" role=""/>
-  <member type="relation" ref="2376091" role=""/>
-  <tag k="description" v="Spain - France - Switzerland - Germany - Austria - Hungary - Romania - Bulgaria - Greece - Cyprus"/>
-  <tag k="length" v="10450"/>
-  <tag k="name" v="European long distance path E4"/>
-  <tag k="name:de" v="Europäischer Fernwanderweg E4"/>
-  <tag k="name:en" v="European long distance path E4"/>
-  <tag k="name:fr" v="Chemin de randonnée Européen E4"/>
-  <tag k="name:pl" v="Europejski długodystansowy szlak pieszy E4"/>
-  <tag k="network" v="iwn"/>
-  <tag k="note" v="Main relation containing relations by countries"/>
-  <tag k="operator" v="European Ramblers Association"/>
-  <tag k="operator:ch" v="Dachverband Schweizer Wanderwege"/>
-  <tag k="operator:de" v="Deutscher Wanderverband"/>
-  <tag k="operator:es" v="Federación Española de Deportes de Montaña y Escalada"/>
-  <tag k="operator:fr" v="Fédération Française de la Randonnée Pédestre"/>
-  <tag k="operator:hu" v="Hungarian Nature-Friends Association"/>
-  <tag k="osmc:symbol" v="blue:blue::E4:yellow"/>
-  <tag k="ref" v="E4"/>
-  <tag k="route" v="hiking"/>
-  <tag k="type" v="superroute"/>
-  <tag k="website" v="http://www.era-ewv-ferp.com/index.php?topmenu_id=29&amp;id=29&amp;page_id=108&amp;module=text"/>
-  <tag k="wikipedia" v="fr:Sentier européen E4"/>
-  <tag k="wikipedia:en" v="http://en.wikipedia.org/wiki/E4_European_long_distance_path"/>
-  <tag k="wikipedia:pl" v="http://pl.wikipedia.org/wiki/Europejski_d%C5%82ugodystansowy_szlak_pieszy_E4"/>
- </relation>
-...
  <relation id="3898165" visible="true" version="1" changeset="24228315" timestamp="2014-07-18T19:59:18Z" user="vakulya" uid="1559158">
   <member type="way" ref="293340659" role="outer"/>
   <member type="way" ref="293340658" role="inner"/>
@@ -672,47 +681,11 @@
   <tag k="type" v="multipolygon"/>
   <tag k="water" v="lake"/>
  </relation>
-</osm>
 ]]>
                     </programlisting>
                 </para>
                 <para>
-                    A fenti XML kódcsipetben az <emphasis>osm version="0.6"</emphasis> tag jelöli az OSM Editing API verzióját,
-                    amin keresztül letöltöttük az XML állományt.
-                    A <emphasis>bounds</emphasis> tag tartalmazza az exportált területet behatároló
-                    <emphasis>minlat</emphasis>, <emphasis>minlon</emphasis>, <emphasis>maxlat</emphasis>, <emphasis>maxlon</emphasis> értékeket.
-                </para>
-                <para>
-                    Az XML állományban garantáltan elől szerepelnek a csomópontok,
-                    utánuk jönnek az utak, majd végül a kapcsolatok zárják a sort.
-                    Viszont az nincs garantálva, hogy minden elemnek pozitív id-ja van, vagy hogy id szerint rendezve vannak.
-                </para>
-                <para>
-                    Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb és ezeknek van a legfontosabb szerepe,
-                    mivel csak itt vannak a földrajzi koordináták megadva.
-                    Példánkban szerepelnek olyan csomópontok, amiknek címkei is vannak,
-                    így ezeknek a csomópontoknak önmagukban is van jelentésük, mint például egy internet kávézó vagy egy templom.
-                    Címkék nélküli csomópontok általában egy út vagy kapcsolat részeként kapnak értelmet.
-                    Megfigyelhető, hogy számos egyéb információt is tartalmazhatnak a címkék
-                    (a címkékről bővebben lásd <link xlink:href="http://taginfo.openstreetmap.org">http://taginfo.openstreetmap.org</link>).
-                </para>
-                <para>
-                    Az <emphasis>út</emphasis> típusok alkotják az állományban a következő blokkot. Az út tipusú elemeknek önmagukban nincsenek földrajzi koordinátái,
-                    viszont tartalmazzák az őket alkotó csomópontok <emphasis>id</emphasis> referenciáit, ami alapján kirajzolódnak.
-                    A <emphasis>k="highway"</emphasis> címke kulcs tagja jelöli, hogy ez esetben egy konkrét útról, utcáról van szó, amin közlekedni lehet.
-                    Más esetekben az utak jelölhetik például egy épület körvonalait.
-                </para>
-                <para>
-                    Az utolsó kategória a <emphasis>kapcsolat</emphasis> típusok blokk.
-                    Egy kapcsolat tartalmazza csomópontok és utak referenciáit és szerepüket.
-                    Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat (<emphasis>member type="way"</emphasis>) tartalmaz.
-                    Látható, hogy a <emphasis>role</emphasis> (szerep) mező üresen is hagyható.
-                    Másik példában egy térséget határoznak meg az utak.
-                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
-                    ami két út és az őket összekötő csomopontban megadja, hogy csak jobbra szabad fordulni.
-                    Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
-                    felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
-                    Az utlsó példában a kapcsolat egy tavat határoz meg két út segítségével.
+                    Véleményem szerint meglepő, hogy milyen részletességgel van jelen ennyi adat kis városunkról.
                 </para>
             </section>
             <section>
@@ -731,7 +704,7 @@
                 <para>
                     Az Osmium könyvtár legújabb verziója elérhető a projekt GitHub tárolójából:
                     <link xlink:href="https://github.com/osmcode/libosmium">https://github.com/osmcode/libosmium</link>.
-                    A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban (Protocolbuffer Binary Format).
+                    A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban.
                     A beolvasott adatokat a memóriában, bufferekben tárolja, amihez a handler interfészen keresztül bejárást biztosít.
                     Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
                 </para>
@@ -1025,9 +998,9 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                     </para>
                 </section>
                 <section>
-                    <title>Buszjáratok megállóinak kilistázása</title>
+                    <title>Buszjáratok menetrendje</title>
                     <para>
-                        A második példaprogram Debrecen buszjáratait listázza ki,
+                        A második példaprogram Debrecen buszjáratainak menetrendjét írja ki,
                         buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
                         aki felvitte vagy utoljára módosította az objektumot.
                         A tejes program leklónozható a következő git repóból:
@@ -1039,6 +1012,122 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                             <textobject>
                                 <textdata fileref="src/buszjarat/buszjarat.cpp"/>
                             </textobject>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Az utcákat kilistázó programhoz hasonlóan bejárjuk a <emphasis>buffer</emphasis> tartalmát,
+                        és ha kapcsolat típussal találkozunk, akkor megvizsgáljuk,
+                        hogy a <emphasis>route</emphasis> kulcsnak mi az értéke.
+                        Ha az értéke "bus", akkor ez egy buszjárat.
+                        <programlisting language="C++">
+<![CDATA[
+const char* route = relation.get_value_by_key("route", "");
+if (!strncmp(route, "bus", 3))
+{
+...
+}
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Nem minden kapcsolatnak van <emphasis>route</emphasis> kulcsú tagja.
+                        Ha nincs, akkor <emphasis>nullptr</emphasis>-t kapunk vissza és
+                        így az összehasonlításban elszállna a programunk.
+                        Hogy ezt elkerüljük és a kódunk is elegáns maradjon,
+                        megadjuk a <emphasis>get_value_by_key</emphasis> metódusnak második paraméterként,
+                        hogy mivel térjen vissza, ha nem találta meg a keresett kulcsot.
+                        <programlisting language="C++">
+<![CDATA[
+const char* get_value_by_key(const char* key, const char* default_value = nullptr) const noexcept {
+  auto result = std::find_if(cbegin(), cend(), [key](const Tag& tag) {
+    return !strcmp(tag.key(), key);
+  });
+  if (result == cend()) {
+    return default_value;
+  } else {
+    return result->value();
+  }
+}
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A program bonyolultságát az adja,
+                        hogy bár a <emphasis>relation</emphasis> elemeihez könnyedén hozzáférhetünk
+                        a <emphasis>members</emphasis> metóduson keresztül,
+                        de azok <emphasis>RelationMember</emphasis> típusúak és így csak alap információkat
+                        (id, típus, szerep) nyújt az elemről, így magát az elemet nem érjük el.
+                        <programlisting language="C++">
+<![CDATA[
+for (const auto& member : relation.members())
+{
+  if (member.type() == osmium::item_type::node &&
+      !strncmp(member.role(), "stop", 4))
+...
+}
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Mivel szükségünk van a megállók koordinátáira, ezért nincs más választásunk,
+                        mint eltárolni minden csomópont helyét a bufferben.
+                        Esetünkben a <emphasis>osmium::unsigned_object_id_type</emphasis> (csomópont azonosító id) lesz a kulcs,
+                        az érték pedig a bufferben mért <emphasis>size_t</emphasis> offset (eltolás).
+                        A csomópont id-k, nagy számok lévén, ritkán töltik fel a táblázatot, amiben tároljuk őket.
+                        Ennek támogatására használjuk a Google <emphasis>sparsetable</emphasis> adatstruktúrát,
+                        ami memória-hatékonyan tárolja a hiányosan feltöltött hash táblákat.
+                        Az adatstruktúra kezelését az Osmium könyvtár végzi, nekünk csak használni kell azt.
+                        <programlisting language="C++">
+<![CDATA[
+typedef osmium::index::map::SparseMemTable<osmium::unsigned_object_id_type, size_t> offset_index_type;
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A táblázat feltöltésénél kihasználjuk a buffer azon tulajdonságát,
+                        hogy a csomópont típusú elemek találhatóak a buffer legelején,
+                        tehát megelőzik a kapcsolat típusú elemeket.
+                        <programlisting language="C++">
+<![CDATA[
+offset_index_type node_index;
+size_t offset = 0;
+
+for (const auto& item : buffer)
+{
+  if (item.type() == osmium::item_type::node)
+  {
+    const osmium::Node& node = static_cast<const osmium::Node&>(item);
+
+    node_index.set(node.positive_id(), m_offset);
+    offset += node.byte_size();
+  }
+...
+}
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        Végezetül előszedjük a bufferből a <emphasis>member</emphasis> nyújtotta id alapján
+                        a megfelelő csomópontot.
+                        Előfordulhat, hogy az egyes buszjáratoknak a térképen kívül eső buszmegállói vannak,
+                        ami azt eredményezi, hogy bár a buszjárat kapcsolatban szerepel tagként a csomópont referenciája,
+                        de a csomópontok közt nincs maga a csomópont.
+                        Ekkor, a <emphasis>SparseMemTable::get</emphasis> metódusa std::runtime_error kivételt dob,
+                        ha nem található a keresett elem, amit a programunkkal elkapunk.
+                        Egy lehetséges megoldás, hogy nagyobb területű térképet exportálunk az adatbázisból.
+                        <programlisting language="C++">
+<![CDATA[
+try
+{
+  const size_t offset = node_index.get(member.positive_ref());
+  const osmium::Node& node = buffer.get<const osmium::Node>(offset);
+...
+}
+catch (std::runtime_error& e)
+{
+  std::cerr << e.what() << std::endl;
+}
+]]>
                         </programlisting>
                     </para>
                     <para>
