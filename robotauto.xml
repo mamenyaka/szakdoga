@@ -137,16 +137,56 @@
                 <date>2015-04-21</date>
                 <revremark>libosmium példaprogramok és magyarázatuk (part 2)</revremark>
             </revision>
+            <revision>
+                <revnumber>0.0.8</revnumber>
+                <date>2015-04-25</date>
+                <revremark>Bevezetés fejezet elkezd</revremark>
+            </revision>
         </revhistory>
     </info>
     <section>
         <title>Bevezetés</title>
         <para>
-            Intuitív és szakmai bevezetés.
+            Napjaink egyik legfelkapotabb témája,
+            ami az autóipar és a számítástechnika gyermekeként látott napvilágot,
+            ami teljesen más elgondolásban világítaná meg a közlekedésről alkotott fogalmunkat, 
+            és ami gyökeresen megváltoztatná egy egész város életét,
+            nem más, mint a vezető nélküli autók, vagy másnéven, az önjáró autók.
+            Nem kisebb nevek, mint maga a Google, és számos piacvezető autógyártó cég,
+            mint például az Audi, BMW, Chevrolet, Mercedes vagy a Toyota, töri azon a fejét, hogy
+            hogyan lehetne a Sci-Fi filmek által előrevetített jövőképet elhozni a XXI. századba.
+        </para>
+        <para>
+            Dolgozatom célja egy olyan platform tervezése és implementálása,
+            amely a város és a benne közlekedő önvezető autók kapcsolatát vizsgálja.
+            A koncepció azt feltételezi, hogy a közeljövőben egy adott városban kizárólag ilyen robotautók közlekednek,
+            a hagyományos autók egyáltalán nem vesznek részt a forgalomban.
+            Minden egyes autó összekötettésben áll egymással és magával a várossal, így a forgalom szinte életre kel.
+            A város ismeri az autók helyzetét és mozgását, ezáltal képes lehet mozgásban tartani a forgalmat,
+            azzal, hogy megelőzi a dugókat és az egyéb fennakadásokat.
+        </para>
+        <para>
+            A közlekedésben az egyik legfontosabb szerepet a megfelelő útvonal kiválasztása játsza.
+            Ahhoz, hogy meg tudjuk tervezni a legjobb útvonalat, szükségük van minél több információra a jelenlegi
+            forgalmi helyzettel kapcsolatban.
+            Ha tudjuk minden autó helyzetét és mozgását, könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
+            mind az idő szempontjából, mind a forgalom szempontjából.
+            A robotautóknak csak annyi a dolga, hogy közlik a városi forgalomirányító felhővel, hogy hova szeretnének eljutni,
+            a városi adatfelhő meg elvégzi az útvonalkeresést.
+            Ez az útvonalkeresés a platform lelke, ami a verseny jelleget is adja,
+            hogy melyik algoritmus vezérli a legjobban a forgalmat.
+        </para>
+        <para>
+            A platform tetszőleges térképen teremti meg virtuálisan a jövő forgalmát,
+            és ebből adódóan a világ összes városa otthont adhat a versenynek.
+            Ez a tény ihlette dolgozatom címét, ami miatt a vezérlő algoritmusok versenyét világbajnokságnak is hívhatjuk,
+            remélve, hogy a platform keretein belül jelesen szereplő algoritmusok egyikbe vezérli majd a jövő robotautóit.
         </para>
         <section>
             <title>Szakirodalmi háttér</title>
             <para>
+                A robotautó
+                <citation>Singapore</citation>
                 A kapcsolódó főbb tudományos publikációk hivatkozása és 1-2 mondatos összefoglalása.
             </para>
         </section>
@@ -160,8 +200,25 @@
         <section>
             <title>A dolgozat szervezése és szerkezete</title>
             <para>
-                Hol elérhető, például repóban? Miben készült?
-                A szereplő konkrét fejezetek milyen sorrendben milyen tartalomal szerepelnek (1-2 mondat fejezetenként).
+                A dolgozat két fő fejezetből áll.
+                A bevezető gondolatok után az első fejezet "A fejlesztés háttere", ami
+                összefoglalja a fejlesztést megelőző kutatómunkát, melynek keretein belül számos kisebb példaprogram is készült.
+                Ezeken a példaprogramok keresztül ismerkedtem meg a kiválasztott térképmegoldással és az azt támogató könyvtárral.
+                A második fejezet az általam fejlesztett robotautó platformot mutatja be részletesen,
+                annak tervezését és kivitelezését, a fejlesztés során felmerült problémákat és azok megoldását,
+                majd végül a használatát és eredményeit.
+                A dolgozatot az összegző gondolatok és a jövőbeli tervek zárják.
+            </para>
+            <para>
+                Dolgozatom DocBook 5.1 jelölőnyelben készült,
+                ami kimondottan a szoftverről szóló könyveket és dolgozatokat támogatja.
+                A dolgozat a legfrissebb hivatalos DocBook documentáció <citation>DocBook</citation> alapján írodott.
+            </para>
+            <para>
+                Az XML forrás elérhető az alábbi git tárolóban:
+                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga.git">https://bitbucket.org/mamenyaka/szakdoga.git</link>.
+                DocBook XML-ből olvasható PDF dokumentumot a <emphasis>dblatex</emphasis> eszközzel lehet előállítani,
+                ami köztes lépésként LaTeX formátumba konvertál, majd abból állítja elő a PDF-et.
             </para>
         </section>
     </section>
@@ -838,7 +895,7 @@ andras@G53SW:~/Programs/libosmium/build$ make doc
                     <para>
                         Az első példaprogram az OpenStreetMap oldaláról exportált Debrecen térképről listázza ki az utcákat.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak">https://bitbucket.org/mamenyaka/utcak</link>
+                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak.git">https://bitbucket.org/mamenyaka/utcak.git</link>
                     </para>
                     <para>
                         Az utcak.cpp forrása:
@@ -1004,7 +1061,7 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                         buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
                         aki felvitte vagy utoljára módosította az objektumot.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat">https://bitbucket.org/mamenyaka/buszjarat</link>
+                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat.git">https://bitbucket.org/mamenyaka/buszjarat.git</link>
                     </para>
                     <para>
                         Az buszjarat.cpp forrása:
@@ -1307,6 +1364,70 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
     </section>
     <bibliography>
         <title>Irodalomjegyzék</title>
+        <biblioentry>
+            <abbrev>DocBook</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norman</firstname>
+                        <surname>Walsh</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>DocBook 5.1: The Definitive Guide</title>
+            <publisher>
+                <publishername>O'Reilly Media, 
+                    <link xlink:href="http://www.docbook.org/tdg51/en/html/docbook.html">http://www.docbook.org/tdg51/en/html/docbook.html</link>
+                </publishername>                    
+            </publisher>
+            <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Singapore</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Kevin</firstname>
+                        <surname>Spieser</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Kyle Ballantyne</firstname>
+                        <surname>Treleaven</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Rick</firstname>
+                        <surname>Zhang</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Emilio</firstname>
+                        <surname>Frazzoli</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Daniel</firstname>
+                        <surname>Morton</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Marco</firstname>
+                        <surname>Pavone</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Toward a Systematic Approach to the Design and Evaluation of Automated Mobility-on-Demand Systems: A Case Study in Singapore</title>
+            <publisher>
+                <publishername>Springer</publishername>
+            </publisher>
+            <pubdate>2014</pubdate>
+        </biblioentry>
         <biblioentry>
             <abbrev>OSMstats</abbrev>
             <title>OpenStreetMap stats</title>
