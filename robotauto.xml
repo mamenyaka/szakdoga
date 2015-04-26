@@ -142,18 +142,23 @@
                 <date>2015-04-25</date>
                 <revremark>Bevezetés fejezet elkezd</revremark>
             </revision>
+            <revision>
+                <revnumber>0.0.9</revnumber>
+                <date>2015-04-26</date>
+                <revremark>Bevezetés fejezet befejez</revremark>
+            </revision>
         </revhistory>
     </info>
     <section>
         <title>Bevezetés</title>
         <para>
             Napjaink egyik legfelkapotabb témája,
-            ami az autóipar és a számítástechnika gyermekeként látott napvilágot,
-            ami teljesen más elgondolásban világítaná meg a közlekedésről alkotott fogalmunkat, 
-            és ami gyökeresen megváltoztatná egy egész város életét,
-            nem más, mint a vezető nélküli autók, vagy másnéven, az önjáró autók.
+            ami teljesen más elgondolásban világítaná meg a közlekedésről alkotott képünket, 
+            és ami gyökeresen változtatná meg egy egész város életét,
+            nem más, mint az autóipar és a számítástechnika gyermeke,
+            a vezető nélküli autók, vagy másnéven, az önjáró autók.
             Nem kisebb nevek, mint maga a Google, és számos piacvezető autógyártó cég,
-            mint például az Audi, BMW, Chevrolet, Mercedes vagy a Toyota, töri azon a fejét, hogy
+            mint például az Audi, BMW, Chevrolet, Mercedes vagy a Toyota töri azon a fejét, hogy
             hogyan lehetne a Sci-Fi filmek által előrevetített jövőképet elhozni a XXI. századba.
         </para>
         <para>
@@ -167,11 +172,11 @@
         </para>
         <para>
             A közlekedésben az egyik legfontosabb szerepet a megfelelő útvonal kiválasztása játsza.
-            Ahhoz, hogy meg tudjuk tervezni a legjobb útvonalat, szükségük van minél több információra a jelenlegi
+            Ahhoz, hogy meg tudjuk tervezni a legjobb útvonalat szükségük van minél több információra a jelenlegi
             forgalmi helyzettel kapcsolatban.
-            Ha tudjuk minden autó helyzetét és mozgását, könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
+            Ha tudjuk minden autó helyzetét és mozgását könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
             mind az idő szempontjából, mind a forgalom szempontjából.
-            A robotautóknak csak annyi a dolga, hogy közlik a városi forgalomirányító felhővel, hogy hova szeretnének eljutni,
+            A robotautóknak csak annyi a dolguk, hogy közlik a városi forgalomirányító felhővel, hogy hova szeretnének eljutni,
             a városi adatfelhő meg elvégzi az útvonalkeresést.
             Ez az útvonalkeresés a platform lelke, ami a verseny jelleget is adja,
             hogy melyik algoritmus vezérli a legjobban a forgalmat.
@@ -185,11 +190,16 @@
         <section>
             <title>Szakirodalmi háttér</title>
             <para>
-                A robotautó
-                <citation>Singapore</citation>
-                A kapcsolódó főbb tudományos publikációk hivatkozása és 1-2 mondatos összefoglalása.
+                A tudományos szakirodalomban is jelen vannak a robotautó témájú publikációk,
+                mint például a <citation>Singapore</citation> esettanulmány, ami azt vizsgálja,
+                hogy milyen előnyökkel járna, ha Szingapúr városának személyszállítását lecserélnénk megosztott önjáró autókra.
+                A hivatkozott cikk egy matematikai modell alapján kiszámolta,
+                hogy legkevesebb 92 693 ilyen autóra lenne szükség a 2008-ban számolt 1 144 400 háztartás ellátásához.
+                A kényelmesebb várakozási idő érdekében ez a szám elérheti a 200-300 ezres határt is,
+                viszont még ez a szám is csak körübelül a jelenlegi autók számának mindössze az 1/3-a.
             </para>
         </section>
+        <!--
         <section>
             <title>Megelőző és kapcsolódó munkák</title>
             <para>
@@ -197,6 +207,7 @@
                 közösség eredményeit kiemelve.
             </para>
         </section>
+        -->
         <section>
             <title>A dolgozat szervezése és szerkezete</title>
             <para>
@@ -210,7 +221,7 @@
                 A dolgozatot az összegző gondolatok és a jövőbeli tervek zárják.
             </para>
             <para>
-                Dolgozatom DocBook 5.1 jelölőnyelben készült,
+                Dolgozatom DocBook 5.1 jelölőnyelvben készült,
                 ami kimondottan a szoftverről szóló könyveket és dolgozatokat támogatja.
                 A dolgozat a legfrissebb hivatalos DocBook documentáció <citation>DocBook</citation> alapján írodott.
             </para>
@@ -922,7 +933,7 @@ for (const auto& item : buffer)
 ]]>
                         </programlisting>
                         Az elemeket konstans referenciaként érjük el,
-                        a C++11-es <emphasis>auto</emphasis> specifikátor seg1ítségével az <emphasis>item</emphasis> típusa automatikusan ki lesz következtetve
+                        a C++11-es <emphasis>auto</emphasis> specifikátor segítségével az <emphasis>item</emphasis> típusa automatikusan ki lesz következtetve
                         (jelen esetben <emphasis>osmium::OSMEntity</emphasis>, ami az alap absztrakt ősosztálya az OSM objektumoknak).
                         <figure xml:id="OSMEntity">
                             <title>Az <emphasis>osmium::OSMEntity</emphasis> öröklődési diagramja a dokumentáció szerint</title>
