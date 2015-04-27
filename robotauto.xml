@@ -44,7 +44,7 @@
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.6</edition>
+        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.1.0</edition>
         <pubdate>2015</pubdate>
         <copyright>
             <year>2015</year>
@@ -52,24 +52,8 @@
             <holder>Mamenyák András</holder>
         </copyright>
         <legalnotice>
-            <para>UDProg, Robotautó Világbajnokság
-            </para>
             <para>
-                This program is free software: you can redistribute it and/or modify
-                it under the terms of the GNU General Public License as published by
-                the Free Software Foundation, either version 3 of the License, or
-                (at your option) any later version.
-            </para>
-            <para>
-                This program is distributed in the hope that it will be useful,
-                but WITHOUT ANY WARRANTY; without even the implied warranty of
-                MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-                GNU General Public License for more details.
-            </para>
-            <para>
-                You should have received a copy of the GNU General Public License
-                along with this program.  If not, see
-                <link xlink:href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</link>.
+                UDProg, Robotautó Világbajnokság
             </para>
             <para>
                 Ez a program szabad szoftver; terjeszthető illetve módosítható a
@@ -98,14 +82,16 @@
             <revision>
                 <revnumber>0.0.1</revnumber>
                 <date>2014-11-24</date>
-                <revremark>Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
+                <revremark>
+                    Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
                     A szereplő tételekből kiindulva a jelöltek könnyebben készíthetik el a saját munkájukra hangolva a
-                    saját tartalomjegyzéküket.</revremark>
+                    saját tartalomjegyzéküket.
+                </revremark>
             </revision>
             <revision>
                 <revnumber>0.0.2</revnumber>
                 <date>2014-11-25</date>
-                <revremark>Térképmegoldások összehasonlítása fejezet</revremark>
+                <revremark>Térképmegoldások összehasonlítása</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.3</revnumber>
@@ -125,17 +111,17 @@
             <revision>
                 <revnumber>0.0.6</revnumber>
                 <date>2014-11-27</date>
-                <revremark>libosmium példaprogramok és magyarázatuk (part 1)</revremark>
+                <revremark>libosmium példaprogramok elkezd</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.7</revnumber>
                 <date>2015-04-17</date>
-                <revremark>doksi felfrissítése</revremark>
+                <revremark>libosmium példaprogramok befejez</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.8</revnumber>
                 <date>2015-04-21</date>
-                <revremark>libosmium példaprogramok és magyarázatuk (part 2)</revremark>
+                <revremark>doksi felfrissítése</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.8</revnumber>
@@ -146,6 +132,11 @@
                 <revnumber>0.0.9</revnumber>
                 <date>2015-04-26</date>
                 <revremark>Bevezetés fejezet befejez</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.1.0</revnumber>
+                <date>2015-04-27</date>
+                <revremark>Jusztina fejezet</revremark>
             </revision>
         </revhistory>
     </info>
@@ -162,7 +153,7 @@
             hogyan lehetne a Sci-Fi filmek által előrevetített jövőképet elhozni a XXI. századba.
         </para>
         <para>
-            Dolgozatom célja egy olyan platform tervezése és implementálása,
+            Dolgozatom célja egy olyan emulátor platform tervezése és implementálása,
             amely a város és a benne közlekedő önvezető autók kapcsolatát vizsgálja.
             A koncepció azt feltételezi, hogy a közeljövőben egy adott városban kizárólag ilyen robotautók közlekednek,
             a hagyományos autók egyáltalán nem vesznek részt a forgalomban.
@@ -174,18 +165,19 @@
             A közlekedésben az egyik legfontosabb szerepet a megfelelő útvonal kiválasztása játsza.
             Ahhoz, hogy meg tudjuk tervezni a legjobb útvonalat szükségük van minél több információra a jelenlegi
             forgalmi helyzettel kapcsolatban.
-            Ha tudjuk minden autó helyzetét és mozgását könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
+            Ha tudjuk minden autó helyzetét és mozgását, könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
             mind az idő szempontjából, mind a forgalom szempontjából.
             A robotautóknak csak annyi a dolguk, hogy közlik a városi forgalomirányító felhővel, hogy hova szeretnének eljutni,
             a városi adatfelhő meg elvégzi az útvonalkeresést.
-            Ez az útvonalkeresés a platform lelke, ami a verseny jelleget is adja,
-            hogy melyik algoritmus vezérli a legjobban a forgalmat.
+            Az útvonalkeresés az emulátor lelke, a legfőbb komponens, ezért
+            egy verseny keretében kutatjuk azt a forgalomirányító algoritmust,
+            amelyik a legjobban vezérli a forgalmat.
         </para>
         <para>
-            A platform tetszőleges térképen teremti meg virtuálisan a jövő forgalmát,
+            Az emulátor tetszőleges térképen teremti meg virtuálisan a jövő forgalmát,
             és ebből adódóan a világ összes városa otthont adhat a versenynek.
             Ez a tény ihlette dolgozatom címét, ami miatt a vezérlő algoritmusok versenyét világbajnokságnak is hívhatjuk,
-            remélve, hogy a platform keretein belül jelesen szereplő algoritmusok egyikbe vezérli majd a jövő robotautóit.
+            remélve, hogy a platform keretein belül jelesen szereplő algoritmusok egyike vezérli majd a jövő robotautóit.
         </para>
         <section>
             <title>Szakirodalmi háttér</title>
@@ -227,7 +219,9 @@
             </para>
             <para>
                 Az XML forrás elérhető az alábbi git tárolóban:
-                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga.git">https://bitbucket.org/mamenyaka/szakdoga.git</link>.
+                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga.git">
+                    https://bitbucket.org/mamenyaka/szakdoga.git
+                </link>.
                 DocBook XML-ből olvasható PDF dokumentumot a <emphasis>dblatex</emphasis> eszközzel lehet előállítani,
                 ami köztes lépésként LaTeX formátumba konvertál, majd abból állítja elő a PDF-et.
             </para>
@@ -239,19 +233,32 @@
             <title>A fejlesztés háttere</title>
             <section>
                 <title>Térképmegoldások összehasonlítása</title>
+                <para>
+                    A platform bemenetét egy adott város térképe biztosítja, ezért fontos,
+                    hogy jó minőségű, megszorítások nélkül használható megoldást találjunk.
+                    Jelenleg a piacon lévő elterjedt térképmegoldások a következőek:
+                    Google Maps, HERE, Bing Maps és OpenStreetMap.
+                    Ezek közt kell megtalálni az elvárásoknak legjobban megfelelőt,
+                    azt amelyik a legtöbb lehetőséget nyújtja.
+                    Kizáró oknak minősül, ha a vizsgált megoldás nem rendelkezik kellően szabad licenccel.
+                </para>
                 <section>
                     <title>Google Maps</title>
                     <para>
                         Napjaink egyik legelterjedtebb térképmegoldása a Google Maps, amit a Google cég fejleszt.
                         A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben
-                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>) vagy okostelefon alkalmazással.
-                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a GlobalWebIndex alapján <citation>GWI</citation>.
+                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>)
+                        vagy okostelefon alkalmazással.
+                        2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a GlobalWebIndex alapján
+                        <citation>GWI</citation>.
                     </para>
                     <para>
                         A Google Maps számos API-t sorakoztat fel, amik lehetővé teszik,
                         hogy beágyazzuk a Google Maps térképeit, funkcióit saját weblapunkba vagy alkalmazásunkba.
                         Ezek az API-k a következők
-                        (<link xlink:href="https://developers.google.com/maps/documentation">https://developers.google.com/maps/documentation</link>):
+                        (<link xlink:href="https://developers.google.com/maps/documentation">
+                            https://developers.google.com/maps/documentation
+                        </link>):
                         <itemizedlist>
                             <listitem>
                                 <para>JavaScript API v3</para>
@@ -283,9 +290,15 @@
                         Licenc szempontjából sok megszorítás van a Google Maps API ingyenes használatában.
                         Többek közt kötelező, hogy a szolgáltatásunk ingyenesen és nyilvánosan elérhető legyen.
                         Továbbá alkalmazásunk nem haladhatja meg a 2500 kérés/nap határt sem
-                        (részletesebben lásd: <link xlink:href="https://developers.google.com/maps/licensing">https://developers.google.com/maps/licensing</link>).
+                        (részletesebben lásd:
+                        <link xlink:href="https://developers.google.com/maps/licensing">
+                            https://developers.google.com/maps/licensing
+                        </link>).
                         A licenc megtiltja, hogy lemásoljuk, módosítsuk vagy exportáljuk a Google Maps API által szolgáltatott adatokat
-                        (lásd a 10.1.3-as részt, "Restrictions against Copying or Data Export": <link xlink:href="https://developers.google.com/maps/terms">https://developers.google.com/maps/terms</link>).
+                        (lásd a 10.1.3-as részt, "Restrictions against Copying or Data Export":
+                        <link xlink:href="https://developers.google.com/maps/terms">
+                            https://developers.google.com/maps/terms
+                        </link>).
                     </para>
                     <para>
                         A licenc szigorúsága miatt elvetettük a Google Maps használatát a Robotautó emulátorban.
@@ -296,7 +309,9 @@
                     <title>HERE</title>
                     <para>
                         A HERE (régebbi nevén Ovi Maps és Nokia Maps) a Nokia cég által fejlesztett termékcsomag, ami magába foglalja közel 200 ország térképét.
-                        A szolgáltatás elérhető a weben (<link xlink:href="http://here.com">http://here.com</link>) vagy okostelefon alkalmazással.
+                        A szolgáltatás elérhető a weben
+                        (<link xlink:href="http://here.com">http://here.com</link>)
+                        vagy okostelefon alkalmazással.
                     </para>
                     <para>
                         A HERE API-k a következők
@@ -312,7 +327,10 @@
                     </para>
                     <para>
                         A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé"
-                        (lásd a 6.-os részt, "A Tartalom": <link xlink:href="http://here.com/terms/service-terms/hu">http://here.com/terms/service-terms/hu</link>).
+                        (lásd a 6.-os részt, "A Tartalom":
+                        <link xlink:href="http://here.com/terms/service-terms/hu">
+                            http://here.com/terms/service-terms/hu
+                        </link>).
                     </para>
                     <para>
                         A licenc megszorításai miatt elvetettük a HERE használatát a Robotautó emulátorban.
@@ -323,11 +341,15 @@
                     <title>Bing Maps</title>
                     <para>
                         A Bing Maps platform a Microsoft cég által fejlesztett Bing kereső szolgáltatás része, régebbi nevén Microsoft Virtual Earth.
-                        A szolgáltatás elérhető a weben (<link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>) és Windows Phone platformon.
+                        A szolgáltatás elérhető a weben
+                        (<link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>)
+                        és Windows Phone platformon.
                     </para>
                     <para>
                         A Bing Maps API-k a következők
-                        (<link xlink:href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx</link>):
+                        (<link xlink:href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">
+                            http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx
+                        </link>):
                         <itemizedlist>
                             <listitem>
                                 <para>Windows Store alkalmazásokhoz: JavaScript API, .NET API</para>
@@ -348,7 +370,10 @@
                     </para>
                     <para>
                         A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, arhiváljuk vagy a Tartalm alapján adatbázist hozzunk létre
-                        (lásd a 3.2-es részt, "General Restrictions" <link xlink:href="http://www.microsoft.com/maps/product/terms.html">http://www.microsoft.com/maps/product/terms.html</link>).
+                        (lásd a 3.2-es részt, "General Restrictions":
+                        <link xlink:href="http://www.microsoft.com/maps/product/terms.html">
+                            http://www.microsoft.com/maps/product/terms.html
+                        </link>).
                     </para>
                     <para>
                         A licenc megszorításai miatt elvetettük a Bing Maps használatát a Robotautó emulátorban.
@@ -358,7 +383,9 @@
                 <section>
                     <title>OpenStreetMap</title>
                     <para>
-                        Az OpenStreetMap (<link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>) egy olyan közösségi projekt,
+                        Az OpenStreetMap
+                        (<link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>)
+                        egy olyan közösségi projekt,
                         aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
                         A projektet a Wikipedia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
                         Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani,
@@ -379,11 +406,15 @@
                     <para>
                         Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API,
                         ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál
-                        (<link xlink:href="http://wiki.openstreetmap.org/wiki/API">http://wiki.openstreetmap.org/wiki/API</link>).
+                        (<link xlink:href="http://wiki.openstreetmap.org/wiki/API">
+                            http://wiki.openstreetmap.org/wiki/API
+                        </link>).
                     </para>
                     <para>
                         Az OpenStreetMap nyílt adatokból áll, aminek licence az Open Data Commons Open Database License (ODbL)
-                        (lásd <link xlink:href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</link>).
+                        (lásd <link xlink:href="http://www.openstreetmap.org/copyright">
+                            http://www.openstreetmap.org/copyright
+                        </link>).
                         Ez a licenc lehetővé teszi, hogy szabadon lemásoljuk, terjesszük, módosítsuk az adatokat.
                         Egyetlen feltétele, hogy ha módosítjuk az adatokat, vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
                     </para>
@@ -394,7 +425,7 @@
                 <section>
                     <title>Összegzés</title>
                     <para>
-                        A Robotautó világbajnokság emulátora az OpenStreetMap térképeit fogja használni.
+                        A Robotautó Világbajnokság emulátora az OpenStreetMap térképeit fogja használni.
                     </para>
                     <para>
                         Kérdés: De miért nem egyszerűen a Google Maps-t használjuk, mint mindenki más?
@@ -415,7 +446,10 @@
                     <link xlink:href="http://planet.openstreetmap.org">http://planet.openstreetmap.org</link>.
                     Jelenlegi (2015.04) mérete a tömörített planet állománynak XML formátumban 41 GB,
                     PBF (Protocolbuffer Binary Format) formátumban 27 GB
-                    (bővebben lásd: <link xlink:href="http://wiki.openstreetmap.org/wiki/PBF_Format">http://wiki.openstreetmap.org/wiki/PBF_Format</link>).
+                    (bővebben lásd:
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/PBF_Format">
+                        http://wiki.openstreetmap.org/wiki/PBF_Format
+                    </link>).
                 </para>
                 <para>
                     Legtöbb esetben csak egy város térképére van szükségünk, amit az alábbi módon exportálhatunk:
@@ -530,7 +564,9 @@
                 </para>
                 <para>
                     Bővebb információk az OpenStreetMap wiki oldalán olvashatóak:
-                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Main_Page">http://wiki.openstreetmap.org/wiki/Main_Page</link>
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Main_Page">
+                        http://wiki.openstreetmap.org/wiki/Main_Page
+                    </link>
                 </para>
             </section>
             <section>
@@ -554,7 +590,10 @@
                     utánuk jönnek az <emphasis>út</emphasis> típusú elemek,
                     majd végül a <emphasis>kapcsolat</emphasis> típusú elemek zárják a sort.
                     Viszont az nincs garantálva, hogy minden elemnek pozitív id-ja van, vagy hogy id szerint rendezve vannak
-                    (bővebben lásd: <link xlink:href="http://wiki.openstreetmap.org/wiki/OSM_XML">http://wiki.openstreetmap.org/wiki/OSM_XML</link>).
+                    (bővebben lásd:
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/OSM_XML">
+                        http://wiki.openstreetmap.org/wiki/OSM_XML
+                    </link>).
                 </para>
                 <para>
                     Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb és ezeknek van a legfontosabb szerepe,
@@ -564,7 +603,10 @@
                     mint például egy iskola, templom vagy internet kávézó.
                     Címkék nélküli csomópontok általában egy út vagy kapcsolat részeként kapnak értelmet.
                     Megfigyelhető, hogy számos egyéb információt is tartalmazhatnak a címkék
-                    (a címkékről bővebben lásd: <link xlink:href="http://taginfo.openstreetmap.org">http://taginfo.openstreetmap.org</link>).
+                    (a címkékről bővebben lásd:
+                    <link xlink:href="http://taginfo.openstreetmap.org">
+                        http://taginfo.openstreetmap.org
+                    </link>).
                     <programlisting language="xml">
 <![CDATA[
  <node id="26754899" visible="true" version="10" changeset="22677330" timestamp="2014-06-01T17:02:36Z" user="Kolesár" uid="170666" lat="47.5525471" lon="21.6205428"/>
@@ -762,7 +804,9 @@
                     Számos szoftver létezik ami az OSM térképeit és szolgáltatásait használja.
                     Ezek közül a legfontosabbak a szerkesztő szoftverek, útválasztó szoftverek, renderelő szoftverek,
                     importáló és exportáló szoftverek. Az asztali szoftverek egy listája az alábbi linken található:
-                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Software/Desktop">http://wiki.openstreetmap.org/wiki/Software/Desktop</link>.
+                    <link xlink:href="http://wiki.openstreetmap.org/wiki/Software/Desktop">
+                        http://wiki.openstreetmap.org/wiki/Software/Desktop
+                    </link>.
                     Mi ezek közül a C++-os Osmium keretrendszert fogjuk használni
                     (<link xlink:href="http://osmcode.org/libosmium">http://osmcode.org/libosmium</link>).
                 </para>
@@ -771,14 +815,18 @@
                 <title>Osmium Library</title>
                 <para>
                     Az Osmium könyvtár legújabb verziója elérhető a projekt GitHub tárolójából:
-                    <link xlink:href="https://github.com/osmcode/libosmium">https://github.com/osmcode/libosmium</link>.
+                    <link xlink:href="https://github.com/osmcode/libosmium">
+                        https://github.com/osmcode/libosmium
+                    </link>.
                     A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban.
                     A beolvasott adatokat a memóriában, bufferekben tárolja, amihez a handler interfészen keresztül bejárást biztosít.
                     Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
                 </para>
                 <para>
                     Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License
-                    (<link xlink:href="http://www.boost.org/LICENSE_1_0.txt">http://www.boost.org/LICENSE_1_0.txt</link>).
+                    (<link xlink:href="http://www.boost.org/LICENSE_1_0.txt">
+                        http://www.boost.org/LICENSE_1_0.txt
+                    </link>).
                 </para>
                 <section>
                     <title>Telepítés</title>
@@ -849,7 +897,7 @@ andras@G53SW:~$ sudo apt-get install \
     libbz2-dev \
     libsparsehash-dev \
     libboost-all-dev \
-    libgdal1-dev \
+    libgdal-dev \
     libgeos++-dev \
     libproj-dev \
     doxygen graphviz
@@ -901,12 +949,19 @@ andras@G53SW:~/Programs/libosmium/build$ make doc
             </section>
             <section>
                 <title>Saját libosmium példaprogramok</title>
+                <para>
+                    A robotautó platform elkészítését megelőző kutatási fázisban fontos lépésnek bizonyult
+                    a választott könyvtárral való ismerkedés néhány kisebb példaprogramon keresztül,
+                    amik rendre a könyvtár rugalmasságát és sokoldalúságát mérték fel konkrét feladatok megoldásában.
+                </para>
                 <section>
                     <title>Utcák kilistázása</title>
                     <para>
                         Az első példaprogram az OpenStreetMap oldaláról exportált Debrecen térképről listázza ki az utcákat.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak.git">https://bitbucket.org/mamenyaka/utcak.git</link>
+                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak.git">
+                            https://bitbucket.org/mamenyaka/utcak.git
+                        </link>
                     </para>
                     <para>
                         Az utcak.cpp forrása:
@@ -1072,7 +1127,9 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                         buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
                         aki felvitte vagy utoljára módosította az objektumot.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat.git">https://bitbucket.org/mamenyaka/buszjarat.git</link>
+                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat.git">
+                            https://bitbucket.org/mamenyaka/buszjarat.git
+                        </link>
                     </para>
                     <para>
                         Az buszjarat.cpp forrása:
@@ -1288,10 +1345,176 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>A Robotautó Világbajnokság platformja</title>
                 <para>
+                    Az alábbi fejezet részei a Robotautó Világbajnokság szoftverkövetelmény specifikáció (SRS)
+                    dokumentumból <citation>RCEMU</citation> származnak.
                 </para>
                 <section>
-                    <title>A Justine gyors prototípus</title>
+                    <title>Célok</title>
                     <para>
+                        A Robotautó Világbajnokság egy kutatási kezdeményezés, melynek célja egy olyan
+                        kutatási platform kialakítása, amely lehetővé teszi az intelligens városok és a robotautók
+                        kapcsolatának vizsgálatát. A fejlesztendő rendszer központi eleme az emulátor, amely egyrészt
+                        szimulálja egy város forgalmát, másrészt a forgalomirányítás szempontjából emulálja a város autóit. 
+                        A kifejlesztendő platform egyik feladata lesz a (robot)autók forgalomirányítási bemenetének és
+                        kimenetének finomítása, akár iterálása.
+                    </para>
+                </section>
+                <section>
+                    <title>Célközönség</title>
+                    <para>
+                        A Robotautó Világbajnokság célközönsége rövid távon az egyetemi oktatás és kutatás:
+                        egy olyan egységes platformot akarunk kialakítani,
+                        amely de facto szabványává tud vállni a várhatóan elterjedő robotautók és intelligens városok 
+                        közötti kapcsolatokkal foglalkozó kutatásoknak. 
+                    </para>
+                    <para>
+                        Távolabbi cél, hogy ez a kifejlesztendő kutatási platform elterjedésével képes legyen kialakítani 
+                        egy olyan nyílt ipari platformot,amely az autógyártók számára lehet érdekes,
+                        mert az emulátornak éppen abban az értelemben akarunk emulátor jelleget adni, 
+                        hogy kialakítjuk a robotautók forgalomirányítási aspektusokból értelmezett
+                        majdani valóságos bemenetét és kimenetét.
+                    </para>
+                </section>
+                <section>
+                    <title>A Robocar City Emulator koncepciója</title>
+                    <para>
+                        A projektben fejlesztendő szoftver komponensek legtöbbje kapcsolatba kerül a térképpel (Map),
+                        most konkrétan az OpenStreetMap-el.
+                        A közlekedést mindig egy adott városban (City) vizsgáljuk,
+                        amelyről a priori bírunk információkkal,
+                        illetve automatikusan (ASA) vagy emberi beavatkozással (HSA) segítve gyűjtünk adatokat.
+                        Előbbire példa, amikor egy bekötőút bejövő forgalmát egy kamera
+                        alapú alkalmazás számolja adott időszakban, utóbbira, amikor ugyanezt egy emberi megfigyelő teszi.  
+                        Az emulátor (Robocar City Emulator) a járművek mozgatását emulálja a vizsgált városban, miközben 
+                        minden járművet ugyanazzal a vezérlő algoritmussal (The competition) látunk el. Egy-egy leemulált nap
+                        eredményei (Results) alapján hirdetjük ki a versengő vezérlő algoritmusok között a győztest. 
+                        A versengés alapja például a járművek átlagos utazási idejének a minimalizálása.
+                        Az emulációk mindenféle izgalmas környezetben lesznek megjeleníthetők (Monitors)
+                        például Google Maps vagy OpenStreetMap alapú megjelenítőkben.
+                    </para>
+                    <figure xml:id="Tetris-terv">
+                        <title>A projekt "Tetris-terve"</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="figures/tetris_plan2_400x.png" scale="80"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                </section>
+                <section>
+                    <title>A Robocar City Emulator koncepciójának finomítása</title>
+                    <para>
+                        A valóságban a járművek fizikai léte biztosítja például, hogy egy adott útszakaszon hányan férnek el.
+                        Az autók külön célszámítógépeket tudnak használni az útvonalkijelöléshez.
+                        Nekünk mindezt, de legalábbi ennek valamilyen egyszerű modelljét kezelnünk kell egyetlen szoftverben
+                        a járművek forglamirányítási emulációja során.
+                        A nehézséget a járművek nagy száma okozza.
+                    </para>
+                    <para>
+                        Az előzetes kutatási követelmények a következőek:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    A koncepció térjen ki az emulátor "emulátor-jellegére" egy autó inputjának és outputjának megadásával.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    A térkép nagyszámú csomópontot tartalmaz,
+                                    amelyeket gráfként kell tudni kezelni, például a routing-hoz.
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    A program tudjon kezelni 10<superscript>6</superscript> autót a térképen
+                                    (olyan értelemben valóságosan, hogy adott úton két csomópont közötti terület akár telítődhessen is járművekkel!)
+                                </para>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </section>
+            </section>
+            <section>
+                <title>A Jusztina gyors prototípus</title>
+                <para>
+                    A kutatási terv <citation>Terv</citation>
+                    Jusztina feladata az emulátor eldobható, evolúciós gyors prototípusa.
+                </para>
+                <section>
+                    <title>Jusztina koncepció</title>
+                    <para>
+                        Azt az előzetes követelményt puhítjuk fel, hogy a városban csak robotautók vannak,
+                        azzal, hogy két tipikus járművet különböztetünk meg az emulátorban:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    Túlnyomó többségben vannak az olyan autók, amelyek a szokásos napi rutint futják be.
+                                    Ez leveszi a vállunkról azt a terhet,
+                                    hogy a nagyszámú autónak útvonalat tervezzünk, mert ugye a valóságban ennek nincs akadálya,
+                                    hiszen az autó a saját GPS navigációs célszámítógépével ezt megteheti, de nekünk mindezt szimulálnunk kell!
+                                    Persze azt megemlíthetjük, hogy útvonaltervezésre itt is szükség lehet, de ez az emulációs verseny 
+                                    (a Robotautó Világbajnokság) előtt megtehető, hogy az emulátor már ezeknek a járműveknek olyan
+                                    csomópont listáját kapja, amelynek csomópont elemei folyamatosan a valódi útjára illeszkednek.                         
+                                </para>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    Elenyésző kisebbségben vannak olyan autók, akik inputot vesznek át a várostól
+                                    és ezt felhasználják az útvonaltervezéshez.
+                                </para>
+                            </listitem>  
+                        </itemizedlist>
+                        Az első pontba eső járműveket nevezzük a Jusztina modelljében <emphasis>rutin</emphasis>, 
+                        a másodikba esőket <emphasis>okos</emphasis> járműveknek.
+                    </para>
+                    <para>
+                        Megjegyezhetjük, hogy ez a modell valószínűleg jobban is fog illeszkedni ahhoz a folyamathoz, amely szerint majd a
+                        robotautók elterjednek.
+                    </para>
+                </section>
+                <section>
+                    <title>A Jusztina protó szereplői</title>
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                Az adott város OSM térképe.
+                                A térkép alapján kell egy gráf-csővezeték jellegű modell, amelyben a járműveket mozgatjuk.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                A szimuláció működtetéséhez a gráf megadott részei információkat szolgáltatnak a járműveknek
+                                (például hogy a csővezeték szóban forgó része mennyire telítődött járművekkel).
+                                Ugyanez az információ lehet a (forgalomirányítás tekintetében emulált) járművek bemenete.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Megjelenésében egyetlen fajta (<emphasis>r</emphasis> sugarú kör),
+                                működésében kétféle viselkedést (a rutin és az okos viselkedést) mutató járművek.
+                                A jármű tudja magáról a jellegét,
+                                az <emphasis>x</emphasis> és <emphasis>y</emphasis> GPS koordinátáját,
+                                az <emphasis>r</emphasis> sugarát és rendelkezik a beutazandó csomópontok listájával. 
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </section>
+                <section>
+                    <title>A Jusztina protó működése</title>
+                    <para>
+                        A verseny előzetes koncepcióján szintén finomítunk, miszerint nem egy napot, hanem egy kritikus 
+                        időintervallumot (például a reggeli vagy délutáni csúcsforgalom) szimulál le az emulátor program.
+                        A Robotautó Világbajnokság versengő csapatai pedig az okos autókat irányítják.
+                    </para>
+                </section>
+                <section>
+                    <title>A Jusztina protó architektúrája</title>
+                    <para>
+                        A protó tartalmaz egy monolitikus (vagy elosztott) szervezésű emulátort,
+                        ez a program kezeli az útvonal hálózat csővezetékét a realisztikus szimulációhoz.
+                        Ebbe behuzalozottak vagy kapcsolódnak a rutin kliensek;
+                        a versengő okos kliensek (vagy azok forgalomirányító algoritmusai) valamilyen IPC mechanizmussal kapcsolódnak.
+                        A protó egy megjelenítőt is tartalmaz, hogy a működését könnyebben tudjuk tanulmányozni.
                     </para>
                 </section>
             </section>
@@ -1317,11 +1540,13 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                 <para>
                     Koncepció, vízió.
                 </para>
+                <!--
                 <section>
                     <title>Szemelvények az SRS-ből</title>
                     <para>
                     </para>
                 </section>
+                -->
             </section>
             <section>
                 <title>Fejlesztés</title>
@@ -1388,7 +1613,9 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <title>DocBook 5.1: The Definitive Guide</title>
             <publisher>
                 <publishername>O'Reilly Media, 
-                    <link xlink:href="http://www.docbook.org/tdg51/en/html/docbook.html">http://www.docbook.org/tdg51/en/html/docbook.html</link>
+                    <link xlink:href="http://www.docbook.org/tdg51/en/html/docbook.html">
+                        http://www.docbook.org/tdg51/en/html/docbook.html
+                    </link>
                 </publishername>                    
             </publisher>
             <pubdate>2014</pubdate>
@@ -1444,7 +1671,9 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <title>OpenStreetMap stats</title>
             <publisher>
                 <publishername>
-                    <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>                    
+                    <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">
+                        http://www.openstreetmap.org/stats/data_stats.html
+                    </link>                    
                 </publishername>
             </publisher>
         </biblioentry>
@@ -1454,7 +1683,9 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <publisher>
                 <publishername>
                     GlobalWebIndex,
-                    <link xlink:href="http://www.globalwebindex.net/blog/top-global-smartphone-apps">http://www.globalwebindex.net/blog/top-global-smartphone-apps</link>                    
+                    <link xlink:href="http://www.globalwebindex.net/blog/top-global-smartphone-apps">
+                        http://www.globalwebindex.net/blog/top-global-smartphone-apps
+                    </link>                    
                 </publishername>
             </publisher>
             <pubdate>2013</pubdate>
@@ -1464,10 +1695,54 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <title>Microsoft Bing Maps Imagery Service Editor Application API's Terms Of Use</title>
             <publisher>
                 <publishername>
-                    <link xlink:href="https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf">https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf</link>
+                    <link xlink:href="https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf">
+                        https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf
+                    </link>
                 </publishername>
             </publisher>
             <pubdate>2010</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>RCEMU</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>A Robotautó Világbajnokság - Robocar City Emulator szoftverkövetelmény specifikációja</title>
+            <subtitle>Az intelligens város és a robotautók kapcsolata vizsgálatának kutatási platformja</subtitle>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf">
+                        http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf
+                    </link>
+                </publishername>                    
+            </publisher>
+            <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Terv</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Robotautó Világbajnokság</title>
+            <subtitle>Kutatási terv</subtitle>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf">
+                        http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf
+                    </link>
+                </publishername>                    
+            </publisher>
+            <pubdate>2014</pubdate>
         </biblioentry>
     </bibliography>
 </article>
