@@ -44,7 +44,7 @@
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.1.0</edition>
+        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.13</edition>
         <pubdate>2015</pubdate>
         <copyright>
             <year>2015</year>
@@ -96,47 +96,57 @@
             <revision>
                 <revnumber>0.0.3</revnumber>
                 <date>2014-11-26</date>
-                <revremark>OSM XML leírás</revremark>
+                <revremark>OSM XML leírás fejezet</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.4</revnumber>
-                <date>2014-11-26</date>
-                <revremark>OSM XML példa</revremark>
+                <date>2014-11-27</date>
+                <revremark>OSM XML példa fejezet</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.5</revnumber>
-                <date>2014-11-26</date>
+                <date>2014-11-28</date>
                 <revremark>libosmium bemutatása, telepítés leírása</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.6</revnumber>
-                <date>2014-11-27</date>
+                <date>2014-12-01</date>
                 <revremark>libosmium példaprogramok elkezd</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.7</revnumber>
-                <date>2015-04-17</date>
-                <revremark>libosmium példaprogramok befejez</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.8</revnumber>
-                <date>2015-04-21</date>
+                <date>2015-04-20</date>
                 <revremark>doksi felfrissítése</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.8</revnumber>
-                <date>2015-04-25</date>
-                <revremark>Bevezetés fejezet elkezd</revremark>
+                <date>2015-04-21</date>
+                <revremark>libosmium példaprogramok befejez</revremark>
             </revision>
             <revision>
                 <revnumber>0.0.9</revnumber>
-                <date>2015-04-26</date>
+                <date>2015-04-22</date>
+                <revremark>Bevezetés fejezet elkezd</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.10</revnumber>
+                <date>2015-04-23</date>
                 <revremark>Bevezetés fejezet befejez</revremark>
             </revision>
             <revision>
-                <revnumber>0.1.0</revnumber>
+                <revnumber>0.0.11</revnumber>
+                <date>2015-04-24</date>
+                <revremark>Robotautó Világbajnokság koncepció és SRS fejezet</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.12</revnumber>
                 <date>2015-04-27</date>
-                <revremark>Jusztina fejezet</revremark>
+                <revremark>Justine fejezet</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.13</revnumber>
+                <date>2015-04-28</date>
+                <revremark>Saját fejlesztés fejezet elkezd</revremark>
             </revision>
         </revhistory>
     </info>
@@ -207,6 +217,8 @@
                 A bevezető gondolatok után az első fejezet "A fejlesztés háttere", ami
                 összefoglalja a fejlesztést megelőző kutatómunkát, melynek keretein belül számos kisebb példaprogram is készült.
                 Ezeken a példaprogramok keresztül ismerkedtem meg a kiválasztott térképmegoldással és az azt támogató könyvtárral.
+                A fejezet végén bemutatásra kerül a Robotautó Világbajnokság követelmény specifikáció dokumentuma,
+                ami vázolja a koncepciót és bemutatja az emulátor egyik gyors prototípusát.
                 A második fejezet az általam fejlesztett robotautó platformot mutatja be részletesen,
                 annak tervezését és kivitelezését, a fejlesztés során felmerült problémákat és azok megoldását,
                 majd végül a használatát és eredményeit.
@@ -219,11 +231,42 @@
             </para>
             <para>
                 Az XML forrás elérhető az alábbi git tárolóban:
-                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga.git">
-                    https://bitbucket.org/mamenyaka/szakdoga.git
+                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga">
+                    https://bitbucket.org/mamenyaka/szakdoga
                 </link>.
-                DocBook XML-ből olvasható PDF dokumentumot a <emphasis>dblatex</emphasis> eszközzel lehet előállítani,
+                A teljes tároló leklónozását az alábbi paranccsal hajthatjuk végre,
+                mivel a repó submodule-okat is tartalmaz.
+                <screen>
+<![CDATA[
+andras@G53SW:~$ git clone --recursive https://bitbucket.org/mamenyaka/szakdoga.git
+Cloning into 'szakdoga'...
+...
+Submodule 'src/buszjarat' (git@bitbucket.org:mamenyaka/buszjarat.git) registered for path 'src/buszjarat'
+Submodule 'src/utcak' (git@bitbucket.org:mamenyaka/utcak.git) registered for path 'src/utcak'
+Cloning into 'src/buszjarat'...
+...
+Submodule path 'src/buszjarat': checked out '1c649b4f5d0958eeec23c86b0ef51f2663540b62'
+Cloning into 'src/utcak'...
+...
+Submodule path 'src/utcak': checked out '9a29f6560f0f6934d4d0237d114e7ccad11514e3'
+]]>
+                </screen>
+            </para>
+            <para>
+                DocBook XML-ből PDF-et a <emphasis>dblatex</emphasis> eszközzel lehet előállítani,
                 ami köztes lépésként LaTeX formátumba konvertál, majd abból állítja elő a PDF-et.
+                Ennek a lépésnek a támogatására egy egyszerű Makefile lett létrehozva,
+                ami először a <emphasis>jing</emphasis> eszközzel validálja az XML fájlt,
+                majd a <emphasis>dblatex</emphasis> eszközzel előállítja az olvasható PDF dokumentumot.
+                <screen>
+<![CDATA[
+andras@G53SW:~/szakdoga$ make
+jing -c http://docbook.org/xml/5.1CR3/rng/docbookxi.rnc robotauto.xml
+dblatex robotauto.xml
+...
+'robotauto.pdf' successfully built
+]]>
+                </screen>
             </para>
         </section>
     </section>
@@ -959,8 +1002,8 @@ andras@G53SW:~/Programs/libosmium/build$ make doc
                     <para>
                         Az első példaprogram az OpenStreetMap oldaláról exportált Debrecen térképről listázza ki az utcákat.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak.git">
-                            https://bitbucket.org/mamenyaka/utcak.git
+                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak">
+                            https://bitbucket.org/mamenyaka/utcak
                         </link>
                     </para>
                     <para>
@@ -1127,8 +1170,8 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                         buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
                         aki felvitte vagy utoljára módosította az objektumot.
                         A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat.git">
-                            https://bitbucket.org/mamenyaka/buszjarat.git
+                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat">
+                            https://bitbucket.org/mamenyaka/buszjarat
                         </link>
                     </para>
                     <para>
@@ -1435,13 +1478,13 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                 </section>
             </section>
             <section>
-                <title>A Jusztina gyors prototípus</title>
+                <title>A Justine gyors prototípus</title>
                 <para>
-                    A kutatási terv <citation>Terv</citation>
-                    Jusztina feladata az emulátor eldobható, evolúciós gyors prototípusa.
+                    A kutatási terv <citation>Terv</citation> Jusztina feladata
+                    az emulátor eldobható, evolúciós gyors prototípusa.
                 </para>
                 <section>
-                    <title>Jusztina koncepció</title>
+                    <title>A koncepció</title>
                     <para>
                         Azt az előzetes követelményt puhítjuk fel, hogy a városban csak robotautók vannak,
                         azzal, hogy két tipikus járművet különböztetünk meg az emulátorban:
@@ -1464,7 +1507,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                                 </para>
                             </listitem>  
                         </itemizedlist>
-                        Az első pontba eső járműveket nevezzük a Jusztina modelljében <emphasis>rutin</emphasis>, 
+                        Az első pontba eső járműveket nevezzük a Justine modelljében <emphasis>rutin</emphasis>, 
                         a másodikba esőket <emphasis>okos</emphasis> járműveknek.
                     </para>
                     <para>
@@ -1473,7 +1516,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     </para>
                 </section>
                 <section>
-                    <title>A Jusztina protó szereplői</title>
+                    <title>A Justine protó szereplői</title>
                     <itemizedlist>
                         <listitem>
                             <para>
@@ -1494,13 +1537,13 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                                 működésében kétféle viselkedést (a rutin és az okos viselkedést) mutató járművek.
                                 A jármű tudja magáról a jellegét,
                                 az <emphasis>x</emphasis> és <emphasis>y</emphasis> GPS koordinátáját,
-                                az <emphasis>r</emphasis> sugarát és rendelkezik a beutazandó csomópontok listájával. 
+                                az <emphasis>r</emphasis> sugarát és rendelkezik a beutazandó csomópontok listájával.
                             </para>
                         </listitem>
                     </itemizedlist>
                 </section>
                 <section>
-                    <title>A Jusztina protó működése</title>
+                    <title>A Justine protó működése</title>
                     <para>
                         A verseny előzetes koncepcióján szintén finomítunk, miszerint nem egy napot, hanem egy kritikus 
                         időintervallumot (például a reggeli vagy délutáni csúcsforgalom) szimulál le az emulátor program.
@@ -1508,7 +1551,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     </para>
                 </section>
                 <section>
-                    <title>A Jusztina protó architektúrája</title>
+                    <title>A Justine protó architektúrája</title>
                     <para>
                         A protó tartalmaz egy monolitikus (vagy elosztott) szervezésű emulátort,
                         ez a program kezeli az útvonal hálózat csővezetékét a realisztikus szimulációhoz.
@@ -1520,19 +1563,93 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             </section>
         </section>
         <section>
-            <title>Saját fejlesztés</title>
+            <title>Justina, a saját fejlesztés</title>
             <para>
+                A saját fejlesztésem a Justine protótípushoz hasonló robotautó emulátor tervezése és implementálása volt.
+                A két prototípus egyidőben, egymástól függetlenül készült, de a kutatás fázisból származó követelményekből kifolyólag,
+                mint például az OpenStreetMap és az Osmium könyvtár, közös vonások is jelen vannak.
             </para>
-            <section>
-                <title>A kiválasztott probléma</title>
-                <para>
-                </para>
-            </section>
+            <para>
+                A platform jellemzői:
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            Az emulátor nyílt forrású, GNU GPL v3 licencű.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            A kapcsolódó dokumentálás nyelve DocBook XML 5.1,
+                            amit a jelenlegi dolgozat képvisel.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            Az emulátor implementációs nyelve C++11,
+                            a megjelenítő a Qt5 keretrendszer felhasználásával készült.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                A szoftver magába foglalja a Robocar City Emulator-t és a Monitor-t is,
+                és teljes egészében elérhető a következő git tárolóból:
+                <link xlink:href="https://bitbucket.org/mamenyaka/mapview">
+                    https://bitbucket.org/mamenyaka/mapview
+                </link>
+            </para>
             <section>
                 <title>Módszertan, a szoftverfolyamat tervezése</title>
                 <para>
-                    A választott módszertan vázolása, a dokumentálás meghatározása (például agilisen, tipikusan a
-                    forrásokból doxygen stb.)
+                    A platform fejlesztése az agilis szoftverfejlesztés módszertan szerint zajlott.
+                    A módszertan elvei vázolva a következőek:
+                    <itemizedlist>
+                        <listitem>
+                            <para>
+                                Előtérbe helyezi magát a szoftvert, háttérbe szorítva a dokumentálást.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Az előrehaladás mértékegysége a jól működő szoftver.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                Fenntartja a követelmények változásának lehetőségét.
+                            </para>
+                        </listitem>
+                        <listitem>
+                            <para>
+                                A módszertanhoz kapcsolódó "Release early, release often" filozófia
+                                kihangsúlyozza a szoftver korai és gyakori nyilvánosságra hozását,
+                                ami által a fejlesztők és a felhasználók közt szoros visszajelzés-alapú hurok alalkul ki.
+                            </para>
+                        </listitem>
+                    </itemizedlist>
+                </para>
+                <para>
+                    Az emulátor követelmény specifikációja gyakran változott,
+                    ami kihatással volt magára a szofverre is,
+                    viszont a jól megválasztott módszertan mellett
+                    nem okozott gondot ezeknek a változásoknak a folyamatos beépítése.
+                </para>
+                <para>
+                    A Robocar City Emulator szoftver dokumentálása,
+                    követve az agilis módszertant,
+                    automatikusan készült a forráskóddal párhuzamosan,
+                    hiszen a használt <emphasis>doxygen</emphasis> eszköz egyenesen
+                    a forráskódból generálja a dokumentációt
+                    (részletesebben a Doxygen-ről lásd:
+                    <link xlink:href="www.doxygen.org">www.doxygen.org</link>).
+                    <figure xml:id="doc">
+                        <title>A generált dokumentáció <emphasis>Car</emphasis> osztálya</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="figures/doc.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
             </section>
             <section>
@@ -1540,13 +1657,6 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                 <para>
                     Koncepció, vízió.
                 </para>
-                <!--
-                <section>
-                    <title>Szemelvények az SRS-ből</title>
-                    <para>
-                    </para>
-                </section>
-                -->
             </section>
             <section>
                 <title>Fejlesztés</title>
