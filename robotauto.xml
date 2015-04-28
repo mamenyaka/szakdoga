@@ -1655,31 +1655,465 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>Tervezés</title>
                 <para>
-                    Koncepció, vízió.
+                    A tervezett emulátor fő koncepciója a roboautók nagy számára helyezte a hangsúlyt.
+                    Ahhoz, hogy akár 10<superscript>6</superscript> nagyságrendű számú autó
+                    bolyongjon a térképen valós időben,
+                    és ezt mind meg is lehessen jeleníteni a Monitor programban,
+                    szükség volt egy olyan platformra, aminek a komponensei egy egységet alkotnak.
+                    A hagyományos socket alapú kommunikáció az emulátor és a hozzá kapcsolódó forgalomirányító ágensek 
+                    vagy a megjelenítő programok közt megvalósíthatatlannak bizonyult a számítások alapján.
+                    Ha 10<superscript>6</superscript> autót feltételezünk,
+                    és minden autó rendelkezik (x, y) GPS koordinátával, amik 4 bájtos lebegőpontos típusok,
+                    és az emulátor időfelbontása 10 szimulációs lépés másodpercenként,
+                    akkor eredményül az emulátor minden másodpercben
+                    2*4*10<superscript>6</superscript>*10 bájt, azaz 80 MB
+                    adatot kéne, hogy továbbítson a hozzá kapcsolodó entitásoknak.
+                    E mellett az adamennyiség mellett nem tartom életképesnek a socket alapú IPC-t.
+                </para>
+                <para>
+                    A platform gyors prototípus jellege miatt az egyszerű,
+                    de könnyen bővíthető architektúra volt a cél,
+                    ezért a további lehetséges IPC mechanizmusok, mint például az osztott memória,
+                    használta nem biztosított volna nagyobb előrelépést funkcionalitás terén,
+                    mivel a platform többi komponense és maga az emulátor is egy számítógépre limitált.
+                </para>
+                <para>
+                    A felsorolt okokból kifolyólag a Justina Robocar City Emulator egy monolitikus szoftver,
+                    ahol mind a térkép gráfja, a rajta közlekedő autók és a megjelenítő is egy programot alkot.
+                    A routing algoritmus is része a programnak, így azt csak az egész emulátor újrafordításával lehet cserélni.
+                    Ebből kifolyólag a platform nem az algoritmusok versenyeztetése céljából készült,
+                    és nem is azt próbálja megvalósítani.
+                </para>
+                <para>
+                    A Justina egy kutatási platform, ahol a már bizonyított forgalomirányító algoritmusokat
+                    lehet tovább elemezni egy realisztikusabb szimulációs környezetben.
+                    Kutatók számára az emulátor egy eszköz,
+                    amivel vizsgálni lehet szimulációs számítások révén a robotautók kapcsolatát az okos várossal.
                 </para>
             </section>
             <section>
                 <title>Fejlesztés</title>
                 <para>
+                    A Justina emulátor nagyban hasonló elvek alapján működik, mint a Justine prototípus.
+                    Az útválasztó algoritmus tesztelésére a Robotautó Világbajnokságból vett szituáció
+                    van jelen itt is, amiben
+                    a rendőr tipusú robotautók üldözik a gengszter tipusú robotautókat
+                    a város civil robotautó forgalmában,
+                </para>
+                <para>
+                    A bemenet is változatlanul egy város OSM térképe,
+                    amiből felépítünk egy gráfot a Boost Graph Library használatával.
                 </para>
                 <section>
-                    <title>Felhasznált szoftver eszközök</title>
+                    <title>A gráf típusa</title>
                     <para>
-                        Licenc-kompatibilitás stb.
+                        A <emphasis>graph.hpp</emphasis> forrásfáljban található a gráf deklarációja:
+                        <programlisting language="C++">
+<![CDATA[
+# include <boost/graph/adjacency_list.hpp>
+
+typedef boost::adjacency_list<
+  boost::vecS,
+  boost::vecS,
+  boost::undirectedS,
+  boost::property<boost::vertex_name_t, Location>,
+  boost::property<boost::edge_weight_t, double>
+> graph_type;
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A gráf szomszédossági lista alapú
+                        (lásd: <link xlink:href="http://www.boost.org/doc/libs/1_58_0/libs/graph/doc/adjacency_list.html">
+                            http://www.boost.org/doc/libs/1_58_0/libs/graph/doc/adjacency_list.html
+                        </link>).
+                    </para>
+                    <para>
+                        A csomópontok és élek tárolója <emphasis>std::vector</emphasis> típusú.
+                        Mivel nem akarjuk módosítani a gráfot, ezáltal nem szükséges számunkra,
+                        hogy a gyorsabb <emphasis>std::list</emphasis> típust válasszuk,
+                        ami viszont több helyet foglal a memóriában.
+                        Egy város térképének gráfja nagy méretű, ezért is ajánlott a helytakarékosabb tárolót választani.
+                    </para>
+                    <para>
+                        A gráf irányítatlan, mivel a kezdeti szimulációs modellünkben minden út kétirányú a robotautók számára.
+                        Ennek megfelelően kevesebb memóriát igényel egy irányítatlan gráf tárolása, mint egy irányított gráf.
+                    </para>
+                    <para>
+                        A csomópontok tárolják az OSM adatokból származó koordinátákat.
+                        Az élek súlyokkal rendelkeznek, ami a kezdeti modell szerint az élhez tartozó két csomópont közti távolság.
                     </para>
                 </section>
                 <section>
-                    <title>A fejlesztés mérföldkövei</title>
+                    <title>A gráf felépítése</title>
                     <para>
-                        Szoftver kiadások, stb.
+                        A <emphasis>CreateGraph</emphasis> osztály foglalkozik a gráf felépítésével.
+                        Kiterjeszti a <emphasis>osmium::handler::Handler</emphasis> absztrakt osztályt,
+                        definiálva ezzel a használandó visszahívási (callback) metódusokat,
+                        amik a Visitor pattern elvei szerint minden egyes bejárt objektumra meghívódnak.
+                        <programlisting language="C++">
+<![CDATA[
+typedef osmium::index::map::SparseMemTable<osmium::unsigned_object_id_type, osmium::Location> nodes_type;
+nodes_type nodes;
+
+osmium::handler::NodeLocationsForWays<nodes_type> handler1(nodes);
+CreateGraph handler2(graph);
+osmium::apply(buffer, handler1, handler2);
+]]>
+                        </programlisting>
+                        Az OSM <emphasis>buffer</emphasis>-t kétszer járjuk be.
+                        Először feltöltjük a <emphasis>nodes</emphasis> Google sparsetable típusú tárolót,
+                        ami az út tipusú elemek csomópont referenciáihoz tárolja el nekünk az OSM csomópontok koordinátáit.
+                        Másoszor, az út tipusú elemeket bejárva építjuk fel a gráfot.
+                    </para>
+                    <para>
+                        A <emphasis>create_graph.cpp</emphasis>-ben definiált
+                        <emphasis>CreateGraph::way</emphasis> metódus kapja meg egyenként a bejárt utakat,
+                        majd építi fel belőlük a gráfot, kiszűrve az egyéb nem utakat és a járdákat.
+                        A csomópontok beszúrását egy tábla típusú tároló támogatja,
+                        ahol a kulcs az OSM csomópont id, az érték a gráf csomópont id.
+                        Ez biztosítja, hogy egy csomópont csak egyszer kerüljön be a gráfba,
+                        ami azért fontos, mert egy OSM csomópontot több út is tartalmazhat.
+                        Ekkor a gráfban lévő csomóponthoz kapcsoljuk az újabb éleket
+                        és nem pedig új csomópontokat hozunk létre a gráfban.
+                    </para>
+                    <para>
+                        Hogy a megjelenítés helyes legyen, és hogy könnyebben tudjunk a koordinátákkal távolságot számolni,
+                        ezért az OSM GPS (lon, lat) koordináták a Mercator-vetület szerint átalakítva kerülnek be a gráfba,
+                        mint (x, y) koordináták.
+                        <programlisting language="C++">
+<![CDATA[
+boost::add_vertex(Location(osmium::geom::detail::lon_to_x(node_ref.lon()),
+                           osmium::geom::detail::lat_to_y(node_ref.lat())), graph);
+]]>
+                        </programlisting>
+                    </para>
+                    <para>
+                        A gráf felépítése után az OSM adatokat és az Osmium könyvtárat már nem használjuk,
+                        így a város megrajzolását már a gráf alapján végzi a program.
                     </para>
                 </section>
                 <section>
-                    <title>Szoftver eredmények</title>
+                    <title>A forgalom</title>
                     <para>
-                        Kitérve a használatra, felületre.
+                        A térkép gráfját a <emphasis>Car</emphasis> osztály példányai népesítik be.
+                        A <emphasis>car.hpp</emphasis> forrásfáljban található az osztály deklarációja:
+                        <programlisting language="C++">
+<![CDATA[
+class Car
+{
+public:
+  enum Type { Caught, Civil, Gangster, Cop };
+
+  Type type;
+  const double max_speed;
+  Location loc;
+
+  edge_type curr_edge;
+  vertex_type entry_point;
+...
+};
+]]>
+                        </programlisting>
+                        Egy robotautó lehet elkapott gengszter, civil, gengszter vagy rendőr tipusú.
+                        Az alap modellben minden autó a maximális sebességével közlekedik,
+                        ami egyedenként eltérő is lehet.
+                        A <emphasis>loc</emphasis> tagváltozó határozza meg az autó helyzetét.
+                        Az autók mindig egy adott élen helyezkednek el a gráfban,
+                        az irányukat egy csomópont adja meg, ami az élnek az a vége,
+                        ahol az autó bejött (bejárat).
+                        Az él másik csomópontja garantáltan az autó kijárata lesz,
+                        amit az autó érinteni fog,
+                        így a jelenlegi modellben nem fordulhatnak meg egy él közepén az autók.
+                    </para>
+                    <para>
+                        A forgalomban résztvevő autók számát típus szerint meg lehet adni.
+                        A gráf autókkal való feltöltése random történik,
+                        a gráfból kiválasztunk találomra egy élt, amire egy darab robotautót helyezünk.
+                        A boost biztosít egy <emphasis>random_edge</emphasis> metódust ami lassúnak bizonyult,
+                        ezért a C++-os standard könyvtárból használjuk az alapértelmezett
+                        Lewis, Goodman, és Miller féle <emphasis>Minimum Standard</emphasis>
+                        randomszám generátort.
+                        <programlisting language="C++">
+<![CDATA[
+std::uniform_int_distribution<unsigned long> uni_dis(0, boost::num_edges(graph)-1);
+...
+const edge_type& e = *std::next(boost::edges(graph).first, uni_dis(gen));
+]]>
+                        </programlisting>
+                        A <emphasis>boost::edges(graph)</emphasis> metódus
+                        visszatérési értéke egy <emphasis>std::pair</emphasis>,
+                        aminek első eleme az élek tárolójának elejére mutató iterátor.
+                        Ehhez hozzáadva a generált random számunkat kapjuk meg találomra
+                        a gráf egyik élét.
                     </para>
                 </section>
+                <section>
+                    <title>A forgalomirányítás</title>
+                    <para>
+                        A forgalomban résztvevő robotautók nagyrésze rutin autó.
+                        Ide tartoznak a civil és a gengszter tipusú autók.
+                        Ezek az autók random bolyonganak a városban, olyan értelemben,
+                        hogy egy adott kereszteződés lehetséges útjai közül random választanak,
+                        de anélkül, hogy visszafordulnának.
+                        A rendőr tipusú autókat egy algoritmus vezérli,
+                        aminek a feladata, hogy olyan útvonalat tervezzen a rendőrautónak,
+                        amivel elkapja a gengsztereket.
+                        Egy gengszter akkor válik elkapottá,
+                        ha a rendőr autó és a gengszter autó is ugyanazon az útvonalon van
+                        és a köztük lévő távolság kevesebb, mint 10 méter.
+                    </para>
+                    <para>
+                        A saját routig algoritmusom alapja,
+                        hogy minden rendőrt a hozzá legközelebb eső gengszterhez irányítson.
+                        A leelterjedtebb útvonalkereső algoritmus az A* algoritmus,
+                        amit a boost is támogat.
+                        A <emphasis>traffic.cpp</emphasis> forrásfáljban található ennek a használata:
+                        <programlisting language="C++">
+<![CDATA[
+const edge_type Traffic::get_next_routed_edge(const vertex_type start, const vertex_type goal)
+{
+  const Location& loc = boost::get(boost::vertex_name, graph, goal);
+
+  std::vector<vertex_type> predecessor_map(boost::num_vertices(graph));
+
+  boost::astar_search_tree(graph, start, distance_heuristic(graph, loc),
+                           boost::predecessor_map(
+                             boost::make_iterator_property_map(
+                               predecessor_map.begin(), get(boost::vertex_index, graph))));
+
+  vertex_type v;
+  for (v = goal; predecessor_map[v] != start; v = predecessor_map[v])
+    ;
+
+  return boost::edge(start, v, graph).first;
+}
+]]>
+                        </programlisting>
+                        Az algoritmus által használt távolság heurisztika
+                        a vizsgált csomópont és a célcsomópont közti távolságon alapszik.
+                        Az eredményül kapott útvonalat a <emphasis>predecessor_map</emphasis>
+                        tábla tárolja.
+                        Az útvonalat a céltól kezdve tudjuk bejárni,
+                        és nekünk az utolsó előtti csomópontra van szükségünk.
+                        Az utolsó csomópont a kiindulási csomópont,
+                        ami egy kereszteződés, amiben a rendőrautó áll.
+                    </para>
+                </section>
+            </section>
+            <section>
+                <title>Felhasznált szoftver eszközök</title>
+                <para>
+                    A fejlesztés során felhasznált szoftver eszközök és azok licencei
+                    az <emphasis>Open source software submission form</emphasis> (OSS) alapján
+                    <citation>FASS</citation>:
+                    <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
+                        <tgroup cols="2">
+                            <colspec colname="c1" colwidth="*"/>
+                            <colspec colname="c2" colwidth="3*"/>
+                            <tbody>
+                                <row>
+                                    <entry>Name of software</entry>
+                                    <entry>
+                                        Libosmium
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>URL to obtain the software</entry>
+                                    <entry>
+                                        https://github.com/osmcode/libosmium
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Type of intended usage</entry>
+                                    <entry>
+                                        use as library
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>For which parts of the system is the software intended to be used?</entry>
+                                    <entry>
+                                        for working with OpenStreetMap data
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Name of license(s)</entry>
+                                    <entry>
+                                        Boost Software License
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                    <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
+                        <tgroup cols="2">
+                            <colspec colname="c1" colwidth="*"/>
+                            <colspec colname="c2" colwidth="3*"/>
+                            <tbody>
+                                <row>
+                                    <entry>Name of software</entry>
+                                    <entry>
+                                        Boost Graph Library
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>URL to obtain the software</entry>
+                                    <entry>
+                                        http://www.boost.org
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Type of intended usage</entry>
+                                    <entry>
+                                        use as library
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>For which parts of the system is the software intended to be used?</entry>
+                                    <entry>
+                                        for creating a graph and for routing
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Name of license(s)</entry>
+                                    <entry>
+                                        Boost Software License
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                    <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
+                        <tgroup cols="2">
+                            <colspec colname="c1" colwidth="*"/>
+                            <colspec colname="c2" colwidth="3*"/>
+                            <tbody>
+                                <row>
+                                    <entry>Name of software</entry>
+                                    <entry>
+                                        Qt5 framework
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>URL to obtain the software</entry>
+                                    <entry>
+                                        http://www.qt.io/qt5-4
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Type of intended usage</entry>
+                                    <entry>
+                                        use as library
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>For which parts of the system is the software intended to be used?</entry>
+                                    <entry>
+                                        for the display component
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Name of license(s)</entry>
+                                    <entry>
+                                        GNU LGPL
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                    <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
+                        <tgroup cols="2">
+                            <colspec colname="c1" colwidth="*"/>
+                            <colspec colname="c2" colwidth="3*"/>
+                            <tbody>
+                                <row>
+                                    <entry>Name of software</entry>
+                                    <entry>
+                                        Doxygen
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>URL to obtain the software</entry>
+                                    <entry>
+                                        http://www.doxygen.org
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Type of intended usage</entry>
+                                    <entry>
+                                        tool
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>For which parts of the system is the software intended to be used?</entry>
+                                    <entry>
+                                        for generating documentation
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Name of license(s)</entry>
+                                    <entry>
+                                        GNU GPL
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                    <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
+                        <tgroup cols="2">
+                            <colspec colname="c1" colwidth="*"/>
+                            <colspec colname="c2" colwidth="3*"/>
+                            <tbody>
+                                <row>
+                                    <entry>Name of software</entry>
+                                    <entry>
+                                        KDevelop
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>URL to obtain the software</entry>
+                                    <entry>
+                                        https://www.kdevelop.org
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Type of intended usage</entry>
+                                    <entry>
+                                        internal developer tool
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>For which parts of the system is the software intended to be used?</entry>
+                                    <entry>
+                                        for coding
+                                    </entry>
+                                </row>
+                                <row>
+                                    <entry>Name of license(s)</entry>
+                                    <entry>
+                                        GNU GPL
+                                    </entry>
+                                </row>
+                            </tbody>
+                        </tgroup>
+                    </informaltable>
+                </para>
+                <para>
+                    A döntés alapján a felsorolt könyvtárak és eszközök használata engedélyezett,
+                    mivel a licencek nem okoznak inkompatibilitásokat a GNU GPL licencű fejlesztendő szoftverben.
+                </para>
+            </section>
+            <section>
+                <title>A fejlesztés mérföldkövei</title>
+                <para>
+                    Szoftver kiadások, stb.
+                </para>
+            </section>
+            <section>
+                <title>Szoftver eredmények</title>
+                <para>
+                    Kitérve a használatra, felületre.
+                </para>
             </section>
             <section>
                 <title>Tesztelés</title>
@@ -1850,6 +2284,102 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     <link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf">
                         http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf
                     </link>
+                </publishername>                    
+            </publisher>
+            <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>FASS</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Péter</firstname>
+                        <surname>Jeszenszky</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>András</firstname>
+                        <surname>Mamenyák</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Béla</firstname>
+                        <surname>Halász</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Renátó</firstname>
+                        <surname>Besenczi</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>János</firstname>
+                        <surname>Komzsik</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Balázs</firstname>
+                        <surname>Kóti</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Gergely</firstname>
+                        <surname>Kövér</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Máté</firstname>
+                        <surname>Smajda</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Csaba</firstname>
+                        <surname>Székelyhídi</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Tamás</firstname>
+                        <surname>Takács</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Géza</firstname>
+                        <surname>Róka</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Márton</firstname>
+                        <surname>Ispány</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>IT Innovations in the FootballAvatar Project aimed to develop a Simulation-based Decision Support System</title>
+            <publisher>
+                <publishername>
+                    submitted manuscript
                 </publishername>                    
             </publisher>
             <pubdate>2014</pubdate>
