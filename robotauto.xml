@@ -13,7 +13,7 @@
                 <shortaffil>E. adjunktus, DEIK.</shortaffil>
                 <jobtitle>Egyetemi adjunktus</jobtitle>
                 <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
-                <orgdiv>Információtechnológiai Tanszék</orgdiv>
+                <orgdiv>Információ Technológia Tanszék</orgdiv>
                 <address>
                     <email>batfai.norbert@inf.unideb.hu</email>
                     <email>nbatfai@gmail.com</email>
@@ -36,15 +36,15 @@
                 <firstname>András</firstname>
             </personname>
             <affiliation>
-                <jobtitle>mérnökinformatikus</jobtitle>
+                <jobtitle>Mérnökinformatikus</jobtitle>
                 <orgname>Debreceni Egyetem, Informatikai Kar</orgname>
-                <orgdiv>Információtechnológiai Tanszék</orgdiv>
+                <orgdiv>Információ Technológia Tanszék</orgdiv>
                 <address>
                     <email>mamenyaka@gmail.com</email>
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.13</edition>
+        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.15</edition>
         <pubdate>2015</pubdate>
         <copyright>
             <year>2015</year>
@@ -148,6 +148,16 @@
                 <date>2015-04-28</date>
                 <revremark>Saját fejlesztés fejezet elkezd</revremark>
             </revision>
+            <revision>
+                <revnumber>0.0.14</revnumber>
+                <date>2015-04-29</date>
+                <revremark>Saját fejlesztés fejezet befejez</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.15</revnumber>
+                <date>2015-04-30</date>
+                <revremark>Összegzés fejezet</revremark>
+            </revision>
         </revhistory>
     </info>
     <section>
@@ -172,7 +182,7 @@
             azzal, hogy megelőzi a dugókat és az egyéb fennakadásokat.
         </para>
         <para>
-            A közlekedésben az egyik legfontosabb szerepet a megfelelő útvonal kiválasztása játsza.
+            A közlekedésben az egyik legfontosabb szerepet a megfelelő útvonal kiválasztása játssza.
             Ahhoz, hogy meg tudjuk tervezni a legjobb útvonalat szükségük van minél több információra a jelenlegi
             forgalmi helyzettel kapcsolatban.
             Ha tudjuk minden autó helyzetét és mozgását, könnyű megbecsülni, melyik útvonal lehet az ideális az autó számára,
@@ -198,7 +208,7 @@
                 A hivatkozott cikk egy matematikai modell alapján kiszámolta,
                 hogy legkevesebb 92 693 ilyen autóra lenne szükség a 2008-ban számolt 1 144 400 háztartás ellátásához.
                 A kényelmesebb várakozási idő érdekében ez a szám elérheti a 200-300 ezres határt is,
-                viszont még ez a szám is csak körübelül a jelenlegi autók számának mindössze az 1/3-a.
+                viszont még ez a szám is csak körülbelül a jelenlegi autók számának mindössze az 1/3-a.
             </para>
         </section>
         <!--
@@ -227,7 +237,7 @@
             <para>
                 Dolgozatom DocBook 5.1 jelölőnyelvben készült,
                 ami kimondottan a szoftverről szóló könyveket és dolgozatokat támogatja.
-                A dolgozat a legfrissebb hivatalos DocBook documentáció <citation>DocBook</citation> alapján írodott.
+                A dolgozat a legfrissebb hivatalos DocBook dokumentáció <citation>DocBook</citation> alapján íródott.
             </para>
             <para>
                 Az XML forrás elérhető az alábbi git tárolóban:
@@ -361,16 +371,34 @@ dblatex robotauto.xml
                         (<link xlink:href="https://developer.here.com/">https://developer.here.com</link>):
                         <itemizedlist>
                             <listitem>
-                                <para>JavaScript API-k:  Maps API for JavaScript 3.x, Maps API for JavaScript 2.x, Maps API for JavaScript Enterprise 2.x</para>
+                                <para>
+                                    JavaScript API-k:
+                                    Maps API for JavaScript 3.x,
+                                    Maps API for JavaScript 2.x,
+                                    Maps API for JavaScript Enterprise 2.x
+                                </para>
                             </listitem>
                             <listitem>
-                                <para>REST API-k: Map Tile API, Map Image API, Venue Maps API, Routing API, Enterprise Routing API, Matrix Routing API, Geocoder API, Batch Geocoder API, Custom Location API, Places API, Traffic API</para>
+                                <para>
+                                    REST API-k:
+                                    Map Tile API,
+                                    Map Image API,
+                                    Venue Maps API,
+                                    Routing API,
+                                    Enterprise Routing API,
+                                    Matrix Routing API,
+                                    Geocoder API,
+                                    Batch Geocoder API,
+                                    Custom Location API,
+                                    Places API,
+                                    Traffic API
+                                </para>
                             </listitem>
                         </itemizedlist>
                     </para>
                     <para>
                         A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé"
-                        (lásd a 6.-os részt, "A Tartalom":
+                        (lásd a 6-os részt, "A Tartalom":
                         <link xlink:href="http://here.com/terms/service-terms/hu">
                             http://here.com/terms/service-terms/hu
                         </link>).
@@ -395,16 +423,40 @@ dblatex robotauto.xml
                         </link>):
                         <itemizedlist>
                             <listitem>
-                                <para>Windows Store alkalmazásokhoz: JavaScript API, .NET API</para>
+                                <para>
+                                    Windows Store alkalmazásokhoz:
+                                    JavaScript API,
+                                    .NET API
+                                </para>
                             </listitem>
                             <listitem>
-                                <para>Bing Maps AJAX Control 7.0 (Microsoft.Maps API-k): AdvancedShapes API, Directions API, Search API, Traffic API, VenueMaps API</para>
+                                <para>
+                                    Bing Maps AJAX Control 7.0 (Microsoft.Maps API-k):
+                                    AdvancedShapes API,
+                                    Directions API,
+                                    Search API,
+                                    Traffic API,
+                                    VenueMaps API
+                                </para>
                             </listitem>
                             <listitem>
-                                <para>REST API-k: Locations API, Elevations API, Imagery API, Routes API, Traffic API</para>
+                                <para>
+                                    REST API-k:
+                                    Locations API,
+                                    Elevations API,
+                                    Imagery API,
+                                    Routes API,
+                                    Traffic API
+                                </para>
                             </listitem>
                             <listitem>
-                                <para>Spatial Data Services API-k: Geocode Dataflow API, Data Source Management API, Query API, Geodata API</para>
+                                <para>
+                                    Spatial Data Services API-k:
+                                    Geocode Dataflow API,
+                                    Data Source Management API,
+                                    Query API,
+                                    Geodata API
+                                </para>
                             </listitem>
                             <listitem>
                                 <para>Windows Presentation Foundation Control (WPF) API</para>
@@ -412,7 +464,7 @@ dblatex robotauto.xml
                         </itemizedlist>
                     </para>
                     <para>
-                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, arhiváljuk vagy a Tartalm alapján adatbázist hozzunk létre
+                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, archiváljuk vagy a Tartalom alapján adatbázist hozzunk létre
                         (lásd a 3.2-es részt, "General Restrictions":
                         <link xlink:href="http://www.microsoft.com/maps/product/terms.html">
                             http://www.microsoft.com/maps/product/terms.html
@@ -430,9 +482,9 @@ dblatex robotauto.xml
                         (<link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>)
                         egy olyan közösségi projekt,
                         aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
-                        A projektet a Wikipedia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
+                        A projektet a Wikipédia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
                         Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani,
-                        de a közösség nagy része jószándékú, így az esetleges pontatlanságokat automatikusan javítják.
+                        de a közösség nagy része jó szándékú, így az esetleges pontatlanságokat automatikusan javítják.
                     </para>
                     <para>
                         Kereskedelmi térképek adataiban található számos csapda, amivel el lehet kapni azokat, akik ezt másolják.
@@ -448,7 +500,7 @@ dblatex robotauto.xml
                     </para>
                     <para>
                         Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API,
-                        ami OSM adatbazis nyers geoadatainak letöltésére és feltöltésére szolgál
+                        ami OSM adatbázis nyers geoadatainak letöltésére és feltöltésére szolgál
                         (<link xlink:href="http://wiki.openstreetmap.org/wiki/API">
                             http://wiki.openstreetmap.org/wiki/API
                         </link>).
@@ -483,7 +535,7 @@ dblatex robotauto.xml
             <section>
                 <title>OpenStreetMap XML szerkezete</title>
                 <para>
-                    Az OpenStreetMap nyers térkép adatait XML formátumban tudjuk letölteni (exportánli) a projekt honlapjáról.
+                    Az OpenStreetMap nyers térkép adatait XML formátumban tudjuk letölteni (exportálni) a projekt honlapjáról.
                     Az így kapott állomány kiterjesztése egy teljesen valid XML dokumentum, melynek kiterjesztése ".osm".
                     Ha a teljes bolygóra vonatkozó adatokat le akarjuk tölteni, azt is megtehetjük az alábbi linken:
                     <link xlink:href="http://planet.openstreetmap.org">http://planet.openstreetmap.org</link>.
@@ -575,7 +627,7 @@ dblatex robotauto.xml
                                 timestamp
                             </para>
                             <para>
-                                Időbélyeg, a legutolsó módosítás idelyét tartalmazza.
+                                Időbélyeg, a legutolsó módosítás idejét tartalmazza.
                             </para>
                         </listitem>
                         <listitem>
@@ -583,7 +635,7 @@ dblatex robotauto.xml
                                 visible
                             </para>
                             <para>
-                                Lehet igaz vagy hamnis.
+                                Lehet igaz vagy hamis.
                                 Ha a visible értéke hamis, akkor az objektum törölve lett az adatbázisból.
                             </para>
                         </listitem>
@@ -703,7 +755,7 @@ dblatex robotauto.xml
                 </para>
                 <para>
                     Az <emphasis>út</emphasis> típusok alkotják az állományban a következő blokkot.
-                    Az út tipusú elemeknek önmagukban nincs földrajzi koordinátái,
+                    Az út típusú elemeknek önmagukban nincs földrajzi koordinátái,
                     viszont tartalmazzák az őket alkotó csomópontok <emphasis>id</emphasis> referenciáit, ami alapján kirajzolódnak.
                     A <emphasis>k="highway"</emphasis> címke kulcs tagja jelöli,
                     hogy ez esetben egy konkrét utcáról van szó, amin közlekedni lehet.
@@ -742,10 +794,10 @@ dblatex robotauto.xml
                     Látható, hogy a <emphasis>role</emphasis> (szerep) mező üresen is hagyható.
                     Másik példában egy térséget határoznak meg az utak.
                     A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
-                    ami két út és az őket összekötő csomopontban megadja, hogy csak jobbra szabad fordulni.
+                    ami két út és az őket összekötő csomópontban megadja, hogy csak jobbra szabad fordulni.
                     Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
                     felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
-                    Az utlsó példában a kapcsolat egy tavat határoz meg két út segítségével.
+                    Az utolsó példában a kapcsolat egy tavat határoz meg két út segítségével.
                     <programlisting language="xml">
 <![CDATA[
  <relation id="23104" visible="true" version="8" changeset="22068566" timestamp="2014-05-01T17:22:38Z" user="akosbarta" uid="1731170">
@@ -862,8 +914,9 @@ dblatex robotauto.xml
                         https://github.com/osmcode/libosmium
                     </link>.
                     A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban.
-                    A beolvasott adatokat a memóriában, bufferekben tárolja, amihez a handler interfészen keresztül bejárást biztosít.
-                    Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objecktum struktúra elemeitől.
+                    A beolvasott adatokat a memóriában, <emphasis>osmium::memory::Buffer</emphasis>-ben tárolja,
+                    amihez a <emphasis>osmium::handler::Handler</emphasis> interfészen keresztül bejárást biztosít.
+                    Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objektum struktúra elemeitől.
                 </para>
                 <para>
                     Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License
@@ -921,11 +974,11 @@ andras@G53SW:~/Programs$ git clone https://github.com/osmcode/libosmium.git
                         </itemizedlist>
                     </para>
                     <para>
-                        A libosmium számos C++11-es feature-t használ, ezért egy modern fordítora van szükségünk (minimum GCC 4.8).
+                        A libosmium számos C++11-es feature-t használ, ezért egy modern fordítóra van szükségünk (minimum GCC 4.8).
                         Továbbá számos másik könyvtártól is függ a libosmium, amiket fel kell telepíteni használat előtt.
                         A fontos függőségek a következőek:
                         CMake és Make, Google Protocol Buffers, OSMPBF, Expat, Zlib, bz2lib.
-                        Ezeken kívül érdemes az opcionális függősegeket is telepíteni:
+                        Ezeken kívül érdemes az opcionális függőségeket is telepíteni:
                         Google Sparsehash, Boost, GDAL, GEOS, Proj.4, Doxygen.
                         A legújabb Ubuntu linux disztribúció (15.04) alatt ezeknek a telepítése a következő paranccsal hajtható végre
                         (a telepítéshez root jogosultságra van szükség):
@@ -957,7 +1010,7 @@ andras@G53SW:~$ sudo apt-get install \
 andras@G53SW:~/Programs/libosmium$ sudo cp -r include/osmium/ /usr/local/include/
 ]]>
                         </screen>
-                        Adjuk ki a következő parancsot a peldák és a tesztek előállításához:
+                        Adjuk ki a következő parancsot a példák és a tesztek előállításához:
                         <screen>
 <![CDATA[
 andras@G53SW:~/Programs/libosmium$ mkdir build
@@ -967,7 +1020,7 @@ andras@G53SW:~/Programs/libosmium/build$ make
 ]]>
                         </screen>
                         A cmake konfiguráció módosításához használhatjuk a következő parancsot,
-                        ha például nem szeretnénk előállitani a teszteket:
+                        ha például nem szeretnénk előállítani a teszteket:
                         <screen>
 <![CDATA[
 andras@G53SW:~/Programs/libosmium/build$ ccmake ..
@@ -1043,7 +1096,7 @@ for (const auto& item : buffer)
                         </figure>
                     </para>
                     <para>
-                        Ez a feltétel biztosítja számunka, hogy csak út tipusú <emphasis>item</emphasis>-ekkel dolgozunk.
+                        Ez a feltétel biztosítja számunka, hogy csak út típusú <emphasis>item</emphasis>-ekkel dolgozunk.
                         <programlisting language="C++">
 <![CDATA[
 if (item.type() == osmium::item_type::way)
@@ -1059,7 +1112,7 @@ const osmium::Way& way = static_cast<const osmium::Way&>(item);
                         </programlisting>
                     </para>
                     <para>
-                        A get_value_by_key függvénnyel az út cimkéinek listájából lekérdezi
+                        A <emphasis>get_value_by_key</emphasis> függvénnyel az út címkéinek listájából lekérdezi
                         a paraméterként megadott kulcshoz tartozó értéket.
                         Ha nem létezik az adott kulcs a címkék listájában, akkor <emphasis>nullptr</emphasis>-t kapunk visszatérési értékként.
                         A <emphasis>"name"</emphasis> kulcs esetlegesen az utca nevét tartalmazza, a <emphasis>"highway"</emphasis> pedig az út típusát.
@@ -1072,7 +1125,7 @@ const char* highway = way.get_value_by_key("highway");
                     </para>
                     <para>
                         Ha mindkét érték létezik, azaz nem nullpointerek,
-                        akkor kiiratjuk a standard kimenetre az utca nevét és a felhasználót,
+                        akkor kiíratjuk a standard kimenetre az utca nevét és a felhasználót,
                         aki felvitte vagy utoljára módosította az utat az adatbázisban.
                         <programlisting language="C++">
 <![CDATA[
@@ -1082,7 +1135,7 @@ if (name && highway)
                         </programlisting>
                     </para>
                     <para>
-                        A példaprogram fordításához létrehozuk egy CMake-es projektet.
+                        A példaprogram fordításához létrehozunk egy CMake-es projektet.
                         A libosmium biztosítja számunkra a
                         <emphasis>FindOsmium.cmake</emphasis> és <emphasis>FindOSMPBF.cmake</emphasis> modulokat,
                         amik a <emphasis>cmake</emphasis> mappában találhatóak.
@@ -1238,9 +1291,9 @@ for (const auto& member : relation.members())
                     </para>
                     <para>
                         Mivel szükségünk van a megállók koordinátáira, ezért nincs más választásunk,
-                        mint eltárolni minden csomópont helyét a bufferben.
+                        mint eltárolni minden csomópont helyét a <emphasis>buffer</emphasis>-ben.
                         Esetünkben a <emphasis>osmium::unsigned_object_id_type</emphasis> (csomópont azonosító id) lesz a kulcs,
-                        az érték pedig a bufferben mért <emphasis>size_t</emphasis> offset (eltolás).
+                        az érték pedig a <emphasis>buffer</emphasis>-ben mért <emphasis>size_t</emphasis> offset (eltolás).
                         A csomópont id-k, nagy számok lévén, ritkán töltik fel a táblázatot, amiben tároljuk őket.
                         Ennek támogatására használjuk a Google <emphasis>sparsetable</emphasis> adatstruktúrát,
                         ami memória-hatékonyan tárolja a hiányosan feltöltött hash táblákat.
@@ -1252,8 +1305,8 @@ typedef osmium::index::map::SparseMemTable<osmium::unsigned_object_id_type, size
                         </programlisting>
                     </para>
                     <para>
-                        A táblázat feltöltésénél kihasználjuk a buffer azon tulajdonságát,
-                        hogy a csomópont típusú elemek találhatóak a buffer legelején,
+                        A táblázat feltöltésénél kihasználjuk a <emphasis>buffer</emphasis> azon tulajdonságát,
+                        hogy a csomópont típusú elemek találhatóak a tároló legelején,
                         tehát megelőzik a kapcsolat típusú elemeket.
                         <programlisting language="C++">
 <![CDATA[
@@ -1275,7 +1328,7 @@ for (const auto& item : buffer)
                         </programlisting>
                     </para>
                     <para>
-                        Végezetül előszedjük a bufferből a <emphasis>member</emphasis> nyújtotta id alapján
+                        Végezetül előszedjük a <emphasis>buffer</emphasis>-ből a <emphasis>member</emphasis> nyújtotta id alapján
                         a megfelelő csomópontot.
                         Előfordulhat, hogy az egyes buszjáratoknak a térképen kívül eső buszmegállói vannak,
                         ami azt eredményezi, hogy bár a buszjárat kapcsolatban szerepel tagként a csomópont referenciája,
@@ -1407,7 +1460,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     <para>
                         A Robotautó Világbajnokság célközönsége rövid távon az egyetemi oktatás és kutatás:
                         egy olyan egységes platformot akarunk kialakítani,
-                        amely de facto szabványává tud vállni a várhatóan elterjedő robotautók és intelligens városok 
+                        amely de facto szabványává tud válni a várhatóan elterjedő robotautók és intelligens városok 
                         közötti kapcsolatokkal foglalkozó kutatásoknak. 
                     </para>
                     <para>
@@ -1448,8 +1501,8 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     <title>A Robocar City Emulator koncepciójának finomítása</title>
                     <para>
                         A valóságban a járművek fizikai léte biztosítja például, hogy egy adott útszakaszon hányan férnek el.
-                        Az autók külön célszámítógépeket tudnak használni az útvonalkijelöléshez.
-                        Nekünk mindezt, de legalábbi ennek valamilyen egyszerű modelljét kezelnünk kell egyetlen szoftverben
+                        Az autók külön célszámítógépeket tudnak használni az útvonal-kijelöléshez.
+                        Nekünk mindezt, de legalább ennek valamilyen egyszerű modelljét kezelnünk kell egyetlen szoftverben
                         a járművek forglamirányítási emulációja során.
                         A nehézséget a járművek nagy száma okozza.
                     </para>
@@ -1565,7 +1618,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
         <section>
             <title>Justina, a saját fejlesztés</title>
             <para>
-                A saját fejlesztésem a Justine protótípushoz hasonló robotautó emulátor tervezése és implementálása volt.
+                A saját fejlesztésem a Justine prototípushoz hasonló robotautó emulátor tervezése és implementálása volt.
                 A két prototípus egyidőben, egymástól függetlenül készült, de a kutatás fázisból származó követelményekből kifolyólag,
                 mint például az OpenStreetMap és az Osmium könyvtár, közös vonások is jelen vannak.
             </para>
@@ -1623,14 +1676,14 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                             <para>
                                 A módszertanhoz kapcsolódó "Release early, release often" filozófia
                                 kihangsúlyozza a szoftver korai és gyakori nyilvánosságra hozását,
-                                ami által a fejlesztők és a felhasználók közt szoros visszajelzés-alapú hurok alalkul ki.
+                                ami által a fejlesztők és a felhasználók közt szoros visszajelzés-alapú hurok alakul ki.
                             </para>
                         </listitem>
                     </itemizedlist>
                 </para>
                 <para>
                     Az emulátor követelmény specifikációja gyakran változott,
-                    ami kihatással volt magára a szofverre is,
+                    ami kihatással volt magára a szoftverre is,
                     viszont a jól megválasztott módszertan mellett
                     nem okozott gondot ezeknek a változásoknak a folyamatos beépítése.
                 </para>
@@ -1655,7 +1708,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>Tervezés</title>
                 <para>
-                    A tervezett emulátor fő koncepciója a roboautók nagy számára helyezte a hangsúlyt.
+                    A tervezett emulátor fő koncepciója a robotautók nagy számára helyezte a hangsúlyt.
                     Ahhoz, hogy akár 10<superscript>6</superscript> nagyságrendű számú autó
                     bolyongjon a térképen valós időben,
                     és ezt mind meg is lehessen jeleníteni a Monitor programban,
@@ -1667,8 +1720,8 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     és az emulátor időfelbontása 10 szimulációs lépés másodpercenként,
                     akkor eredményül az emulátor minden másodpercben
                     2*4*10<superscript>6</superscript>*10 bájt, azaz 80 MB
-                    adatot kéne, hogy továbbítson a hozzá kapcsolodó entitásoknak.
-                    E mellett az adamennyiség mellett nem tartom életképesnek a socket alapú IPC-t.
+                    adatot kéne, hogy továbbítson a hozzá kapcsolódó entitásoknak.
+                    E mellett az adatmennyiség mellett nem tartom életképesnek a socket alapú IPC-t.
                 </para>
                 <para>
                     A platform gyors prototípus jellege miatt az egyszerű,
@@ -1697,7 +1750,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     A Justina emulátor nagyban hasonló elvek alapján működik, mint a Justine prototípus.
                     Az útválasztó algoritmus tesztelésére a Robotautó Világbajnokságból vett szituáció
                     van jelen itt is, amiben
-                    a rendőr tipusú robotautók üldözik a gengszter tipusú robotautókat
+                    a rendőr típusú robotautók üldözik a gengszter típusú robotautókat
                     a város civil robotautó forgalmában,
                 </para>
                 <para>
@@ -1707,7 +1760,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                 <section>
                     <title>A gráf típusa</title>
                     <para>
-                        A <emphasis>graph.hpp</emphasis> forrásfáljban található a gráf deklarációja:
+                        A <emphasis>graph.hpp</emphasis> forrásfájlban található a gráf deklarációja:
                         <programlisting language="C++">
 <![CDATA[
 # include <boost/graph/adjacency_list.hpp>
@@ -1763,8 +1816,8 @@ osmium::apply(buffer, handler1, handler2);
                         </programlisting>
                         Az OSM <emphasis>buffer</emphasis>-t kétszer járjuk be.
                         Először feltöltjük a <emphasis>nodes</emphasis> Google sparsetable típusú tárolót,
-                        ami az út tipusú elemek csomópont referenciáihoz tárolja el nekünk az OSM csomópontok koordinátáit.
-                        Másoszor, az út tipusú elemeket bejárva építjuk fel a gráfot.
+                        ami az út típusú elemek csomópont referenciáihoz tárolja el nekünk az OSM csomópontok koordinátáit.
+                        Másodszor, az út típusú elemeket bejárva építjük fel a gráfot.
                     </para>
                     <para>
                         A <emphasis>create_graph.cpp</emphasis>-ben definiált
@@ -1797,7 +1850,7 @@ boost::add_vertex(Location(osmium::geom::detail::lon_to_x(node_ref.lon()),
                     <title>A forgalom</title>
                     <para>
                         A térkép gráfját a <emphasis>Car</emphasis> osztály példányai népesítik be.
-                        A <emphasis>car.hpp</emphasis> forrásfáljban található az osztály deklarációja:
+                        A <emphasis>car.hpp</emphasis> forrásfájlban található az osztály deklarációja:
                         <programlisting language="C++">
 <![CDATA[
 class Car
@@ -1815,7 +1868,7 @@ public:
 };
 ]]>
                         </programlisting>
-                        Egy robotautó lehet elkapott gengszter, civil, gengszter vagy rendőr tipusú.
+                        Egy robotautó lehet elkapott gengszter, civil, gengszter vagy rendőr típusú.
                         Az alap modellben minden autó a maximális sebességével közlekedik,
                         ami egyedenként eltérő is lehet.
                         A <emphasis>loc</emphasis> tagváltozó határozza meg az autó helyzetét.
@@ -1832,7 +1885,7 @@ public:
                         a gráfból kiválasztunk találomra egy élt, amire egy darab robotautót helyezünk.
                         A boost biztosít egy <emphasis>random_edge</emphasis> metódust ami lassúnak bizonyult,
                         ezért a C++-os standard könyvtárból használjuk az alapértelmezett
-                        Lewis, Goodman, és Miller féle <emphasis>Minimum Standard</emphasis>
+                        Lewis, Goodman, és Miller-féle <emphasis>Minimum Standard</emphasis>
                         randomszám generátort.
                         <programlisting language="C++">
 <![CDATA[
@@ -1852,11 +1905,11 @@ const edge_type& e = *std::next(boost::edges(graph).first, uni_dis(gen));
                     <title>A forgalomirányítás</title>
                     <para>
                         A forgalomban résztvevő robotautók nagyrésze rutin autó.
-                        Ide tartoznak a civil és a gengszter tipusú autók.
+                        Ide tartoznak a civil és a gengszter típusú autók.
                         Ezek az autók random bolyonganak a városban, olyan értelemben,
                         hogy egy adott kereszteződés lehetséges útjai közül random választanak,
                         de anélkül, hogy visszafordulnának.
-                        A rendőr tipusú autókat egy algoritmus vezérli,
+                        A rendőr típusú autókat egy algoritmus vezérli,
                         aminek a feladata, hogy olyan útvonalat tervezzen a rendőrautónak,
                         amivel elkapja a gengsztereket.
                         Egy gengszter akkor válik elkapottá,
@@ -1864,11 +1917,11 @@ const edge_type& e = *std::next(boost::edges(graph).first, uni_dis(gen));
                         és a köztük lévő távolság kevesebb, mint 10 méter.
                     </para>
                     <para>
-                        A saját routig algoritmusom alapja,
+                        A saját routing algoritmusom alapja,
                         hogy minden rendőrt a hozzá legközelebb eső gengszterhez irányítson.
-                        A leelterjedtebb útvonalkereső algoritmus az A* algoritmus,
+                        A legelterjedtebb útvonalkereső algoritmus az A* algoritmus,
                         amit a boost is támogat.
-                        A <emphasis>traffic.cpp</emphasis> forrásfáljban található ennek a használata:
+                        A <emphasis>traffic.cpp</emphasis> forrásfájlban található ennek a használata:
                         <programlisting language="C++">
 <![CDATA[
 const edge_type Traffic::get_next_routed_edge(const vertex_type start, const vertex_type goal)
@@ -1892,12 +1945,15 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
                         </programlisting>
                         Az algoritmus által használt távolság heurisztika
                         a vizsgált csomópont és a célcsomópont közti távolságon alapszik.
-                        Az eredményül kapott útvonalat a <emphasis>predecessor_map</emphasis>
+                        Az eredményül kapott útvonal csomópontjait a <emphasis>predecessor_map</emphasis>
                         tábla tárolja.
-                        Az útvonalat a céltól kezdve tudjuk bejárni,
-                        és nekünk az utolsó előtti csomópontra van szükségünk.
-                        Az utolsó csomópont a kiindulási csomópont,
-                        ami egy kereszteződés, amiben a rendőrautó áll.
+                        Az utolsó előtti csomópontra van szükségünk,
+                        ami megmondja, hogy merre haladjon tovább az autó,
+                        viszont az útvonal csomópontjait csak a céltól kezdve tudjuk bejárni.
+                        Az útvonalat alkotó elemek a táblában úgy szerepelnek, hogy
+                        az elem kulcsa az adott csomópont azonósítója és
+                        az elem értéke a kulcsban tárolt csomópontot megelőző csomópont azonosítója.
+                        Ez alapján lehet bejárni az útvonal csomópontjait.
                     </para>
                 </section>
             </section>
@@ -2104,21 +2160,273 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
                 </para>
             </section>
             <section>
-                <title>A fejlesztés mérföldkövei</title>
+                <title>A fejlesztés közben felmerült problémák</title>
                 <para>
-                    Szoftver kiadások, stb.
+                    A fejlesztés során felszínre került több olyan probléma is,
+                    ami a kutatási fázisban nem volt előrelátható.
+                    Ezeknek a problémáknak a megoldása változtatott részben a koncepción is.
                 </para>
-            </section>
-            <section>
-                <title>Szoftver eredmények</title>
-                <para>
-                    Kitérve a használatra, felületre.
-                </para>
+                <section>
+                    <title>Nem összefüggő gráf</title>
+                    <para>
+                        A térkép minőségétől függően és a kiszűrt utakat tekintve,
+                        előfordult, hogy a létrehozott gráf nem lett összefüggő,
+                        azaz nem teljesült az a feltétel, hogy minden csomópontból
+                        minden csomópontba el lehet jutni.
+                        A város nagy térképétől leszakadt kisebb darabok nagy gondot jelentettek, mivel
+                        ha egy ilyen részben jött létre egy gengszter vagy egy rendőr autó,
+                        akkor az nem vett részt az üldözésben.
+                    </para>
+                    <para>
+                        Az egyik megoldás azt feltételezte, hogy az ilyen autók el tudják dönteni magukról,
+                        hogy izolált helyen vannak.
+                        Rendőr esetén a gengszterek elérhetetlenségéből lehetne következtetni,
+                        viszont ez újabb fölösleges bonyolultságot eredményezne,
+                        amire a forgalomirányító algoritmusoknak fel kellene készülniük,
+                        ezért ezt a megoldást elvetettem.
+                    </para>
+                    <para>
+                        A másik megoldás, ami implementálva is lett, a gráf összefüggővé alakításán alapszik.
+                        A boost biztosít ennek a célnak megfelelő eszközöket,
+                        amik közül a <emphasis>boost::make_connected</emphasis> metódus minimális számú él beszúrásával
+                        összefüggővé teszi a gráfot.
+                        Ezzel csak annyi a probléma, hogy ezáltal nem a valóságnak megfelelő térképet kapunk,
+                        ami megtévesztő is lehet.
+                        Egy másik eszköz mélységi kereső algoritmussal bejárja a gráfot és
+                        megszámozza az összefüggő részgráfok csomópontjait ugyanazzal a számmal.
+                        Ebből adódóan a legnagyobb részgráf lesz a város térképét alkotó összefüggő gráf,
+                        a többi részgráfot töröljük.
+                    </para>
+                    <para>
+                        <programlisting language="C++">
+<![CDATA[
+std::vector<vertex_type> component(boost::num_vertices(graph));
+boost::connected_components(graph, &component[0]);
+
+for (vertex_type i = component.size()-1; i > 0; i--)
+{
+  if (component[i] != 0)
+  {
+    boost::clear_vertex(i, graph);
+    boost::remove_vertex(i, graph);
+  }
+}
+]]>
+                        </programlisting>
+                        Fontos megjegyezni, hogy a gráf csomópontjainak és éleinek a törlése nem biztonságos művelet.
+                        Mivel a csomópontokról tudjuk, hogy melyik hova tartozik,
+                        ezért azoknak a törlésével szüntetjük meg a részgráfokat.
+                        A csomópontok tárolója <emphasis>std::vector</emphasis> típusú,
+                        így egy elem törlése az őt követő elemek átrendezésével történik,
+                        ami érvényteleníti az elemek azonosítóit.
+                        Ennek elkerülésére az elemeket fordított sorrendben töröljük,
+                        előbb törölve a csomóponthoz kapcsolódó éleket,
+                        majd magát a csomópontot.
+                    </para>
+                    <para>
+                        Az eredmény Debrecen térképével:
+                        <itemizedlist>
+                            <listitem>
+                                <para>
+                                    Nem összefüggő gráf
+                                </para>
+                                <para>
+                                    verticies: 21941
+                                </para>
+                                <para>
+                                    edges: 24531
+                                </para>
+                                <figure xml:id="with_isolated">
+                                    <title>Debrecen város térképének nem összefüggő gráfja az emulátor megjelenítőjében</title>
+                                    <mediaobject>
+                                        <imageobject>
+                                            <imagedata fileref="figures/with_isolated.png"/>
+                                        </imageobject>
+                                    </mediaobject>
+                                </figure>
+                            </listitem>
+                            <listitem>
+                                <para>
+                                    Összefüggő gráf
+                                </para>
+                                <para>
+                                    verticies: 21336
+                                </para>
+                                <para>
+                                    edges: 23982
+                                </para>
+                                <figure xml:id="without_isolated">
+                                    <title>Debrecen város térképének összefüggő gráfja az emulátor megjelenítőjében</title>
+                                    <mediaobject>
+                                        <imageobject>
+                                            <imagedata fileref="figures/without_isolated.png"/>
+                                        </imageobject>
+                                    </mediaobject>
+                                </figure>
+                            </listitem>
+                        </itemizedlist>
+                    </para>
+                </section>
             </section>
             <section>
                 <title>Tesztelés</title>
                 <para>
-                    A tesztelés bemutatása.
+                    A platform fejlesztése közben meg kellett arról bizonyosodni,
+                    hogy a kutatás során elképzelt koncepció jól működik-e,
+                    mert ha nem, akkor változtatni kell az agilis módszertannak megfelelően.
+                </para>
+                <section>
+                    <title>A routing algoritmus és a gráf éleinek súlya</title>
+                    <para>
+                        A Justina prototípusban a forgalomirányító algoritmust befolyásoló tényező
+                        gráf éleihez rendelt súlyok.
+                        Még azelőtt, hogy elárasztanánk a várost autókkal,
+                        tesztelésre került, hogy egyáltalán életképes-e ez a felfogás.
+                        Vajon elkerüli-e az autó a forgalmas útszakaszt?
+                    </para>
+                    <para>
+                        A teszt lebonyolításához kiválasztásra került Debrecen egyik utcája, a Kassai út.
+                        Az algoritmus a térképen megjelölt két koordinátát kapja meg bemenetként,
+                        és eredményül visszaadja a tervezett útvonalban résztvevő csomópontok egy listáját,
+                        amit a megjelenítő kirajzol.
+                        <figure xml:id="kassai1">
+                            <title>Útvonaltervezés az emulátor megjelenítőjében, Debrecen város alaphelyzetben</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="figures/direct.png"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                        Jól látható, hogy az útvonal áthalad a Kassai úton.
+                    </para>
+                    <para>
+                        Ezt követően a gráfot úgy építjük fel, hogy a teszthez választott utakhoz tartozó
+                        éleknek nagy legyen a súlya, így azok kevésbé kerülnek kiválasztásra
+                        az útkereső algoritmus által.
+                        <figure xml:id="kassai2">
+                            <title>Útvonaltervezés az emulátor megjelenítőjében, a Kassai útnak nagy súlya van</title>
+                            <mediaobject>
+                                <imageobject>
+                                    <imagedata fileref="figures/diversion.png"/>
+                                </imageobject>
+                            </mediaobject>
+                        </figure>
+                        Ez esetben az algoritmus sikeresen átment a teszten,
+                        mivel az útvonal elkerüli a forgalmas utakat.
+                    </para>
+                </section>
+            </section>
+            <section>
+                <title>Szoftver eredmények</title>
+                <para>
+                    Végezetül a Justina emulátor fordítása és futtatása az alábbi lépésekkel történik.
+                </para>
+                <para>
+                    Fordítás:
+                    <screen>
+<![CDATA[
+andras@G53SW:~/Programs/Mapview$ mkdir build
+andras@G53SW:~/Programs/Mapview$ cd build/
+andras@G53SW:~/Programs/Mapview/build$ cmake ..
+-- The C compiler identification is GNU 4.9.2
+-- The CXX compiler identification is GNU 4.9.2
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Boost version: 1.55.0
+-- Found OSMIUM: /usr/local/include  
+-- Found OSMPBF: /usr/lib/libosmpbf.a  
+-- Looking for include file pthread.h
+-- Looking for include file pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Found PROTOBUF: /usr/lib/x86_64-linux-gnu/libprotobuf.so  
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
+-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.1.0") 
+-- Found BZip2: /usr/lib/x86_64-linux-gnu/libbz2.so (found version "1.0.6") 
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so
+-- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so - found
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of google::sparsetable<int>::size_type
+-- Check size of google::sparsetable<int>::size_type - done
+-- Found Doxygen: /usr/bin/doxygen (found version "1.8.9.1") 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/andras/Programs/Mapview/build
+andras@G53SW:~/Programs/Mapview/build$ make
+Scanning dependencies of target Mapview_automoc
+[ 16%] Automatic moc for target Mapview
+Generating moc_mapview.cpp
+Generating moc_traffic.cpp
+[ 16%] Built target Mapview_automoc
+Scanning dependencies of target Mapview
+[ 33%] Building CXX object src/CMakeFiles/Mapview.dir/main.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/Mapview.dir/mapview.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/Mapview.dir/traffic.cpp.o
+[ 83%] Building CXX object src/CMakeFiles/Mapview.dir/create_graph.cpp.o
+[100%] Building CXX object src/CMakeFiles/Mapview.dir/Mapview_automoc.cpp.o
+Linking CXX executable Mapview
+[100%] Built target Mapview
+]]>
+                    </screen>
+                </para>
+                <para>
+                    Dokumentáció generálása:
+                    <screen>
+<![CDATA[
+andras@G53SW:~/Programs/Mapview$ make doc
+Scanning dependencies of target doc
+[100%] Generating API documentation with Doxygen
+...
+[100%] Built target doc
+]]>
+                    </screen>
+                </para>
+                <para>
+                    Futtatás:
+                    <screen>
+<![CDATA[
+andras@G53SW:~/Programs/Mapview/build$ src/Mapview ~/debrecen.osm 
+Justina Robocar City Emulator, Copyright (C) 2015 András Mamenyák
+This program comes with ABSOLUTELY NO WARRANTY;
+This is free software, and you are welcome to redistribute it
+under certain conditions.
+
+Constructing connected graph from /home/andras/debrecen.osm
+verticies: 21336
+edges: 23982
+Populating traffic with 1000 civil cars, 100 gangster cars and 10 cop cars
+cars: 1110
+Gangster car caught! Remaining: 99
+Gangster car caught! Remaining: 98
+]]>
+                    </screen>
+                </para>
+                <para>
+                    Képernyőkép a futásról:
+                    <figure xml:id="Justina">
+                        <title>Justina Robocar City Emulator</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="figures/Justina.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
                 </para>
             </section>
         </section>
@@ -2128,11 +2436,49 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
         <section>
             <title>Összegzés</title>
             <para>
+                A Robotautó Világbajnokság platformja egy forradalmi változást hozhat az önjáró autók fejlesztésében.
+                A Robocar City Emulator feladata a legjobb forgalomirányító algoritmus megtalálása.
+                Az algoritmusnak versenyhelyzetben kell bizonyítania.
+                Ezt a versenyt jelenleg a rendőrautós üldözés képviseli, amiben az a cél,
+                hogy a rendőrautó ágenseket irányítva kell elkapni a városban közlekedő gengszter ágenseket.
+                Mindezt nehezíti, hogy az úton közlekedő rutin autók sokan vannak,
+                amik belassult közlekedést vagy akár dugót is okozhatnak,
+                Ennek köszönhetően a feladatra nem alkalmas routing algoritmusok hamar felszínre kerülnek.
+            </para>
+            <para>
+                A kutatás eredményeként megállapításra került,
+                hogy az emulátor bemenetét az OpenStreetMap térképei adják majd.
+                Az adatok kezelésére a nyílt forrású C++-os Libosmium könyvtárat használjuk,
+                amiből felépítjük a város gráfját a boost könyvtárcsomag segítségével.
+            </para>
+            <para>
+                Saját fejlesztésem, a Justina prototípus, párhuzamosan készült egy másik prototípussal,
+                a Justine-al, ezáltal versengést teremtve a fejlesztésben.
+                A koncepció alapján az emulátor támogatja a nagyszámú robotautó forgalmat,
+                viszont azzal a megszorítással, hogy a szoftver magába foglalja az összes komponenst,
+                így nem alkalmas egy verseny lebonyolítására.
+                Az emulátor kutatási szerepet lát el, támogatva a szimulációs számítások végzését
+                valóságos paraméterek mellett.
+            </para>
+            <para>
+                A dolgozat alatt készült szoftverek nyílt forrásúak és
+                letölthetőek a megadott git tárolókból.
             </para>
         </section>
         <section>
             <title>Továbbfejlesztési tervek és lehetőségek</title>
             <para>
+                A jövőre nézve számos lehetőség adott, amivel gazdagabbá lehet tenni a platformot és
+                valóságosabbá a szimulációt.
+                Következő mérföldkő a városi adatfelhő megtervezése,
+                ami valós adatokkal látná el az emulátort.
+                Az adatokat a <xref linkend="Tetris-terv"/> alapján
+                mind automatikus, mind kézi adatgyűjtők szolgáltatnák.
+            </para>
+            <para>
+                Jelenleg is több tervezett publikáció van készülőben,
+                amelyek közt van már beküldött kézirat is,
+                amiben a Robotautó Világbajnokság kerül bemutatásra <citation>OOCWC</citation>.
             </para>
         </section>
     </section>
@@ -2359,12 +2705,6 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
                 </author>
                 <author>
                     <personname>
-                        <firstname>Norbert</firstname>
-                        <surname>Bátfai</surname>
-                    </personname>
-                </author>
-                <author>
-                    <personname>
                         <firstname>Géza</firstname>
                         <surname>Róka</surname>
                     </personname>
@@ -2382,7 +2722,43 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
                     submitted manuscript
                 </publishername>                    
             </publisher>
-            <pubdate>2014</pubdate>
+            <pubdate>2015</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>OOCWC</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Renátó</firstname>
+                        <surname>Besenczi</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>András</firstname>
+                        <surname>Mamenyák</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Márton</firstname>
+                        <surname>Ispány</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>OOCWC: The Robocar World Championship Initiative</title>
+            <publisher>
+                <publishername>
+                    submitted manuscript
+                </publishername>                    
+            </publisher>
+            <pubdate>2015</pubdate>
         </biblioentry>
     </bibliography>
 </article>
