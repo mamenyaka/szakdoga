@@ -44,7 +44,6 @@
                 </address>
             </affiliation>
         </author>
-        <edition>Robotautó Világbajnokság, UDProg közösség dokumentációs feljegyzés, v. 0.0.15</edition>
         <pubdate>2015</pubdate>
         <copyright>
             <year>2015</year>
@@ -53,7 +52,7 @@
         </copyright>
         <legalnotice>
             <para>
-                UDProg, Robotautó Világbajnokság
+                Robotautó Világbajnokság
             </para>
             <para>
                 Ez a program szabad szoftver; terjeszthető illetve módosítható a
@@ -140,23 +139,23 @@
             </revision>
             <revision>
                 <revnumber>0.0.12</revnumber>
-                <date>2015-04-27</date>
-                <revremark>Justine fejezet</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.13</revnumber>
                 <date>2015-04-28</date>
                 <revremark>Saját fejlesztés fejezet elkezd</revremark>
             </revision>
             <revision>
-                <revnumber>0.0.14</revnumber>
+                <revnumber>0.0.13</revnumber>
                 <date>2015-04-29</date>
                 <revremark>Saját fejlesztés fejezet befejez</revremark>
             </revision>
             <revision>
-                <revnumber>0.0.15</revnumber>
+                <revnumber>0.0.14</revnumber>
                 <date>2015-04-30</date>
                 <revremark>Összegzés fejezet</revremark>
+            </revision>
+            <revision>
+                <revnumber>0.0.15</revnumber>
+                <date>2015-05-01</date>
+                <revremark>Javítások</revremark>
             </revision>
         </revhistory>
     </info>
@@ -173,7 +172,7 @@
             hogyan lehetne a Sci-Fi filmek által előrevetített jövőképet elhozni a XXI. századba.
         </para>
         <para>
-            Dolgozatom célja egy olyan emulátor platform tervezése és implementálása,
+            Dolgozatom célja egy olyan emulátor tervezése és implementálása,
             amely a város és a benne közlekedő önvezető autók kapcsolatát vizsgálja.
             A koncepció azt feltételezi, hogy a közeljövőben egy adott városban kizárólag ilyen robotautók közlekednek,
             a hagyományos autók egyáltalán nem vesznek részt a forgalomban.
@@ -210,16 +209,34 @@
                 A kényelmesebb várakozási idő érdekében ez a szám elérheti a 200-300 ezres határt is,
                 viszont még ez a szám is csak körülbelül a jelenlegi autók számának mindössze az 1/3-a.
             </para>
-        </section>
-        <!--
-        <section>
-            <title>Megelőző és kapcsolódó munkák</title>
             <para>
-                Jellegében az előző, de inkább szükebb értelemben a jelölt, illetva tágabban értelmezve az UDPROG
-                közösség eredményeit kiemelve.
+                A forgalom szimulációs modelleket három nagy csoportba kategorizálhatjuk:
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            a mikroszkopikus modellek <citation>Micro</citation>,
+                            amiben az autók, mint egyedi ágensek vesznek részt.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            a sejt modellek <citation>Cellular</citation>,
+                            amiben az út cellákra van felbontva és
+                            az autókat sztochasztikus szabályok irányítják celláról cellára.
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            a kontinuum modellek <citation>Macro</citation>,
+                            ami tovább bontható mezoszkopikus (gáz-kinetikus) és
+                            makroszkopikus (folyadék-dinamikai) modellekre.
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                A mi modellünk a mikroszkopikus modellek kategóriájába esik,
+                mivel a forgalmat egyedi robotautó ágensek alkotják.
             </para>
         </section>
-        -->
         <section>
             <title>A dolgozat szervezése és szerkezete</title>
             <para>
@@ -229,7 +246,7 @@
                 Ezeken a példaprogramok keresztül ismerkedtem meg a kiválasztott térképmegoldással és az azt támogató könyvtárral.
                 A fejezet végén bemutatásra kerül a Robotautó Világbajnokság követelmény specifikáció dokumentuma,
                 ami vázolja a koncepciót és bemutatja az emulátor egyik gyors prototípusát.
-                A második fejezet az általam fejlesztett robotautó platformot mutatja be részletesen,
+                A második fejezet az általam fejlesztett robotautó emulátort mutatja be részletesen,
                 annak tervezését és kivitelezését, a fejlesztés során felmerült problémákat és azok megoldását,
                 majd végül a használatát és eredményeit.
                 A dolgozatot az összegző gondolatok és a jövőbeli tervek zárják.
@@ -287,7 +304,7 @@ dblatex robotauto.xml
             <section>
                 <title>Térképmegoldások összehasonlítása</title>
                 <para>
-                    A platform bemenetét egy adott város térképe biztosítja, ezért fontos,
+                    Az emulátor bemenetét egy adott város térképe biztosítja, ezért fontos,
                     hogy jó minőségű, megszorítások nélkül használható megoldást találjunk.
                     Jelenleg a piacon lévő elterjedt térképmegoldások a következőek:
                     Google Maps, HERE, Bing Maps és OpenStreetMap.
@@ -1442,51 +1459,33 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                 <title>A Robotautó Világbajnokság platformja</title>
                 <para>
                     Az alábbi fejezet részei a Robotautó Világbajnokság szoftverkövetelmény specifikáció (SRS)
-                    dokumentumból <citation>RCEMU</citation> származnak.
+                    dokumentum <citation>RCEMU</citation> alapján íródtak.
                 </para>
                 <section>
                     <title>Célok</title>
                     <para>
-                        A Robotautó Világbajnokság egy kutatási kezdeményezés, melynek célja egy olyan
-                        kutatási platform kialakítása, amely lehetővé teszi az intelligens városok és a robotautók
-                        kapcsolatának vizsgálatát. A fejlesztendő rendszer központi eleme az emulátor, amely egyrészt
-                        szimulálja egy város forgalmát, másrészt a forgalomirányítás szempontjából emulálja a város autóit. 
-                        A kifejlesztendő platform egyik feladata lesz a (robot)autók forgalomirányítási bemenetének és
-                        kimenetének finomítása, akár iterálása.
+                        A Robotautó Világbajnokság egy olyan kutatási platform,
+                        ami a robotautók és az intelligens város kapcsolatát vizsgálja.
+                    </para>
+                    <para>
+                        A kezdeményezés célközönsége rövid távon az egyetemi oktatás és kutatás.
+                        Hosszú távon az autóipar szereplőit célozzuk meg,
+                        egy egységes platformot biztosítva a jövőbeli robotautók forgalomirányító algoritmusának
+                        a fejlesztésére és tesztelésére.
                     </para>
                 </section>
                 <section>
-                    <title>Célközönség</title>
+                    <title>A platform koncepciója</title>
                     <para>
-                        A Robotautó Világbajnokság célközönsége rövid távon az egyetemi oktatás és kutatás:
-                        egy olyan egységes platformot akarunk kialakítani,
-                        amely de facto szabványává tud válni a várhatóan elterjedő robotautók és intelligens városok 
-                        közötti kapcsolatokkal foglalkozó kutatásoknak. 
-                    </para>
-                    <para>
-                        Távolabbi cél, hogy ez a kifejlesztendő kutatási platform elterjedésével képes legyen kialakítani 
-                        egy olyan nyílt ipari platformot,amely az autógyártók számára lehet érdekes,
-                        mert az emulátornak éppen abban az értelemben akarunk emulátor jelleget adni, 
-                        hogy kialakítjuk a robotautók forgalomirányítási aspektusokból értelmezett
-                        majdani valóságos bemenetét és kimenetét.
-                    </para>
-                </section>
-                <section>
-                    <title>A Robocar City Emulator koncepciója</title>
-                    <para>
-                        A projektben fejlesztendő szoftver komponensek legtöbbje kapcsolatba kerül a térképpel (Map),
-                        most konkrétan az OpenStreetMap-el.
-                        A közlekedést mindig egy adott városban (City) vizsgáljuk,
-                        amelyről a priori bírunk információkkal,
-                        illetve automatikusan (ASA) vagy emberi beavatkozással (HSA) segítve gyűjtünk adatokat.
-                        Előbbire példa, amikor egy bekötőút bejövő forgalmát egy kamera
-                        alapú alkalmazás számolja adott időszakban, utóbbira, amikor ugyanezt egy emberi megfigyelő teszi.  
-                        Az emulátor (Robocar City Emulator) a járművek mozgatását emulálja a vizsgált városban, miközben 
-                        minden járművet ugyanazzal a vezérlő algoritmussal (The competition) látunk el. Egy-egy leemulált nap
-                        eredményei (Results) alapján hirdetjük ki a versengő vezérlő algoritmusok között a győztest. 
-                        A versengés alapja például a járművek átlagos utazási idejének a minimalizálása.
-                        Az emulációk mindenféle izgalmas környezetben lesznek megjeleníthetők (Monitors)
-                        például Google Maps vagy OpenStreetMap alapú megjelenítőkben.
+                        A platform lelke a Robocar City Emulator, ami a várost és a forgalmat szimulálja.
+                        Jelen esetben a város térképét (Map) az OpenStreetMap biztosítja.
+                        Az intelligens város (City) adatfelhőjét a forgalom megfigyelésével töltjük fel.
+                        Ez a megfigyelés történhet automatikusan (ASA) vagy kézi annotálással (HSA).
+                        A versenyben részt vevő forgalomirányító algoritmusok (The competition) vezérlik
+                        a városban közlekedő robotautókat.
+                        A győztes algoritmust a szimulációs eredmények (Results) alapján hirdetjük ki.
+                        Az emulátorhoz kapcsolódó valósidejű vagy visszajátszó megjelenítők (Monitors) a szimuláció követését
+                        segítik.
                     </para>
                     <figure xml:id="Tetris-terv">
                         <title>A projekt "Tetris-terve"</title>
@@ -1498,119 +1497,33 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     </figure>
                 </section>
                 <section>
-                    <title>A Robocar City Emulator koncepciójának finomítása</title>
+                    <title>Az emulátor követelményei</title>
                     <para>
-                        A valóságban a járművek fizikai léte biztosítja például, hogy egy adott útszakaszon hányan férnek el.
-                        Az autók külön célszámítógépeket tudnak használni az útvonal-kijelöléshez.
-                        Nekünk mindezt, de legalább ennek valamilyen egyszerű modelljét kezelnünk kell egyetlen szoftverben
-                        a járművek forglamirányítási emulációja során.
-                        A nehézséget a járművek nagy száma okozza.
+                        A valóságban az autók útvonaltervezését a járműben található eszköz végzi,
+                        nekünk viszont egyetlen szoftveren belül kell ugyanezt nyújtani minden egyes robotautó számára.
+                        Az autók nagy számát tekintve (akár 10<superscript>6</superscript>), ez egy nehéz feladat.
                     </para>
                     <para>
-                        Az előzetes kutatási követelmények a következőek:
+                        A fejlesztés katalizálása miatt enyhítettünk azon a követelményen,
+                        hogy minden robotautót egyetlen forgalomirányító algoritmusnak kell kezelnie.
+                        Az enyhített követelmény alapján két járművet különböztetünk meg az emulátorban:
+                        a rutin autókat, amik egy előre meghatározott útvonalon közlekednek,
+                        és az okos autókat, amiket a forgalomirányító algoritmus irányít.
+                    </para>
+                    <para>
+                        Az előzetes követelmények a következőek:
                         <itemizedlist>
                             <listitem>
                                 <para>
-                                    A koncepció térjen ki az emulátor "emulátor-jellegére" egy autó inputjának és outputjának megadásával.
+                                    A bemenetként kapott OSM térképből gráfot kell építeni.
                                 </para>
                             </listitem>
                             <listitem>
                                 <para>
-                                    A térkép nagyszámú csomópontot tartalmaz,
-                                    amelyeket gráfként kell tudni kezelni, például a routing-hoz.
-                                </para>
-                            </listitem>
-                            <listitem>
-                                <para>
-                                    A program tudjon kezelni 10<superscript>6</superscript> autót a térképen
-                                    (olyan értelemben valóságosan, hogy adott úton két csomópont közötti terület akár telítődhessen is járművekkel!)
+                                    Az emulátor képes legyen akár 10<superscript>6</superscript> autót is szimulálni.
                                 </para>
                             </listitem>
                         </itemizedlist>
-                    </para>
-                </section>
-            </section>
-            <section>
-                <title>A Justine gyors prototípus</title>
-                <para>
-                    A kutatási terv <citation>Terv</citation> Jusztina feladata
-                    az emulátor eldobható, evolúciós gyors prototípusa.
-                </para>
-                <section>
-                    <title>A koncepció</title>
-                    <para>
-                        Azt az előzetes követelményt puhítjuk fel, hogy a városban csak robotautók vannak,
-                        azzal, hogy két tipikus járművet különböztetünk meg az emulátorban:
-                        <itemizedlist>
-                            <listitem>
-                                <para>
-                                    Túlnyomó többségben vannak az olyan autók, amelyek a szokásos napi rutint futják be.
-                                    Ez leveszi a vállunkról azt a terhet,
-                                    hogy a nagyszámú autónak útvonalat tervezzünk, mert ugye a valóságban ennek nincs akadálya,
-                                    hiszen az autó a saját GPS navigációs célszámítógépével ezt megteheti, de nekünk mindezt szimulálnunk kell!
-                                    Persze azt megemlíthetjük, hogy útvonaltervezésre itt is szükség lehet, de ez az emulációs verseny 
-                                    (a Robotautó Világbajnokság) előtt megtehető, hogy az emulátor már ezeknek a járműveknek olyan
-                                    csomópont listáját kapja, amelynek csomópont elemei folyamatosan a valódi útjára illeszkednek.                         
-                                </para>
-                            </listitem>
-                            <listitem>
-                                <para>
-                                    Elenyésző kisebbségben vannak olyan autók, akik inputot vesznek át a várostól
-                                    és ezt felhasználják az útvonaltervezéshez.
-                                </para>
-                            </listitem>  
-                        </itemizedlist>
-                        Az első pontba eső járműveket nevezzük a Justine modelljében <emphasis>rutin</emphasis>, 
-                        a másodikba esőket <emphasis>okos</emphasis> járműveknek.
-                    </para>
-                    <para>
-                        Megjegyezhetjük, hogy ez a modell valószínűleg jobban is fog illeszkedni ahhoz a folyamathoz, amely szerint majd a
-                        robotautók elterjednek.
-                    </para>
-                </section>
-                <section>
-                    <title>A Justine protó szereplői</title>
-                    <itemizedlist>
-                        <listitem>
-                            <para>
-                                Az adott város OSM térképe.
-                                A térkép alapján kell egy gráf-csővezeték jellegű modell, amelyben a járműveket mozgatjuk.
-                            </para>
-                        </listitem>
-                        <listitem>
-                            <para>
-                                A szimuláció működtetéséhez a gráf megadott részei információkat szolgáltatnak a járműveknek
-                                (például hogy a csővezeték szóban forgó része mennyire telítődött járművekkel).
-                                Ugyanez az információ lehet a (forgalomirányítás tekintetében emulált) járművek bemenete.
-                            </para>
-                        </listitem>
-                        <listitem>
-                            <para>
-                                Megjelenésében egyetlen fajta (<emphasis>r</emphasis> sugarú kör),
-                                működésében kétféle viselkedést (a rutin és az okos viselkedést) mutató járművek.
-                                A jármű tudja magáról a jellegét,
-                                az <emphasis>x</emphasis> és <emphasis>y</emphasis> GPS koordinátáját,
-                                az <emphasis>r</emphasis> sugarát és rendelkezik a beutazandó csomópontok listájával.
-                            </para>
-                        </listitem>
-                    </itemizedlist>
-                </section>
-                <section>
-                    <title>A Justine protó működése</title>
-                    <para>
-                        A verseny előzetes koncepcióján szintén finomítunk, miszerint nem egy napot, hanem egy kritikus 
-                        időintervallumot (például a reggeli vagy délutáni csúcsforgalom) szimulál le az emulátor program.
-                        A Robotautó Világbajnokság versengő csapatai pedig az okos autókat irányítják.
-                    </para>
-                </section>
-                <section>
-                    <title>A Justine protó architektúrája</title>
-                    <para>
-                        A protó tartalmaz egy monolitikus (vagy elosztott) szervezésű emulátort,
-                        ez a program kezeli az útvonal hálózat csővezetékét a realisztikus szimulációhoz.
-                        Ebbe behuzalozottak vagy kapcsolódnak a rutin kliensek;
-                        a versengő okos kliensek (vagy azok forgalomirányító algoritmusai) valamilyen IPC mechanizmussal kapcsolódnak.
-                        A protó egy megjelenítőt is tartalmaz, hogy a működését könnyebben tudjuk tanulmányozni.
                     </para>
                 </section>
             </section>
@@ -1618,12 +1531,15 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
         <section>
             <title>Justina, a saját fejlesztés</title>
             <para>
-                A saját fejlesztésem a Justine prototípushoz hasonló robotautó emulátor tervezése és implementálása volt.
-                A két prototípus egyidőben, egymástól függetlenül készült, de a kutatás fázisból származó követelményekből kifolyólag,
-                mint például az OpenStreetMap és az Osmium könyvtár, közös vonások is jelen vannak.
+                A kutatási tervben <citation>Terv</citation> a Jusztina kódnévvel ellátott feladat
+                megoldására készített saját fejlesztésem a Justina emulátor,
+                ami egy gyors, eldobható, evolúciós prototípus.
+                A fejlesztés magába foglalja az emulátor tervezését és implementálását.
+                A kutatási fázisból származó követelményekből kifolyólag,
+                a prototípus használja az OpenStreetMap térképeit és azok feldolgozásához szükséges Osmium könyvtárat.
             </para>
             <para>
-                A platform jellemzői:
+                Az emulátor jellemzői:
                 <itemizedlist>
                     <listitem>
                         <para>
@@ -1639,7 +1555,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     <listitem>
                         <para>
                             Az emulátor implementációs nyelve C++11,
-                            a megjelenítő a Qt5 keretrendszer felhasználásával készült.
+                            a megjelenítő komponens a Qt5 keretrendszer felhasználásával készült.
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -1654,7 +1570,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>Módszertan, a szoftverfolyamat tervezése</title>
                 <para>
-                    A platform fejlesztése az agilis szoftverfejlesztés módszertan szerint zajlott.
+                    Az emulátor fejlesztése az agilis szoftverfejlesztés módszertan szerint zajlott.
                     A módszertan elvei vázolva a következőek:
                     <itemizedlist>
                         <listitem>
@@ -1724,7 +1640,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     E mellett az adatmennyiség mellett nem tartom életképesnek a socket alapú IPC-t.
                 </para>
                 <para>
-                    A platform gyors prototípus jellege miatt az egyszerű,
+                    Az emulátor gyors prototípus jellege miatt az egyszerű,
                     de könnyen bővíthető architektúra volt a cél,
                     ezért a további lehetséges IPC mechanizmusok, mint például az osztott memória,
                     használta nem biztosított volna nagyobb előrelépést funkcionalitás terén,
@@ -1734,7 +1650,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     A felsorolt okokból kifolyólag a Justina Robocar City Emulator egy monolitikus szoftver,
                     ahol mind a térkép gráfja, a rajta közlekedő autók és a megjelenítő is egy programot alkot.
                     A routing algoritmus is része a programnak, így azt csak az egész emulátor újrafordításával lehet cserélni.
-                    Ebből kifolyólag a platform nem az algoritmusok versenyeztetése céljából készült,
+                    Ebből kifolyólag az emulátor nem az algoritmusok versenyeztetése céljából készült,
                     és nem is azt próbálja megvalósítani.
                 </para>
                 <para>
@@ -1747,10 +1663,9 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>Fejlesztés</title>
                 <para>
-                    A Justina emulátor nagyban hasonló elvek alapján működik, mint a Justine prototípus.
-                    Az útválasztó algoritmus tesztelésére a Robotautó Világbajnokságból vett szituáció
-                    van jelen itt is, amiben
-                    a rendőr típusú robotautók üldözik a gengszter típusú robotautókat
+                    Az útválasztó algoritmus tesztelésére a
+                    Robotautó Világbajnokságból származó szituáció került implementálásra,
+                    amiben a rendőr típusú robotautók üldözik a gengszter típusú robotautókat
                     a város civil robotautó forgalmában,
                 </para>
                 <para>
@@ -1962,7 +1877,7 @@ const edge_type Traffic::get_next_routed_edge(const vertex_type start, const ver
                 <para>
                     A fejlesztés során felhasznált szoftver eszközök és azok licencei
                     az <emphasis>Open source software submission form</emphasis> (OSS) alapján
-                    <citation>FASS</citation>:
+                    <citation>FASS</citation> lettek dokumentálva:
                     <informaltable frame="all" xmlns="http://docbook.org/ns/docbook">
                         <tgroup cols="2">
                             <colspec colname="c1" colwidth="*"/>
@@ -2271,7 +2186,7 @@ for (vertex_type i = component.size()-1; i > 0; i--)
             <section>
                 <title>Tesztelés</title>
                 <para>
-                    A platform fejlesztése közben meg kellett arról bizonyosodni,
+                    Az emulátor fejlesztése közben meg kellett arról bizonyosodni,
                     hogy a kutatás során elképzelt koncepció jól működik-e,
                     mert ha nem, akkor változtatni kell az agilis módszertannak megfelelően.
                 </para>
@@ -2461,8 +2376,8 @@ Gangster car caught! Remaining: 98
                 valóságos paraméterek mellett.
             </para>
             <para>
-                A dolgozat alatt készült szoftverek nyílt forrásúak és
-                letölthetőek a megadott git tárolókból.
+                A kutatást és a fejlesztést a FIRST (Future Internet for Smart City Applications),
+                TÁMOP-4.2.2.C-11/1/KONV-2012-0001 projekt támogatta.
             </para>
         </section>
         <section>
@@ -2557,13 +2472,95 @@ Gangster car caught! Remaining: 98
             <pubdate>2014</pubdate>
         </biblioentry>
         <biblioentry>
+            <abbrev>Micro</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Martin</firstname>
+                        <surname>Treiber</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Ansgar</firstname>
+                        <surname>Hennecke</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Dirk</firstname>
+                        <surname>Helbing</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Congested traffic states in empirical observations and microscopic simulations</title>
+            <publisher>
+                <publishername>Phys. Rev. E</publishername>
+            </publisher>
+            <pubdate>2000</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Cellular</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Kai</firstname>
+                        <surname>Nagel</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Michael</firstname>
+                        <surname>Schreckenberg</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>A cellular automaton model for freeway traffic</title>
+            <publisher>
+                <publishername>J. Phys. I France</publishername>
+            </publisher>
+            <pubdate>1992</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Macro</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Shimao</firstname>
+                        <surname>Fan</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Michael</firstname>
+                        <surname>Herty</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Benjamin</firstname>
+                        <surname>Seibold</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Comparative model accuracy of a data-fitted generalized Aw-Rascle-Zhang model</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://arxiv.org/abs/1310.8219">
+                        http://arxiv.org/abs/1310.8219
+                    </link>
+                </publishername>
+            </publisher>
+            <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
             <abbrev>OSMstats</abbrev>
             <title>OpenStreetMap stats</title>
             <publisher>
                 <publishername>
                     <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">
                         http://www.openstreetmap.org/stats/data_stats.html
-                    </link>                    
+                    </link>
                 </publishername>
             </publisher>
         </biblioentry>
