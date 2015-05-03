@@ -144,7 +144,42 @@
             hogyan lehetne a Sci-Fi filmek által előrevetített jövőképet elhozni a XXI. századba.
         </para>
         <para>
-            Dolgozatom célja egy olyan emulátor tervezése és implementálása,
+            Az elmúlt években robbanásszerű fejlődés következett be a robotautókkal foglalkozó iparágakban.
+            Ennek az új trendnek mindenki a részese akar lenni, hiszen számos lehetőség rejlik benne.
+            Az IEEE egyesület a legbiztatóbb intelligens közlekedési módnak választotta az autonóm járműveket.
+            Egy 2012-es becslésük szerint 2040-re az utakon közlekedő autók akár 70%-a lesz majd önjáró <citation>IEEE_robocar</citation>.
+        </para>
+        <para>
+            A jövő autóinak egyik legfontosabb részét a szoftver képezi majd.
+            Ez a legfőbb kihívás, amivel szembe kell nézniük a fejlesztőknek,
+            hogy az autó megbízható legyen minden körülmények között.
+            Ez alatt nem csak az úton maradásra és a biztonságos közlekedésre kell gondolni,
+            hanem arra is, hogy a robotautóknak majd együtt kell élniük a forgalommal.
+            Ebből kifolyólag a szoftvernek része kell legyen a várossal és a többi autóval való kommunikáció.
+            Ennek eredménye túlmutathat a legvadabb elképzeléseken is.
+        </para>
+        <para>
+            Képzeljünk el egy okos várost amiben okos robotautók közlekednek.
+            Ebben a városban nincs szükség jelzőlámpákra és közúti jelzőtáblákra,
+            hiszen minden autó tudja mikor kell megállni és mikor kell elindulni.
+            A dugó fogalmát a város lakói csak régi filmekből ismerik, amellett,
+            hogy az utak tömve vannak autókkal.
+            Az autók a megszokottnál jóval nagyobb sebességgel közlekedhetnek,
+            és néha csak centikkel haladnak el egymás mellett,
+            de mégis biztonságosabb a közlekedés,
+            mert a hibára hajlamos tényező, az ember, nem képezi a rendszer részét.
+        </para>
+        <para>
+            Témaválasztásomat is ez a friss és modern trend ihlette.
+            A dolgozatom témája a szoftveren keresztül kapcsolódik a robotautók világához.
+            Ahhoz, hogy robotautókhoz kötődő szoftvert fejlesszünk,
+            szükségünk van vagy egy autóra,
+            vagy pedig egy, a célnak megfelelő robotautó emulátorra.
+            Mivel az előbbi meghalad minden létező keretet, ezért az utóbbira esett a választásunk,
+            viszont nyílt forrású robotautó emulátort még nem fejlesztet senki.
+        </para>
+        <para>
+            Ennek köszönhetően dolgozatom célja egy olyan nyílt forrású emulátor tervezése és implementálása,
             amely a város és a benne közlekedő önvezető autók kapcsolatát vizsgálja.
             A koncepció azt feltételezi, hogy a közeljövőben egy adott városban kizárólag ilyen robotautók közlekednek,
             a hagyományos autók egyáltalán nem vesznek részt a forgalomban.
@@ -172,6 +207,18 @@
         </para>
         <section>
             <title>Szakirodalmi háttér</title>
+            <para>
+                Nem ritkaság, hogy egy adott kutatási platform fejlődése versenyek szervezése mellett indul be.
+                Erre jó példa a közismert RoboCup verseny <citation>RCSS</citation>,
+                aminek célja a mesterséges intelligencia népszerűsítése a labdarúgás keretein belül.
+                A résztvevők feladata, hogy olyan ágenseket programozzanak,
+                amik képesek csapatként együttműködni.
+                A versenyen túlmutató célok egyike, hogy a már meglévő platformot lehessen más területen is alkalmazni,
+                mint például az oktatásban vagy a sporttudományban <citation>LightFC</citation>.
+                A Robotautó Világbajnokság platformja is ezt a célt tűzte ki magának,
+                hogy lehessen oktatásra és kutatásra is használni amellett,
+                hogy otthont ad a forgalomirányító algoritmusok versenyének.
+            </para>
             <para>
                 A tudományos szakirodalomban is jelen vannak a robotautó témájú publikációk,
                 mint például a <citation>Singapore</citation> esettanulmány, ami azt vizsgálja,
@@ -269,8 +316,26 @@ dblatex robotauto.xml
     </section>
     <section>
         <title>Tárgyalás</title>
+        <para>
+            Ebben a fejezetben számolunk be arról, hogy miként alakult meg a Robotautó Világbajnoksága platformja.
+            Kezdve a korai kutatási fázistól, aminek keretei belül kialakult egy elsődleges, de folyamatosan változó koncepció,
+            és az ahhoz tartozó követelmények,
+            majd ezt követte az szoftvereszközökkel való ismerkedés fázis,
+            és végül a fejlesztés maga.
+        </para>
         <section>
             <title>A fejlesztés háttere</title>
+            <para>
+                A kutatás első és egyik legfontosabb állomása a megfelelő eszközök kiválasztása volt.
+                Mivel a platform elengedhetetlen részét a város képezi,
+                ezért először annak a szoftverbeli megvalósítására esett a hangsúly.
+                Egy város térképének feldolgozása nem kis feladat,
+                viszont a megfelelő eszközök használata erősen javíthat a helyzeten,
+                így az azokkal való megismerkedés alkotja a kutatás következő állomását.
+            </para>
+            <para>
+                A jelenlegi koncepciót és követelményeket tartalmazó dokumentum bemutatásával zárul a fejezet.
+            </para>
             <section>
                 <title>Térképmegoldások összehasonlítása</title>
                 <para>
@@ -1394,8 +1459,12 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <section>
                 <title>A Robotautó Világbajnokság platformja</title>
                 <para>
-                    Az alábbi fejezet részei a Robotautó Világbajnokság szoftverkövetelmény specifikáció (SRS)
-                    dokumentum <citation>RCEMU</citation> alapján íródtak.
+                    Az alábbi fejezet részei a Robotautó Világbajnokság szoftverkövetelmény specifikáció
+                    (Software Requirements Specification)
+                    dokumentum <citation>SRS</citation> alapján íródtak,
+                    ami magába foglalja a készülő platform jelenlegi koncepcióját és követelményeit.
+                    A dokumentum követi az IEEE 830-1998 szabvány ajánlásait <citation>IEEE_SRS</citation>,
+                    ami az ISO/IEC/IEEE 29148:2011 szabvány elődje.
                 </para>
                 <section>
                     <title>Célok</title>
@@ -2265,12 +2334,20 @@ Gangster car caught! Remaining: 98
                     </screen>
                 </para>
                 <para>
-                    Képernyőkép a futásról:
+                    Képernyőképek a futásról:
                     <figure xml:id="Justina">
-                        <title>Justina Robocar City Emulator</title>
+                        <title>Rendőrös üldözés Debrecen térképén</title>
                         <mediaobject>
                             <imageobject>
                                 <imagedata fileref="figures/Justina.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </figure>
+                    <figure xml:id="Budapest">
+                        <title>Egymillió autó Budapesten</title>
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="figures/Budapest.png"/>
                             </imageobject>
                         </mediaobject>
                     </figure>
@@ -2280,6 +2357,10 @@ Gangster car caught! Remaining: 98
     </section>
     <section>
         <title>Befejezés</title>
+        <para>
+            Ez a fejezet összefoglaló jellegű, viszont utalásokat tartalmaz a folytatáshoz,
+            amik a platform hiányzó részeit mutatják be, mint tervek.
+        </para>
         <section>
             <title>Összegzés</title>
             <para>
@@ -2293,15 +2374,34 @@ Gangster car caught! Remaining: 98
                 Ennek köszönhetően a feladatra nem alkalmas routing algoritmusok hamar felszínre kerülnek.
             </para>
             <para>
-                A kutatás eredményeként megállapításra került,
-                hogy az emulátor bemenetét az OpenStreetMap térképei adják majd.
-                Az adatok kezelésére a nyílt forrású C++-os Libosmium könyvtárat használjuk,
-                amiből felépítjük a város gráfját a boost könyvtárcsomag segítségével.
+                Fontos megjegyezni, hogy a kezdeményezett platform teljesen nyílt, olyan értelemben,
+                hogy nyílt forráskódú és szabadon felhasználható.
+                Ez hatalmas előrelépést jelent a robotautókkal foglalkozni vágyók számára,
+                hiszen jelenleg nem létezik más ehhez hasonló szoftver a világhálón.
             </para>
             <para>
-                Saját fejlesztésem, a Justina prototípus, párhuzamosan készült egy másik prototípussal,
+                A kutatás alatt vázolt koncepció, ami többek közt megadja egy robotautó bemenetét és kimenetét,
+                ezzel szorosabb értelemben is emulátor jelleget adva a Robocar City Emulator-nak,
+                remek kiindulási pont lehet a jövőbeli koncepciók felépítésére.
+            </para>
+            <para>
+                A koncepció mellett követelmények is vannak, amik az emulátor alapját képezik.
+                Követelmények specifikálása nélkül a koncepció önmagában semmit nem ér.
+                Ezeknek a követelményeknek az összefoglalását támogató dokumentum a
+                Software Requirements Specification (SRS) ami az IEEE szoftver életciklus része.
+            </para>
+            <para>
+                A Justina saját fejlesztés a kutatás eredményeként megállapított követelményeknek eleget tesz,
+                mivel az emulátor bemenetét az OpenStreetMap térképei adják,
+                amiből felépítjük a város gráfját a boost könyvtárcsomag segítségével.
+                A másik követelmény is teljesül, így a városban egyszerre akár egy millió autó is létezhet.
+            </para>
+            <para>
+                A Justina prototípus párhuzamosan (egyidőben) készült egy másik prototípussal,
                 a Justine-al, ezáltal versengést teremtve a fejlesztésben.
-                A koncepció alapján az emulátor támogatja a nagyszámú robotautó forgalmat,
+                A két emulátor egymástól teljesen függetlenül készült,
+                viszont a közös kutatásból származó koncepciót mindkét fejlesztés követi.
+                A követelmények alapján az emulátor támogatja a nagyszámú robotautó forgalmat,
                 viszont azzal a megszorítással, hogy a szoftver magába foglalja az összes komponenst,
                 így nem alkalmas egy verseny lebonyolítására.
                 Az emulátor kutatási szerepet lát el, támogatva a szimulációs számítások végzését
@@ -2315,17 +2415,36 @@ Gangster car caught! Remaining: 98
         <section>
             <title>Továbbfejlesztési tervek és lehetőségek</title>
             <para>
-                A jövőre nézve számos lehetőség adott, amivel gazdagabbá lehet tenni a platformot és
+                A jövőre nézve számos izgalmas lehetőség adott, amivel gazdagabbá lehet tenni a platformot és
                 valóságosabbá a szimulációt.
                 Következő mérföldkő a városi adatfelhő megtervezése,
-                ami valós adatokkal látná el az emulátort.
+                ami a valós forgalmi adatokat kezeli.
+                Az adatfelhő feladata ellátni az emulátor valós forgalmi adatokkal.
+                Ezeknek az adatokat a kezelése kritikus pont lehet a platform gyarapodásában,
+                és az okos város kialakulásában.
+            </para>
+            <para>
+                A platform még tartalmaz hiányzó komponenseket,
+                amik a város forgalmával való kapcsolatért felelnek.
                 Az adatokat a <xref linkend="Tetris-terv"/> alapján
-                mind automatikus, mind kézi adatgyűjtők szolgáltatnák.
+                mind automatikus, mind kézi adatgyűjtők szolgáltatják majd a városi adatfelhő számára.
+                Az automatikus adatgyűjtő eszközök minden esetben egy kamerával ellátott megoldás,
+                ami képfeldolgozó algoritmus segítségével a kamera előtt elhaladó autókat monitorozná.
+                A kézi adatgyűjtő szoftverek főképp okostelefonokon futnának.
+                Működtetésükhöz emberi beavatkozásra van szükség, mint például egy gomb lenyomása,
+                mikor elhalad egy autó a figyelt útszakaszon.
             </para>
             <para>
                 Jelenleg is több tervezett publikáció van készülőben,
                 amelyek közt van már beküldött kézirat is,
                 amiben a Robotautó Világbajnokság kerül bemutatásra <citation>OOCWC</citation>.
+                Ez a cikk hivatott feltenni a Robotautó Világbajnokság kezdeményezését a térképre
+                Várhatóan nemzetközi kapcsolatok fognak kialakulni ennek az érdekes témának a kapcsán,
+                ami tovább lendítheti a fejlesztést előre be nem látható irányokba.
+            </para>
+            <para>
+                A platform legfőbb törekvése, hogy ipari standarddá váljon, amit a világon mindenhol használnak
+                robotautók kutatásában és fejlesztésében.
             </para>
         </section>
     </section>
@@ -2337,6 +2456,14 @@ Gangster car caught! Remaining: 98
     </section>
     <bibliography>
         <title>Irodalomjegyzék</title>
+        <biblioentry>
+            <abbrev>IEEE_robocar</abbrev>
+            <title>Look Ma, No Hands!</title>
+            <releaseinfo>
+                <link xlink:href="http://www.ieee.org/about/news/2012/5september_2_2012.html">http://www.ieee.org/about/news/2012/5september_2_2012.html</link>
+            </releaseinfo>
+            <pubdate>2012</pubdate>
+        </biblioentry>
         <biblioentry>
             <abbrev>DocBook</abbrev>
             <authorgroup>
@@ -2352,6 +2479,109 @@ Gangster car caught! Remaining: 98
                 <publishername>O'Reilly Media, <link xlink:href="http://www.docbook.org/tdg51/en/html/docbook.html">http://www.docbook.org/tdg51/en/html/docbook.html</link></publishername>
             </publisher>
             <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>RCSS</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Hiroaki</firstname>
+                        <surname>Kitano</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Minoru</firstname>
+                        <surname>Asada </surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Yasuo</firstname>
+                        <surname>Kuniyoshi</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Itsuki</firstname>
+                        <surname>Noda</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Eiichi</firstname>
+                        <surname>Osawa</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>RoboCup: The Robot World Cup Initiative</title>
+            <publisher>
+                <publishername>ACM, Proceedings of the First International Conference on Autonomous Agents</publishername>
+            </publisher>
+            <issuenum>AGENTS '97</issuenum>
+            <pagenums>pp. 340 - 347</pagenums>
+            <pubdate>1997</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>LightFC</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Norbert</firstname>
+                        <surname>Bátfai</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Roland</firstname>
+                        <surname>Dóczi,</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>János</firstname>
+                        <surname>Komzsik</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>András</firstname>
+                        <surname>Mamenyák</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Csaba</firstname>
+                        <surname>Székelyhídi</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>József</firstname>
+                        <surname>Zákány</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>Márton</firstname>
+                        <surname>Ispány</surname>
+                    </personname>
+                </author>
+                <author>
+                    <personname>
+                        <firstname>György</firstname>
+                        <surname>Terdik</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Applications of a simplified protocol of RoboCup 2D Soccer Simulation</title>
+            <publisher>
+                <publishername>Infocommunications Journal</publishername>
+            </publisher>
+            <volumenum>vol. V</volumenum>
+            <issuenum>no. 1</issuenum>
+            <pagenums>pp. 15 - 20</pagenums>
+            <pubdate>2013</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>Singapore</abbrev>
@@ -2397,7 +2627,7 @@ Gangster car caught! Remaining: 98
             <publisher>
                 <publishername>Springer, Forthcoming in Road Vehicle Automation</publishername>
             </publisher>
-            <pubdate>Április 2014</pubdate>
+            <pubdate>2014</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>Micro</abbrev>
@@ -2428,7 +2658,7 @@ Gangster car caught! Remaining: 98
             <volumenum>vol. 62</volumenum>
             <issuenum>no. 12</issuenum>
             <pagenums>pp. 1805 - 1824</pagenums>
-            <pubdate>Augusztus 2000</pubdate>
+            <pubdate>2000</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>Cellular</abbrev>
@@ -2453,7 +2683,7 @@ Gangster car caught! Remaining: 98
             <volumenum>vol. 2</volumenum>
             <issuenum>no. 12</issuenum>
             <pagenums>pp. 2221 - 2229</pagenums>
-            <pubdate>December 1992</pubdate>
+            <pubdate>1992</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>Macro</abbrev>
@@ -2479,7 +2709,9 @@ Gangster car caught! Remaining: 98
             </authorgroup>
             <title>Comparative model accuracy of a data-fitted generalized Aw-Rascle-Zhang model</title>
             <publisher>
-                <publishername><link xlink:href="http://arxiv.org/abs/1310.8219">http://arxiv.org/abs/1310.8219</link></publishername>
+                <publishername>
+                    <link xlink:href="http://arxiv.org/abs/1310.8219">http://arxiv.org/abs/1310.8219</link>
+                </publishername>
             </publisher>
             <pubdate>2014</pubdate>
         </biblioentry>
@@ -2487,7 +2719,9 @@ Gangster car caught! Remaining: 98
             <abbrev>OSMstats</abbrev>
             <title>OpenStreetMap stats</title>
             <publisher>
-                <publishername><link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link></publishername>
+                <publishername>
+                    <link xlink:href="http://www.openstreetmap.org/stats/data_stats.html">http://www.openstreetmap.org/stats/data_stats.html</link>
+                </publishername>
             </publisher>
         </biblioentry>
         <biblioentry>
@@ -2502,12 +2736,14 @@ Gangster car caught! Remaining: 98
             <abbrev>BingAerial</abbrev>
             <title>Microsoft Bing Maps Imagery Service Editor Application API's Terms Of Use</title>
             <publisher>
-                <publishername><link xlink:href="https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf">https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf</link></publishername>
+                <publishername>
+                    <link xlink:href="https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf">https://wiki.openstreetmap.org/w/images/d/d8/Bing_license.pdf</link>
+                </publishername>
             </publisher>
             <pubdate>2010</pubdate>
         </biblioentry>
         <biblioentry>
-            <abbrev>RCEMU</abbrev>
+            <abbrev>SRS</abbrev>
             <authorgroup>
                 <author>
                     <personname>
@@ -2518,8 +2754,20 @@ Gangster car caught! Remaining: 98
             </authorgroup>
             <title>A Robotautó Világbajnokság - Robocar City Emulator szoftverkövetelmény specifikációja</title>
             <subtitle>Az intelligens város és a robotautók kapcsolata vizsgálatának kutatási platformja</subtitle>
-            <publisher><publishername><link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf">http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf</link></publishername></publisher>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf">http://robocar.inf.unideb.hu/~norbi/doc/robocaremu-SRS-hu.pdf</link>
+                </publishername>
+            </publisher>
             <pubdate>2014</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>IEEE_SRS</abbrev>
+            <title>IEEE Recommended Practice for Software Requirements Specifications</title>
+            <publisher>
+                <publishername>IEEE Computer Society</publishername>
+            </publisher>
+            <pubdate>1998</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>Terv</abbrev>
@@ -2533,7 +2781,9 @@ Gangster car caught! Remaining: 98
             </authorgroup>
             <title>Robotautó Világbajnokság</title>
             <subtitle>Kutatási terv</subtitle>
-            <releaseinfo><link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf">http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf</link></releaseinfo>
+            <releaseinfo>
+                <link xlink:href="http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf">http://robocar.inf.unideb.hu/~norbi/doc/RobotautoVBKutatasiTerv.pdf</link>
+            </releaseinfo>
             <pubdate>2014</pubdate>
         </biblioentry>
         <biblioentry>
@@ -2618,7 +2868,7 @@ Gangster car caught! Remaining: 98
                     </personname>
                 </author>
             </authorgroup>
-            <title>IT Innovations in the FootballAvatar Project aimed to develop a Simulation-based Decision Support System</title>
+            <title>Competitive Programming: a Case Study for Developing a Simulation-based Decision Support System</title>
             <releaseinfo>submitted manuscript</releaseinfo>
             <pubdate>2015</pubdate>
         </biblioentry>
