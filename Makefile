@@ -1,7 +1,7 @@
 all:	validate robotauto.pdf
 
 robotauto.pdf: robotauto.xml robotauto.xsl
-	dblatex robotauto.xml robotauto.xsl
+	dblatex -p robotauto.xsl robotauto.xml
 
 .PHONY: validate
 validate:

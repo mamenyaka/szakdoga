@@ -18,118 +18,6 @@
             </affiliation>
         </author>
         <pubdate>2015</pubdate>
-        <copyright>
-            <year>2015</year>
-            <holder>Mamenyák András</holder>
-        </copyright>
-        <legalnotice>
-            <para>
-                Robotautó Világbajnokság
-            </para>
-            <para>
-                Ez a program szabad szoftver; terjeszthető illetve módosítható a
-                Free Software Foundation által kiadott GNU General Public License
-                dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi
-                változata szerint.
-            </para>
-            <para>
-                Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz,
-                de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA
-                VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve.
-                További részleteket a GNU General Public License tartalmaz.
-            </para>
-            <para>
-                A felhasználónak a programmal együtt meg kell kapnia a GNU General
-                Public License egy példányát; ha mégsem kapta meg, akkor
-                tekintse meg a
-                <link xlink:href="http://www.gnu.org/licenses">http://www.gnu.org/licenses</link>
-                oldalon.
-            </para>
-            <para>
-                <link xlink:href="http://gnu.hu/gplv3.html">http://gnu.hu/gplv3.html</link>
-            </para>
-        </legalnotice>
-        <revhistory>
-            <revision>
-                <revnumber>0.0.1</revnumber>
-                <date>2014-11-24</date>
-                <revremark>
-                    Iniciális dokumentum az aktuális és jövőbeli diplomamunkások támogatására.
-                    A szereplő tételekből kiindulva a jelöltek könnyebben készíthetik el a saját munkájukra hangolva a
-                    saját tartalomjegyzéküket.
-                </revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.2</revnumber>
-                <date>2014-11-25</date>
-                <revremark>Térképmegoldások összehasonlítása</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.3</revnumber>
-                <date>2014-11-26</date>
-                <revremark>OSM XML leírás fejezet</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.4</revnumber>
-                <date>2014-11-27</date>
-                <revremark>OSM XML példa fejezet</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.5</revnumber>
-                <date>2014-11-28</date>
-                <revremark>libosmium bemutatása, telepítés leírása</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.6</revnumber>
-                <date>2014-12-01</date>
-                <revremark>libosmium példaprogramok elkezd</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.7</revnumber>
-                <date>2015-04-20</date>
-                <revremark>doksi felfrissítése</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.8</revnumber>
-                <date>2015-04-21</date>
-                <revremark>libosmium példaprogramok befejez</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.9</revnumber>
-                <date>2015-04-22</date>
-                <revremark>Bevezetés fejezet elkezd</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.10</revnumber>
-                <date>2015-04-23</date>
-                <revremark>Bevezetés fejezet befejez</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.11</revnumber>
-                <date>2015-04-24</date>
-                <revremark>Robotautó Világbajnokság koncepció és SRS fejezet</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.12</revnumber>
-                <date>2015-04-28</date>
-                <revremark>Saját fejlesztés fejezet elkezd</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.13</revnumber>
-                <date>2015-04-29</date>
-                <revremark>Saját fejlesztés fejezet befejez</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.14</revnumber>
-                <date>2015-04-30</date>
-                <revremark>Összegzés fejezet</revremark>
-            </revision>
-            <revision>
-                <revnumber>0.0.15</revnumber>
-                <date>2015-05-01</date>
-                <revremark>Javítások</revremark>
-            </revision>
-        </revhistory>
     </info>
     <section>
         <title>Bevezetés</title>
@@ -350,9 +238,9 @@ dblatex robotauto.xml
                 <section>
                     <title>Google Maps</title>
                     <para>
-                        Napjaink egyik legelterjedtebb térképmegoldása a Google Maps, amit a Google cég fejleszt.
+                        Napjaink egyik legelterjedtebb térképmegoldása a Google Maps <citation>GoogleMaps</citation>,
+                        amit a Google cég fejleszt.
                         A világ összes országának kiváló minőségű térképe ingyenesen elérhető a weben
-                        (<link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>)
                         vagy okostelefon alkalmazással.
                         2013-ban a világ leggyakrabban használt okostelefon alkalmazása a Google Maps volt a GlobalWebIndex alapján
                         <citation>GWI</citation>.
@@ -401,16 +289,16 @@ dblatex robotauto.xml
                     </para>
                     <para>
                         A licenc szigorúsága miatt elvetettük a Google Maps használatát a Robotautó emulátorban.
-                        Lehetséges felhasználási terület: Androidos megjelenítő kliensekben, ahol a Google Maps térképre rajzoljuk ki az eredményt.
+                        Lehetséges felhasználási terület: Androidos megjelenítő kliensekben,
+                        ahol a Google Maps térképre rajzoljuk ki az eredményt.
                     </para>
                 </section>
                 <section>
                     <title>HERE</title>
                     <para>
-                        A HERE (régebbi nevén Ovi Maps és Nokia Maps) a Nokia cég által fejlesztett termékcsomag, ami magába foglalja közel 200 ország térképét.
-                        A szolgáltatás elérhető a weben
-                        (<link xlink:href="http://here.com">http://here.com</link>)
-                        vagy okostelefon alkalmazással.
+                        A HERE (régebbi nevén Ovi Maps és Nokia Maps) <citation>HERE</citation>
+                        a Nokia cég által fejlesztett termékcsomag, ami magába foglalja közel 200 ország térképét.
+                        A szolgáltatás elérhető a weben vagy okostelefon alkalmazással.
                     </para>
                     <para>
                         A HERE API-k a következők
@@ -443,7 +331,10 @@ dblatex robotauto.xml
                         </itemizedlist>
                     </para>
                     <para>
-                        A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti, nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el, nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg, nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé"
+                        A licenc megtiltja, hogy "a Tartalmat nem másolja, nem adja át, nem értékesíti,
+                        nem értékesíti újból, nem adja kölcsön, bérbe, nem kínálja fel, nem közvetíti, küldi el,
+                        nem terjeszti, nem ruházza át, a nyilvánossággal nem közli, nem sokszorosítja, módosítja, jeleníti meg,
+                        nem adja elő, kereskedelmi célokra nem használja, illetőleg nem teszi elérhetővé"
                         (lásd a 6-os részt, "A Tartalom":
                         <link xlink:href="http://here.com/terms/service-terms/hu">http://here.com/terms/service-terms/hu</link>).
                     </para>
@@ -455,10 +346,9 @@ dblatex robotauto.xml
                 <section>
                     <title>Bing Maps</title>
                     <para>
-                        A Bing Maps platform a Microsoft cég által fejlesztett Bing kereső szolgáltatás része, régebbi nevén Microsoft Virtual Earth.
-                        A szolgáltatás elérhető a weben
-                        (<link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>)
-                        és Windows Phone platformon.
+                        A Bing Maps platform <citation>BingMaps</citation> a Microsoft cég által fejlesztett
+                        Bing kereső szolgáltatás része, régebbi nevén Microsoft Virtual Earth.
+                        A szolgáltatás elérhető a weben és Windows Phone platformon.
                     </para>
                     <para>
                         A Bing Maps API-k a következők
@@ -506,7 +396,8 @@ dblatex robotauto.xml
                         </itemizedlist>
                     </para>
                     <para>
-                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, archiváljuk vagy a Tartalom alapján adatbázist hozzunk létre
+                        A licencben előírt megszorítások tiltják, hogy lemásoljuk, tároljuk, archiváljuk
+                        vagy a Tartalom alapján adatbázist hozzunk létre
                         (lásd a 3.2-es részt, "General Restrictions":
                         <link xlink:href="http://www.microsoft.com/maps/product/terms.html">http://www.microsoft.com/maps/product/terms.html</link>).
                     </para>
@@ -518,11 +409,10 @@ dblatex robotauto.xml
                 <section>
                     <title>OpenStreetMap</title>
                     <para>
-                        Az OpenStreetMap
-                        (<link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>)
-                        egy olyan közösségi projekt,
+                        Az OpenStreetMap <citation>OSM</citation> egy olyan közösségi projekt,
                         aminek célja egy nyíltan használható, módosítható térkép készítése az egész világról.
-                        A projektet a Wikipédia sikeressége ihlette, ami bebizonyította, hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
+                        A projektet a Wikipédia sikeressége ihlette, ami bebizonyította,
+                        hogy közösségi adatgyűjtéssel nagy mennyiségű és jó minőségű adatokat lehet előállítani.
                         Az egyetlen hátránya az, hogy előforduló hibákat nehezen lehet javítani,
                         de a közösség nagy része jó szándékú, így az esetleges pontatlanságokat automatikusan javítják.
                     </para>
@@ -535,8 +425,10 @@ dblatex robotauto.xml
                         A legújabb adatok szerint az OpenStreetMap regisztrált felhasználóinak száma közel 2 millió <citation>OSMstats</citation>.
                     </para>
                     <para>
-                        2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja az OpenStreetMap közösség arra a célra,
-                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb., gyarapítva ezzel az OSM adatbázist <citation>BingAerial</citation>
+                        2010-ben a Bing bejelentette, hogy a Bing Maps légi felvételeit szabadon felhasználhatja
+                        az OpenStreetMap közösség arra a célra,
+                        hogy a képek alapján nyomkövethetik az utakat, épületeket, stb.,
+                        gyarapítva ezzel az OSM adatbázist <citation>BingAerial</citation>
                     </para>
                     <para>
                         Az OpenStreetMap-nak egyetlen saját API-ja van, a REST API alapú OSM Editing API,
@@ -547,10 +439,12 @@ dblatex robotauto.xml
                         Az OpenStreetMap nyílt adatokból áll, aminek licence az Open Data Commons Open Database License (ODbL)
                         (lásd <link xlink:href="http://www.openstreetmap.org/copyright">http://www.openstreetmap.org/copyright</link>).
                         Ez a licenc lehetővé teszi, hogy szabadon lemásoljuk, terjesszük, módosítsuk az adatokat.
-                        Egyetlen feltétele, hogy ha módosítjuk az adatokat, vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
+                        Egyetlen feltétele, hogy ha módosítjuk az adatokat,
+                        vagy ha az adatokra épülő szolgáltatást készítünk, akkor csak ugyanazzal a licenc-el tehetjük.
                     </para>
                     <para>
-                        A megfelelő minőségű adatoknak és a kedvező licencnek köszönhetően támogatjuk az OpenStreetMap használatát a Robotautó emulátorban.
+                        A megfelelő minőségű adatoknak és a kedvező licencnek köszönhetően
+                        támogatjuk az OpenStreetMap használatát a Robotautó emulátorban.
                     </para>
                 </section>
                 <section>
@@ -562,7 +456,8 @@ dblatex robotauto.xml
                         Kérdés: De miért nem egyszerűen a Google Maps-t használjuk, mint mindenki más?
                     </para>
                     <para>
-                        Válasz: Azok az adatok szerzői jog által védve vannak és több szervezet tulajdonában állnak, mint például a NAVTEQ vagy a Tele Atlas.
+                        Válasz: Azok az adatok szerzői jog által védve vannak és több szervezet tulajdonában állnak,
+                        mint például a NAVTEQ vagy a Tele Atlas.
                         A Google csak licenceli az adatokat. Ha használni akarnánk, fizetnünk kéne értük.
                         Ezzel ellentétben az OpenStreetMap teljesen ingyenes és nyílt licencű.
                     </para>
@@ -592,12 +487,14 @@ dblatex robotauto.xml
                     </figure>
                 </para>
                 <para>
-                    Az XML állomány szerkezetileg három fő adat alkotóelemből (adat primitívekből, objektumokból) és azok címkéiből épül fel:
+                    Az XML állomány szerkezetileg három fő adat alkotóelemből (adat primitívekből, objektumokból)
+                    és azok címkéiből épül fel:
                     <itemizedlist>
                         <listitem>
                             <para>nodes (csomópontok)</para>
                             <para>
-                                A <emphasis>csomópont</emphasis> meghatároz egy adott pontot a Föld felszínén, annak földrajzi hosszúságát és szélességét.
+                                A <emphasis>csomópont</emphasis> meghatároz egy adott pontot a Föld felszínén,
+                                annak földrajzi hosszúságát és szélességét.
                                 Az OpenStreetMap a WGS84 koordináta rendszert használja.
                                 Példa: buszmegálló, pad, jelzőlámpa.
                             </para>
@@ -612,9 +509,11 @@ dblatex robotauto.xml
                         <listitem>
                             <para>relations (kapcsolatok)</para>
                             <para>
-                                A <emphasis>kapcsolat</emphasis> olyan adatszerkezet, ami több tag kapcsolatát írja le, azoknak egy rendezett listája.
+                                A <emphasis>kapcsolat</emphasis> olyan adatszerkezet, ami több tag kapcsolatát írja le,
+                                azoknak egy rendezett listája.
                                 A tagok lehetnek utak, csomópontok vagy akár további kapcsolatok,
-                                és tartalmazzák a <emphasis>member type</emphasis> (tag típus) és a <emphasis>role</emphasis> (szerep) címkéket.
+                                és tartalmazzák a <emphasis>member type</emphasis> (tag típus)
+                                és a <emphasis>role</emphasis> (szerep) címkéket.
                                 Általában a típus címke határozza meg a kapcsolat értelmét.
                                 Példa: buszjárat, ami csomópontok listájából (megállókból) és utakból áll.
                             </para>
@@ -686,7 +585,8 @@ dblatex robotauto.xml
                                 changeset
                             </para>
                             <para>
-                                Értéke egy szám, ami meghatározza a módosítások egy halmazát, amiben az adott objektum létrejött vagy módosult.
+                                Értéke egy szám, ami meghatározza a módosítások egy halmazát,
+                                amiben az adott objektum létrejött vagy módosult.
                             </para>
                         </listitem>
                     </itemizedlist>
@@ -703,7 +603,8 @@ dblatex robotauto.xml
                     A kód az <emphasis>osm version="0.6"</emphasis> taggal kezdődik,
                     ami az OSM Editing API verzióját jelöli, amin keresztül letöltöttük az XML állományt.
                     A <emphasis>bounds</emphasis> tag tartalmazza az exportált területet behatároló
-                    <emphasis>minlat</emphasis>, <emphasis>minlon</emphasis>, <emphasis>maxlat</emphasis>, <emphasis>maxlon</emphasis> értékeket.
+                    <emphasis>minlat</emphasis>, <emphasis>minlon</emphasis>,
+                    <emphasis>maxlat</emphasis>, <emphasis>maxlon</emphasis> értékeket.
                     <programlisting language="xml">
 <![CDATA[
 <?xml version="1.0" encoding="UTF-8"?>
@@ -721,7 +622,8 @@ dblatex robotauto.xml
                     <link xlink:href="http://wiki.openstreetmap.org/wiki/OSM_XML">http://wiki.openstreetmap.org/wiki/OSM_XML</link>).
                 </para>
                 <para>
-                    Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb és ezeknek van a legfontosabb szerepe,
+                    Egy adott térkép adatállományában <emphasis>csomópont</emphasis> típusból van a legtöbb
+                    és ezeknek van a legfontosabb szerepe,
                     mivel csak itt vannak a földrajzi koordináták megadva.
                     Példánkban szerepelnek olyan csomópontok, amiknek címkei is vannak,
                     így ezeknek a csomópontoknak önmagukban is van jelentésük,
@@ -821,7 +723,8 @@ dblatex robotauto.xml
                     Első példa kapcsolatra a 354-es főút, ami csak út típusú tagokat (<emphasis>member type="way"</emphasis>) tartalmaz.
                     Látható, hogy a <emphasis>role</emphasis> (szerep) mező üresen is hagyható.
                     Másik példában egy térséget határoznak meg az utak.
-                    A kapcsolatok közlekedési szabályokat is le tudnak írni, erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
+                    A kapcsolatok közlekedési szabályokat is le tudnak írni,
+                    erre példa a <emphasis>only_right_turn</emphasis> értékkel szereplő címke,
                     ami két út és az őket összekötő csomópontban megadja, hogy csak jobbra szabad fordulni.
                     Következő jellegzetes példa, amire egy kapcsolat használható, az a buszjáratok útvonalainak megadása,
                     felsorolva a megállókat, mint csomópontok, és az őket összekötő utakat.
@@ -928,8 +831,7 @@ dblatex robotauto.xml
                     Ezek közül a legfontosabbak a szerkesztő szoftverek, útválasztó szoftverek, renderelő szoftverek,
                     importáló és exportáló szoftverek. Az asztali szoftverek egy listája az alábbi linken található:
                     <link xlink:href="http://wiki.openstreetmap.org/wiki/Software/Desktop">http://wiki.openstreetmap.org/wiki/Software/Desktop</link>.
-                    Mi ezek közül a C++-os Osmium keretrendszert fogjuk használni
-                    (<link xlink:href="http://osmcode.org/libosmium">http://osmcode.org/libosmium</link>).
+                    Mi ezek közül a C++-os Osmium könyvtárat fogjuk használni <citation>Osmium</citation>.
                 </para>
             </section>
             <section>
@@ -940,7 +842,8 @@ dblatex robotauto.xml
                     A libosmium képes a legtöbb OSM adatformátumot kezelni, mind XML, mind PBF formátumban.
                     A beolvasott adatokat a memóriában, <emphasis>osmium::memory::Buffer</emphasis>-ben tárolja,
                     amihez a <emphasis>osmium::handler::Handler</emphasis> interfészen keresztül bejárást biztosít.
-                    Ez a módszer a Visitor design pattern elveit követi, ami alapján az algoritmus elkülönül az objektum struktúra elemeitől.
+                    Ez a módszer a Visitor design pattern elveit követi,
+                    ami alapján az algoritmus elkülönül az objektum struktúra elemeitől.
                 </para>
                 <para>
                     Licenc szempontjából a libosmiumnak nagyon szabadvonalú licence van, a Boost Software License
@@ -1097,14 +1000,16 @@ osmium::memory::Buffer buffer = osmium::io::read_file(argv[1]);
                         </programlisting>
                     </para>
                     <para>
-                        A <emphasis>buffer</emphasis>-ben lévő OSM objektumokat az alábbi C++11-es <emphasis>range-based for</emphasis> ciklussal járhatjuk be:
+                        A <emphasis>buffer</emphasis>-ben lévő OSM objektumokat
+                        az alábbi C++11-es <emphasis>range-based for</emphasis> ciklussal járhatjuk be:
                         <programlisting language="C++">
 <![CDATA[
 for (const auto& item : buffer)
 ]]>
                         </programlisting>
                         Az elemeket konstans referenciaként érjük el,
-                        a C++11-es <emphasis>auto</emphasis> specifikátor segítségével az <emphasis>item</emphasis> típusa automatikusan ki lesz következtetve
+                        a C++11-es <emphasis>auto</emphasis> specifikátor segítségével
+                        az <emphasis>item</emphasis> típusa automatikusan ki lesz következtetve
                         (jelen esetben <emphasis>osmium::OSMEntity</emphasis>, ami az alap absztrakt ősosztálya az OSM objektumoknak).
                         <figure xml:id="OSMEntity">
                             <title>Az <emphasis>osmium::OSMEntity</emphasis> öröklődési diagramja a dokumentáció szerint</title>
@@ -1124,7 +1029,8 @@ if (item.type() == osmium::item_type::way)
                         </programlisting>
                         Így bátran downcast-olhatjuk az <emphasis>item</emphasis> referenciát,
                         <emphasis>osmium::OSMEntity</emphasis> típusról <emphasis>osmium::Way</emphasis> típusra,
-                        mivel az <emphasis>osmium::Way</emphasis> osztály leszármazottja az <emphasis>osmium::OSMEntity</emphasis> absztrakt ősosztálynak.
+                        mivel az <emphasis>osmium::Way</emphasis> osztály leszármazottja
+                        az <emphasis>osmium::OSMEntity</emphasis> absztrakt ősosztálynak.
                         <programlisting language="C++">
 <![CDATA[
 const osmium::Way& way = static_cast<const osmium::Way&>(item);
@@ -1134,8 +1040,10 @@ const osmium::Way& way = static_cast<const osmium::Way&>(item);
                     <para>
                         A <emphasis>get_value_by_key</emphasis> függvénnyel az út címkéinek listájából lekérdezi
                         a paraméterként megadott kulcshoz tartozó értéket.
-                        Ha nem létezik az adott kulcs a címkék listájában, akkor <emphasis>nullptr</emphasis>-t kapunk visszatérési értékként.
-                        A <emphasis>"name"</emphasis> kulcs esetlegesen az utca nevét tartalmazza, a <emphasis>"highway"</emphasis> pedig az út típusát.
+                        Ha nem létezik az adott kulcs a címkék listájában,
+                        akkor <emphasis>nullptr</emphasis>-t kapunk visszatérési értékként.
+                        A <emphasis>"name"</emphasis> kulcs esetlegesen az utca nevét tartalmazza,
+                        a <emphasis>"highway"</emphasis> pedig az út típusát.
                         <programlisting language="C++">
 <![CDATA[
 const char* name = way.get_value_by_key("name");
@@ -1560,7 +1468,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
                     <listitem>
                         <para>
                             Az emulátor implementációs nyelve C++11,
-                            a megjelenítő komponens a Qt5 keretrendszer felhasználásával készült.
+                            a megjelenítő komponens a Qt5 keretrendszer <citation>Qt</citation> felhasználásával készült.
                         </para>
                     </listitem>
                 </itemizedlist>
@@ -2451,7 +2359,8 @@ Gangster car caught! Remaining: 98
     <section>
         <title>Köszönet</title>
         <para>
-            Hálával tartozom dr. Bátfai Norbert témavezetőmnek, aki a dolgozat megírásához hasznos tanácsaival, jó ötleteivel és odafigyelésével járult hozzá.
+            Hálával tartozom dr. Bátfai Norbert témavezetőmnek, aki a dolgozat megírásához hasznos tanácsaival,
+            jó ötleteivel és odafigyelésével járult hozzá.
         </para>
     </section>
     <bibliography>
@@ -2716,6 +2625,42 @@ Gangster car caught! Remaining: 98
             <pubdate>2014</pubdate>
         </biblioentry>
         <biblioentry>
+            <abbrev>GoogleMaps</abbrev>
+            <title>Google Maps</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="https://www.google.com/maps">https://www.google.com/maps</link>
+                </publishername>
+            </publisher>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>HERE</abbrev>
+            <title>Nokia HERE</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://here.com">http://here.com</link>
+                </publishername>
+            </publisher>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>BingMaps</abbrev>
+            <title>Microsoft Bing Maps</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://www.bing.com/maps">http://www.bing.com/maps</link>
+                </publishername>
+            </publisher>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>OSM</abbrev>
+            <title>OpenStreetMap</title>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://www.openstreetmap.org">http://www.openstreetmap.org</link>
+                </publishername>
+            </publisher>
+        </biblioentry>
+        <biblioentry>
             <abbrev>OSMstats</abbrev>
             <title>OpenStreetMap stats</title>
             <publisher>
@@ -2741,6 +2686,36 @@ Gangster car caught! Remaining: 98
                 </publishername>
             </publisher>
             <pubdate>2010</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Osmium</abbrev>
+            <authorgroup>
+                <author>
+                    <personname>
+                        <firstname>Jochen</firstname>
+                        <surname>Topf</surname>
+                    </personname>
+                </author>
+            </authorgroup>
+            <title>Osmium Library</title>
+            <subtitle>A fast and flexible C++ library for working with OpenStreetMap data</subtitle>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://osmcode.org/libosmium">http://osmcode.org/libosmium</link>
+                </publishername>
+            </publisher>
+            <pubdate>2015</pubdate>
+        </biblioentry>
+        <biblioentry>
+            <abbrev>Qt</abbrev>
+            <title>Qt 5.4</title>
+            <subtitle>Qt development framework</subtitle>
+            <publisher>
+                <publishername>
+                    <link xlink:href="http://www.qt.io/qt5-4">http://www.qt.io/qt5-4</link>
+                </publishername>
+            </publisher>
+            <pubdate>2014</pubdate>
         </biblioentry>
         <biblioentry>
             <abbrev>SRS</abbrev>
