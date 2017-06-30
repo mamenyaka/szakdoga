@@ -165,22 +165,18 @@
             </para>
             <para>
                 Az XML forrás elérhető az alábbi git tárolóban:
-                <link xlink:href="https://bitbucket.org/mamenyaka/szakdoga">https://bitbucket.org/mamenyaka/szakdoga</link>.
+                <link xlink:href="https://github.com/mamenyaka/szakdoga">https://github.com/mamenyaka/szakdoga</link>.
                 A teljes tároló leklónozását az alábbi paranccsal hajthatjuk végre,
                 mivel a repó submodule-okat is tartalmaz.
                 <screen>
 <![CDATA[
-andras@G53SW:~$ git clone --recursive https://bitbucket.org/mamenyaka/szakdoga.git
+andras@G53SW:~$ git clone --recursive git@github.com:mamenyaka/szakdoga.git
 Cloning into 'szakdoga'...
 ...
-Submodule 'src/buszjarat' (git@bitbucket.org:mamenyaka/buszjarat.git) registered for path 'src/buszjarat'
-Submodule 'src/utcak' (git@bitbucket.org:mamenyaka/utcak.git) registered for path 'src/utcak'
-Cloning into 'src/buszjarat'...
+Submodule 'OSM-examples' (git@github.com:mamenyaka/OSM-examples.git) registered for path 'OSM-examples'
+Cloning into 'OSM-examples'...
 ...
-Submodule path 'src/buszjarat': checked out '1c649b4f5d0958eeec23c86b0ef51f2663540b62'
-Cloning into 'src/utcak'...
-...
-Submodule path 'src/utcak': checked out '9a29f6560f0f6934d4d0237d114e7ccad11514e3'
+Submodule path 'OSM-examples': checked out '63366fbaa6fefd2b61940839486680eaa8dbcc86'
 ]]>
                 </screen>
             </para>
@@ -979,14 +975,12 @@ andras@G53SW:~/Programs/libosmium/build$ make doc
                     <title>Utcák kilistázása</title>
                     <para>
                         Az első példaprogram az OpenStreetMap oldaláról exportált Debrecen térképről listázza ki az utcákat.
-                        A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/utcak">https://bitbucket.org/mamenyaka/utcak</link>.
                     </para>
                     <para>
                         Az utcak.cpp forrása:
                         <programlisting language="C++">
                             <textobject>
-                                <textdata fileref="src/utcak/utcak.cpp"/>
+                                <textdata fileref="OSM-examples/utcak.cpp"/>
                             </textobject>
                         </programlisting>
                     </para>
@@ -1077,7 +1071,7 @@ if (name && highway)
                         A <emphasis>CMakeLists.txt</emphasis> állomány a következő:
                         <programlisting language="make">
                             <textobject>
-                                <textdata fileref="src/utcak/CMakeLists.txt"/>
+                                <textdata fileref="OSM-examples/CMakeLists.txt"/>
                             </textobject>
                         </programlisting>
                     </para>
@@ -1085,9 +1079,9 @@ if (name && highway)
                         Fordítás:
                         <screen>
 <![CDATA[
-andras@G53SW:~/Programs/utcak$ mkdir build
-andras@G53SW:~/Programs/utcak$ cd build/
-andras@G53SW:~/Programs/utcak/build$ cmake ..
+andras@G53SW:~/szakdoga/OSM-examples$ mkdir build
+andras@G53SW:~/szakdoga/OSM-examples$ cd build/
+andras@G53SW:~/szakdoga/OSM-examples/build$ cmake ..
 -- The C compiler identification is GNU 4.9.2
 -- The CXX compiler identification is GNU 4.9.2
 -- Check for working C compiler: /usr/bin/cc
@@ -1117,12 +1111,16 @@ andras@G53SW:~/Programs/utcak/build$ cmake ..
 -- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so - found
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/andras/Programs/utcak/build
-andras@G53SW:~/Programs/utcak/build$ make
+-- Build files have been written to: /home/andras/szakdoga/OSM-examples/build
+andras@G53SW:~/szakdoga/OSM-examples/build$ make
 Scanning dependencies of target utcak
 [100%] Building CXX object CMakeFiles/utcak.dir/utcak.cpp.o
 Linking CXX executable utcak
 [100%] Built target utcak
+Scanning dependencies of target buszjarat
+[100%] Building CXX object CMakeFiles/buszjarat.dir/buszjarat.cpp.o
+Linking CXX executable buszjarat
+[100%] Built target buszjarat
 ]]>
                         </screen>
                     </para>
@@ -1130,7 +1128,7 @@ Linking CXX executable utcak
                         Futtatás:
                         <screen>
 <![CDATA[
-andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
+andras@G53SW:~/szakdoga/OSM-examples/build$ ./utcak ~/debrecen.osm
 [CarstenG] Oláh Gábor utca (residential)
 [madar] Martinovics utca (residential)
 [SzPaula] Besze János utca (residential)
@@ -1150,14 +1148,12 @@ andras@G53SW:~/Programs/utcak/build$ ./utcak ~/debrecen.osm
                         A második példaprogram Debrecen buszjáratainak menetrendjét írja ki,
                         buszjáratonként a megállók nevét, földrajzi koordinátáit és a felhasználó nevét,
                         aki felvitte vagy utoljára módosította az objektumot.
-                        A tejes program leklónozható a következő git repóból:
-                        <link xlink:href="https://bitbucket.org/mamenyaka/buszjarat">https://bitbucket.org/mamenyaka/buszjarat</link>.
                     </para>
                     <para>
                         Az buszjarat.cpp forrása:
                         <programlisting language="C++">
                             <textobject>
-                                <textdata fileref="src/buszjarat/buszjarat.cpp"/>
+                                <textdata fileref="OSM-examples/buszjarat.cpp"/>
                             </textobject>
                         </programlisting>
                     </para>
@@ -1278,63 +1274,10 @@ catch (std::runtime_error& e)
                         </programlisting>
                     </para>
                     <para>
-                        Fordítás:
-                        <screen>
-<![CDATA[
-andras@G53SW:~/Programs/buszjarat$ mkdir build
-andras@G53SW:~/Programs/buszjarat$ cd build/
-andras@G53SW:~/Programs/buszjarat/build$ cmake ..
--- The C compiler identification is GNU 4.9.2
--- The CXX compiler identification is GNU 4.9.2
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Found OSMIUM: /usr/local/include  
--- Found OSMPBF: /usr/lib/libosmpbf.a  
--- Looking for include file pthread.h
--- Looking for include file pthread.h - found
--- Looking for pthread_create
--- Looking for pthread_create - not found
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - found
--- Found Threads: TRUE  
--- Found PROTOBUF: /usr/lib/x86_64-linux-gnu/libprotobuf.so  
--- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.8") 
--- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.1.0") 
--- Found BZip2: /usr/lib/x86_64-linux-gnu/libbz2.so (found version "1.0.6") 
--- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so
--- Looking for BZ2_bzCompressInit in /usr/lib/x86_64-linux-gnu/libbz2.so - found
--- Looking for sys/types.h
--- Looking for sys/types.h - found
--- Looking for stdint.h
--- Looking for stdint.h - found
--- Looking for stddef.h
--- Looking for stddef.h - found
--- Check size of google::sparsetable<int>::size_type
--- Check size of google::sparsetable<int>::size_type - done
--- Configuring done
--- Generating done
--- Build files have been written to: /home/andras/Programs/buszjarat/build
-andras@G53SW:~/Programs/buszjarat/build$ make
-Scanning dependencies of target buszjarat
-[100%] Building CXX object CMakeFiles/buszjarat.dir/buszjarat.cpp.o
-Linking CXX executable buszjarat
-[100%] Built target buszjarat
-]]>
-                        </screen>
-                    </para>
-                    <para>
                         Futtatás:
                         <screen>
 <![CDATA[
-andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm 
+andras@G53SW:~/szakdoga/OSM-examples/build$ ./buszjarat ~/debrecen.osm 
 [Zotya] 10 (IT Services Hungary Kft. -> Nagyállomás, toronyház)
   [flaktack] IT Services Hungary Kft. (21.5883,47.5559)
   [flaktack] Vezér utca (21.5978,47.5557)
@@ -1476,7 +1419,7 @@ andras@G53SW:~/Programs/buszjarat/build$ ./buszjarat ~/debrecen.osm
             <para>
                 A szoftver magába foglalja a Robocar City Emulator-t és a Monitor-t is,
                 és teljes egészében elérhető a következő git tárolóból:
-                <link xlink:href="https://bitbucket.org/mamenyaka/mapview">https://bitbucket.org/mamenyaka/mapview</link>.
+                <link xlink:href="https://github.com/mamenyaka/Justina">https://github.com/mamenyaka/Justina</link>.
             </para>
             <section>
                 <title>Módszertan, a szoftverfolyamat tervezése</title>
@@ -2149,9 +2092,9 @@ for (vertex_type i = component.size()-1; i > 0; i--)
                     Fordítás:
                     <screen>
 <![CDATA[
-andras@G53SW:~/Programs/Mapview$ mkdir build
-andras@G53SW:~/Programs/Mapview$ cd build/
-andras@G53SW:~/Programs/Mapview/build$ cmake ..
+andras@G53SW:~/Programs/Justina$ mkdir build
+andras@G53SW:~/Programs/Justina$ cd build/
+andras@G53SW:~/Programs/Justina/build$ cmake ..
 -- The C compiler identification is GNU 4.9.2
 -- The CXX compiler identification is GNU 4.9.2
 -- Check for working C compiler: /usr/bin/cc
@@ -2191,21 +2134,21 @@ andras@G53SW:~/Programs/Mapview/build$ cmake ..
 -- Found Doxygen: /usr/bin/doxygen (found version "1.8.9.1") 
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/andras/Programs/Mapview/build
-andras@G53SW:~/Programs/Mapview/build$ make
-Scanning dependencies of target Mapview_automoc
-[ 16%] Automatic moc for target Mapview
+-- Build files have been written to: /home/andras/Programs/Justina/build
+andras@G53SW:~/Programs/Justina/build$ make
+Scanning dependencies of target Justina_automoc
+[ 16%] Automatic moc for target Justina
 Generating moc_mapview.cpp
 Generating moc_traffic.cpp
-[ 16%] Built target Mapview_automoc
-Scanning dependencies of target Mapview
-[ 33%] Building CXX object src/CMakeFiles/Mapview.dir/main.cpp.o
-[ 50%] Building CXX object src/CMakeFiles/Mapview.dir/mapview.cpp.o
-[ 66%] Building CXX object src/CMakeFiles/Mapview.dir/traffic.cpp.o
-[ 83%] Building CXX object src/CMakeFiles/Mapview.dir/create_graph.cpp.o
-[100%] Building CXX object src/CMakeFiles/Mapview.dir/Mapview_automoc.cpp.o
-Linking CXX executable Mapview
-[100%] Built target Mapview
+[ 16%] Built target Justina_automoc
+Scanning dependencies of target Justina
+[ 33%] Building CXX object src/CMakeFiles/Justina.dir/main.cpp.o
+[ 50%] Building CXX object src/CMakeFiles/Justina.dir/mapview.cpp.o
+[ 66%] Building CXX object src/CMakeFiles/Justina.dir/traffic.cpp.o
+[ 83%] Building CXX object src/CMakeFiles/Justina.dir/create_graph.cpp.o
+[100%] Building CXX object src/CMakeFiles/Justina.dir/Justina_automoc.cpp.o
+Linking CXX executable Justina
+[100%] Built target Justina
 ]]>
                     </screen>
                 </para>
@@ -2213,7 +2156,7 @@ Linking CXX executable Mapview
                     Dokumentáció generálása:
                     <screen>
 <![CDATA[
-andras@G53SW:~/Programs/Mapview$ make doc
+andras@G53SW:~/Programs/Justina$ make doc
 Scanning dependencies of target doc
 [100%] Generating API documentation with Doxygen
 ...
@@ -2225,7 +2168,7 @@ Scanning dependencies of target doc
                     Futtatás:
                     <screen>
 <![CDATA[
-andras@G53SW:~/Programs/Mapview/build$ src/Mapview ~/debrecen.osm 
+andras@G53SW:~/Programs/Justina/build$ src/Justina ~/debrecen.osm 
 Justina Robocar City Emulator, Copyright (C) 2015 András Mamenyák
 This program comes with ABSOLUTELY NO WARRANTY;
 This is free software, and you are welcome to redistribute it
