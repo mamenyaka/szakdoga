@@ -1,6 +1,3 @@
-[submodule "src/utcak"]
-	path = src/utcak
-	url = git@bitbucket.org:mamenyaka/utcak.git
-[submodule "src/buszjarat"]
-	path = src/buszjarat
-	url = git@bitbucket.org:mamenyaka/buszjarat.git
+[submodule "OSM-examples"]
+	path = OSM-examples
+	url = git@github.com:mamenyaka/OSM-examples.git
